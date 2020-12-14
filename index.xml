@@ -18,13 +18,23 @@
     </item>
     
     <item>
-      <title>Creating a New Theme</title>
+      <title>介绍</title>
       <link>https://IMchenjianqu.github.io/posts/creating-a-new-theme/</link>
       <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://IMchenjianqu.github.io/posts/creating-a-new-theme/</guid>
       <description>介绍 This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+    </item>
+    
+    <item>
+      <title>菜谱</title>
+      <link>https://IMchenjianqu.github.io/posts/test-copy/</link>
+      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/posts/test-copy/</guid>
+      <description>自2020年8月3日，第一次做菜后便不可自拔，因为做菜也是一种创造 为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此，但不严格按菜谱  B 1.白斩鸡 跟口水鸡差不多。中火煮鸡，七八分钟煮到大概熟就好（葱姜料酒放不放我觉得关系不大），焖半小时。捞出来泡冷水，剁成段。酱料：两勺鸡汤、两勺生抽、一勺老抽、少量白糖、麻油，视口味加葱姜末、蒜泥、辣椒油
+ 2.包菜 生抽、蚝油、醋、糖调料汁。辣椒、花椒、蒜末爆香，炒包菜，倒料汁。</description>
     </item>
     
     <item>

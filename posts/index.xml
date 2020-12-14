@@ -24,7 +24,7 @@
 		</item>
 		
 		<item>
-			<title>Creating a New Theme</title>
+			<title>介绍</title>
 			<link>https://IMchenjianqu.github.io/posts/creating-a-new-theme/</link>
 			<pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
 			
@@ -837,6 +837,26 @@ $ vi themes/zafta/layouts/_default/single.html
 </code></pre><p>Note that we removed the date logic from the default template and put it in the post template. Generate the web site and verify the results. Posts have dates and the about page doesn&rsquo;t.</p>
 <h3 id="dont-repeat-yourself">Don&rsquo;t Repeat Yourself</h3>
 <p>DRY is a good design goal and Hugo does a great job supporting it. Part of the art of a good template is knowing when to add a new template and when to update an existing one. While you&rsquo;re figuring that out, accept that you&rsquo;ll be doing some refactoring. Hugo makes that easy and fast, so it&rsquo;s okay to delay splitting up a template.</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>菜谱</title>
+			<link>https://IMchenjianqu.github.io/posts/test-copy/</link>
+			<pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+			
+			<guid>https://IMchenjianqu.github.io/posts/test-copy/</guid>
+			<description>自2020年8月3日，第一次做菜后便不可自拔，因为做菜也是一种创造 为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此，但不严格按菜谱  B 1.白斩鸡 跟口水鸡差不多。中火煮鸡，七八分钟煮到大概熟就好（葱姜料酒放不放我觉得关系不大），焖半小时。捞出来泡冷水，剁成段。酱料：两勺鸡汤、两勺生抽、一勺老抽、少量白糖、麻油，视口味加葱姜末、蒜泥、辣椒油
+ 2.包菜 生抽、蚝油、醋、糖调料汁。辣椒、花椒、蒜末爆香，炒包菜，倒料汁。</description>
+			<content type="html"><![CDATA[<h2 id="自2020年8月3日第一次做菜后便不可自拔因为做菜也是一种创造">自2020年8月3日，第一次做菜后便不可自拔，因为做菜也是一种创造</h2>
+<h1 id="为了方便自己看各种原料的用量及基本步骤收集一些简化版的菜谱在此但不严格按菜谱">为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此，但不严格按菜谱</h1>
+<hr>
+<h1 id="b">B</h1>
+<h1 id="1白斩鸡">1.白斩鸡</h1>
+<p>跟口水鸡差不多。中火煮鸡，七八分钟煮到大概熟就好（葱姜料酒放不放我觉得关系不大），焖半小时。捞出来泡冷水，剁成段。酱料：两勺鸡汤、两勺生抽、一勺老抽、少量白糖、麻油，视口味加葱姜末、蒜泥、辣椒油</p>
+<hr>
+<h1 id="2包菜">2.包菜</h1>
+<p>生抽、蚝油、醋、糖调料汁。辣椒、花椒、蒜末爆香，炒包菜，倒料汁。</p>
 ]]></content>
 		</item>
 		
