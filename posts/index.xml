@@ -10,6 +10,200 @@
 		<atom:link href="https://IMchenjianqu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
 		
 		<item>
+			<title>SVM实现（python）</title>
+			<link>https://IMchenjianqu.github.io/posts/svm/</link>
+			<pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
+			
+			<guid>https://IMchenjianqu.github.io/posts/svm/</guid>
+			<description>通过python实现支持向量机实现——以高光谱数据为例 准备测试集数据后，运行训练模型，获得文件{{ out_test_y.txt }}；准备训练集数据运行，训练函数，获得文件{{ out_y_pred.txt }}。两文本文件中有对应的数据及分类号，通过对比，直观体现精度  通过运行{{ Data Prepare }}准备训练集集数据
+import pandas as pd import numpy as np import os import joblib def file_name(file_dir): #读取当前文件下的所有文件 for root, dirs, files in os.walk(file_dir): # print(root) #当前目录路径 # print(dirs) #当前路径下所有子目录 return files #当前路径下所有非目录子文件 def Data_prepare_non(label):#输入的是你的探测器的编号，非归一化。 file_list = file_name(&amp;#39;./data/&amp;#39;+label) print(file_list) hstack_list = [] for i in file_list: data = pd.read_excel(&amp;#39;./data/&amp;#39;+label+&amp;#39;/&amp;#39;+i) # max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数 data_column = list(data.columns)#获取exexl中各个列名 hstack_list.append(np.array(data[[data_column[1]]]).reshape(1,-1)) x = hstack_list[0] for i in range(1,len(file_list)): x = np.</description>
+			<content type="html"><![CDATA[<hr>
+<h1 id="通过python实现支持向量机实现以高光谱数据为例">通过python实现支持向量机实现——以高光谱数据为例</h1>
+<h2 id="准备测试集数据后运行训练模型获得文件-out_test_ytxt-准备训练集数据运行训练函数获得文件-out_y_predtxt-两文本文件中有对应的数据及分类号通过对比直观体现精度">准备测试集数据后，运行训练模型，获得文件{{ out_test_y.txt }}；准备训练集数据运行，训练函数，获得文件{{ out_y_pred.txt }}。两文本文件中有对应的数据及分类号，通过对比，直观体现精度</h2>
+<hr>
+<p>通过运行{{ Data Prepare }}准备训练集集数据</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
+
+
+<span class="k">def</span> <span class="nf">file_name</span><span class="p">(</span><span class="n">file_dir</span><span class="p">):</span>  <span class="c1">#读取当前文件下的所有文件</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">file_dir</span><span class="p">):</span>
+        <span class="c1"># print(root) #当前目录路径</span>
+        <span class="c1"># print(dirs) #当前路径下所有子目录</span>
+        <span class="k">return</span> <span class="n">files</span> <span class="c1">#当前路径下所有非目录子文件</span>
+
+<span class="k">def</span> <span class="nf">Data_prepare_non</span><span class="p">(</span><span class="n">label</span><span class="p">):</span><span class="c1">#输入的是你的探测器的编号，非归一化。</span>
+    <span class="n">file_list</span> <span class="o">=</span> <span class="n">file_name</span><span class="p">(</span><span class="s1">&#39;./data/&#39;</span><span class="o">+</span><span class="n">label</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+    <span class="n">hstack_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>  <span class="n">file_list</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./data/&#39;</span><span class="o">+</span><span class="n">label</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="c1"># max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数</span>
+        <span class="n">data_column</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="c1">#获取exexl中各个列名</span>
+
+
+
+        <span class="n">hstack_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="n">data_column</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">hstack_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">hstack_list</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="c1">#矩阵垂直拼接</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;./data/&#39;</span><span class="o">+</span><span class="n">label</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">label</span><span class="o">+</span><span class="s1">&#39;_non.data&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">Data_prepare</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>  <span class="c1"># 输入的是你的探测器的编号，归一化。</span>
+        <span class="n">file_list</span> <span class="o">=</span> <span class="n">file_name</span><span class="p">(</span><span class="s1">&#39;./data/&#39;</span> <span class="o">+</span> <span class="n">label</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+        <span class="n">hstack_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./data/&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+
+            <span class="n">max_min_scaler</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 归一化到（0，1）之间的函数</span>
+            <span class="n">data_column</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>  <span class="c1"># 获取exexl中各个列名</span>
+
+            <span class="n">hstack_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="n">data_column</span><span class="p">[</span><span class="mi">1</span><span class="p">]]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">max_min_scaler</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">hstack_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">hstack_list</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>  <span class="c1"># 矩阵垂直拼接</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;./data/&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;.data&#39;</span><span class="p">)</span>
+
+    <span class="c1"># print(data[[data_column[0]]].apply(max_min_scaler))  # 第一列进行归一化</span>
+    <span class="c1"># print(data[[data_column[1]]].apply(max_min_scaler))  # 第二列进行归一化</span>
+
+<span class="c1">#Data_prepare(&#39;1&#39;)#编号为1的探测器</span>
+<span class="n">Data_prepare_non</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="c1">#编号为1的探测器。</span>
+</code></pre></div><p>通过运行{{ Test_Data Prepare }}准备测试集数据</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
+
+
+<span class="k">def</span> <span class="nf">file_name</span><span class="p">(</span><span class="n">file_dir</span><span class="p">):</span>  <span class="c1">#读取当前文件下的所有文件</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">file_dir</span><span class="p">):</span>
+        <span class="c1"># print(root) #当前目录路径</span>
+        <span class="c1"># print(dirs) #当前路径下所有子目录</span>
+        <span class="k">return</span> <span class="n">files</span> <span class="c1">#当前路径下所有非目录子文件</span>
+
+<span class="k">def</span> <span class="nf">Data_prepare_non</span><span class="p">(</span><span class="n">label</span><span class="p">):</span><span class="c1">#输入的是你的探测器的编号，非归一化。</span>
+    <span class="n">file_list</span> <span class="o">=</span> <span class="n">file_name</span><span class="p">(</span><span class="s1">&#39;./test_data/&#39;</span><span class="o">+</span><span class="n">label</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+    <span class="n">hstack_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>  <span class="n">file_list</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./test_data/&#39;</span><span class="o">+</span><span class="n">label</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="c1"># max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数</span>
+        <span class="n">data_column</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="c1">#获取exexl中各个列名</span>
+
+
+
+        <span class="n">hstack_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="n">data_column</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">hstack_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">hstack_list</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="c1">#矩阵垂直拼接</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;./test_data/&#39;</span><span class="o">+</span><span class="n">label</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">label</span><span class="o">+</span><span class="s1">&#39;_non.data&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">Data_prepare</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>  <span class="c1"># 输入的是你的探测器的编号，归一化。</span>
+        <span class="n">file_list</span> <span class="o">=</span> <span class="n">file_name</span><span class="p">(</span><span class="s1">&#39;./test_data/&#39;</span> <span class="o">+</span> <span class="n">label</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+        <span class="n">hstack_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./test_data/&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+
+            <span class="n">max_min_scaler</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 归一化到（0，1）之间的函数</span>
+            <span class="n">data_column</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>  <span class="c1"># 获取exexl中各个列名</span>
+
+            <span class="n">hstack_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="n">data_column</span><span class="p">[</span><span class="mi">1</span><span class="p">]]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">max_min_scaler</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">hstack_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">hstack_list</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>  <span class="c1"># 矩阵垂直拼接</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;./test_data/&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;.data&#39;</span><span class="p">)</span>
+
+    <span class="c1"># print(data[[data_column[0]]].apply(max_min_scaler))  # 第一列进行归一化</span>
+    <span class="c1"># print(data[[data_column[1]]].apply(max_min_scaler))  # 第二列进行归一化</span>
+
+<span class="c1">#Data_prepare(&#39;1&#39;)#编号为1的探测器。</span>
+<span class="n">Data_prepare_non</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="c1">#编号为1的探测器。</span>
+</code></pre></div><p>运行两次训练模型（CVV求最优参），训练源码为{{ Train }}</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
+
+
+<span class="k">def</span> <span class="nf">file_name</span><span class="p">(</span><span class="n">file_dir</span><span class="p">):</span>  <span class="c1">#读取当前文件下的所有文件</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">file_dir</span><span class="p">):</span>
+        <span class="c1"># print(root) #当前目录路径</span>
+        <span class="c1"># print(dirs) #当前路径下所有子目录</span>
+        <span class="k">return</span> <span class="n">files</span> <span class="c1">#当前路径下所有非目录子文件</span>
+
+<span class="k">def</span> <span class="nf">Data_prepare_non</span><span class="p">(</span><span class="n">label</span><span class="p">):</span><span class="c1">#输入的是你的探测器的编号，非归一化。</span>
+    <span class="n">file_list</span> <span class="o">=</span> <span class="n">file_name</span><span class="p">(</span><span class="s1">&#39;./test_data/&#39;</span><span class="o">+</span><span class="n">label</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+    <span class="n">hstack_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>  <span class="n">file_list</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./test_data/&#39;</span><span class="o">+</span><span class="n">label</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="c1"># max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数</span>
+        <span class="n">data_column</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="c1">#获取exexl中各个列名</span>
+
+
+
+        <span class="n">hstack_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="n">data_column</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">hstack_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">hstack_list</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="c1">#矩阵垂直拼接</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;./test_data/&#39;</span><span class="o">+</span><span class="n">label</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">label</span><span class="o">+</span><span class="s1">&#39;_non.data&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">Data_prepare</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>  <span class="c1"># 输入的是你的探测器的编号，归一化。</span>
+        <span class="n">file_list</span> <span class="o">=</span> <span class="n">file_name</span><span class="p">(</span><span class="s1">&#39;./test_data/&#39;</span> <span class="o">+</span> <span class="n">label</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">file_list</span><span class="p">)</span>
+        <span class="n">hstack_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;./test_data/&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+
+            <span class="n">max_min_scaler</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 归一化到（0，1）之间的函数</span>
+            <span class="n">data_column</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>  <span class="c1"># 获取exexl中各个列名</span>
+
+            <span class="n">hstack_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="n">data_column</span><span class="p">[</span><span class="mi">1</span><span class="p">]]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">max_min_scaler</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">hstack_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_list</span><span class="p">)):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">hstack_list</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>  <span class="c1"># 矩阵垂直拼接</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;./test_data/&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;.data&#39;</span><span class="p">)</span>
+
+    <span class="c1"># print(data[[data_column[0]]].apply(max_min_scaler))  # 第一列进行归一化</span>
+    <span class="c1"># print(data[[data_column[1]]].apply(max_min_scaler))  # 第二列进行归一化</span>
+
+<span class="c1">#Data_prepare(&#39;1&#39;)#编号为1的探测器。</span>
+<span class="n">Data_prepare_non</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="c1">#编号为1的探测器。</span>
+</code></pre></div><h1 id="例子">例子</h1>
+<h2 id="高光谱数据通过asc码转出到excel后放置于正确的文件夹开始">高光谱数据通过ASCⅡ码转出到excel后，放置于正确的文件夹，开始</h2>
+]]></content>
+		</item>
+		
+		<item>
 			<title>Test</title>
 			<link>https://IMchenjianqu.github.io/posts/test/</link>
 			<pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
@@ -846,12 +1040,11 @@ $ vi themes/zafta/layouts/_default/single.html
 			<pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
 			
 			<guid>https://IMchenjianqu.github.io/posts/test-copy/</guid>
-			<description>自2020年8月3日，第一次做菜后便不可自拔，因为做菜也是一种创造 为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此，但不严格按菜谱
- B 1.白斩鸡 2.包菜 3.布丁 </description>
-			<content type="html"><![CDATA[<h2 id="自2020年8月3日第一次做菜后便不可自拔因为做菜也是一种创造">自2020年8月3日，第一次做菜后便不可自拔，因为做菜也是一种创造</h2>
-<p>为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此，但不严格按菜谱</p>
+			<description>为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此
+ B  1.白斩鸡 2.包菜 3.布丁 </description>
+			<content type="html"><![CDATA[<p>为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此</p>
 <hr>
-<h1 id="b">B</h1>
+<h1 id="center-b-center"><!-- raw HTML omitted --> B <!-- raw HTML omitted --></h1>
 <h1 id="center1白斩鸡center"><!-- raw HTML omitted -->1.白斩鸡<!-- raw HTML omitted --></h1>
 <!-- raw HTML omitted -->
 <h1 id="center2包菜center"><!-- raw HTML omitted -->2.包菜<!-- raw HTML omitted --></h1>

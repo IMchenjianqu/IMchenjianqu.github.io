@@ -9,6 +9,16 @@
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 12 Dec 2020 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>SVM实现（python）</title>
+      <link>https://IMchenjianqu.github.io/posts/svm/</link>
+      <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/posts/svm/</guid>
+      <description>通过python实现支持向量机实现——以高光谱数据为例 准备测试集数据后，运行训练模型，获得文件{{ out_test_y.txt }}；准备训练集数据运行，训练函数，获得文件{{ out_y_pred.txt }}。两文本文件中有对应的数据及分类号，通过对比，直观体现精度  通过运行{{ Data Prepare }}准备训练集集数据
+import pandas as pd import numpy as np import os import joblib def file_name(file_dir): #读取当前文件下的所有文件 for root, dirs, files in os.walk(file_dir): # print(root) #当前目录路径 # print(dirs) #当前路径下所有子目录 return files #当前路径下所有非目录子文件 def Data_prepare_non(label):#输入的是你的探测器的编号，非归一化。 file_list = file_name(&amp;#39;./data/&amp;#39;+label) print(file_list) hstack_list = [] for i in file_list: data = pd.read_excel(&amp;#39;./data/&amp;#39;+label+&amp;#39;/&amp;#39;+i) # max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数 data_column = list(data.columns)#获取exexl中各个列名 hstack_list.append(np.array(data[[data_column[1]]]).reshape(1,-1)) x = hstack_list[0] for i in range(1,len(file_list)): x = np.</description>
+    </item>
+    
+    <item>
       <title>Test</title>
       <link>https://IMchenjianqu.github.io/posts/test/</link>
       <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
@@ -33,8 +43,8 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
       
       <guid>https://IMchenjianqu.github.io/posts/test-copy/</guid>
-      <description>自2020年8月3日，第一次做菜后便不可自拔，因为做菜也是一种创造 为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此，但不严格按菜谱
- B 1.白斩鸡 2.包菜 3.布丁 </description>
+      <description>为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此
+ B  1.白斩鸡 2.包菜 3.布丁 </description>
     </item>
     
     <item>
@@ -103,17 +113,6 @@ More complete instructions are available at Install Hugo
 Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
 Follow the following steps:
  Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
-    </item>
-    
-    <item>
-      <title>Migrate to Hugo from Jekyll</title>
-      <link>https://IMchenjianqu.github.io/posts/migrate-from-jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/posts/migrate-from-jekyll/</guid>
-      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
-▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
-▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
     </item>
     
   </channel>
