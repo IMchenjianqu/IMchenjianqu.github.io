@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Posts on 海藻 博客</title>
+		<title>Posts on 数据与方法</title>
 		<link>https://IMchenjianqu.github.io/posts/</link>
-		<description>Recent content in Posts on 海藻 博客</description>
+		<description>Recent content in Posts on 数据与方法</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>zh-CN</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
@@ -15,13 +15,13 @@
 			<pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
 			
 			<guid>https://IMchenjianqu.github.io/posts/svm/</guid>
-			<description>通过python实现支持向量机实现——以高光谱数据为例 准备测试集数据后，运行训练模型，获得文件{{ out_test_y.txt }}；准备训练集数据运行，训练函数，获得文件{{ out_y_pred.txt }}。两文本文件中有对应的数据及分类号，通过对比，直观体现精度  通过运行{{ Data Prepare }}准备训练集集数据
+			<description>通过python实现支持向量机实现——以高光谱数据为例
+准备测试集数据后，运行训练模型，获得文件out_test_y.txt；准备训练集数据运行，训练函数，获得文件out_y_pred.txt。两文本文件中有对应的数据及分类号，通过对比，直观体现精度 通过运行Data Prepare准备训练集集数据
 import pandas as pd import numpy as np import os import joblib def file_name(file_dir): #读取当前文件下的所有文件 for root, dirs, files in os.walk(file_dir): # print(root) #当前目录路径 # print(dirs) #当前路径下所有子目录 return files #当前路径下所有非目录子文件 def Data_prepare_non(label):#输入的是你的探测器的编号，非归一化。 file_list = file_name(&amp;#39;./data/&amp;#39;+label) print(file_list) hstack_list = [] for i in file_list: data = pd.read_excel(&amp;#39;./data/&amp;#39;+label+&amp;#39;/&amp;#39;+i) # max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数 data_column = list(data.columns)#获取exexl中各个列名 hstack_list.append(np.array(data[[data_column[1]]]).reshape(1,-1)) x = hstack_list[0] for i in range(1,len(file_list)): x = np.</description>
 			<content type="html"><![CDATA[<hr>
-<h1 id="通过python实现支持向量机实现以高光谱数据为例">通过python实现支持向量机实现——以高光谱数据为例</h1>
-<h2 id="准备测试集数据后运行训练模型获得文件-out_test_ytxt-准备训练集数据运行训练函数获得文件-out_y_predtxt-两文本文件中有对应的数据及分类号通过对比直观体现精度">准备测试集数据后，运行训练模型，获得文件{{ out_test_y.txt }}；准备训练集数据运行，训练函数，获得文件{{ out_y_pred.txt }}。两文本文件中有对应的数据及分类号，通过对比，直观体现精度</h2>
-<hr>
-<p>通过运行{{ Data Prepare }}准备训练集集数据</p>
+<p>通过python实现支持向量机实现——以高光谱数据为例</p>
+<h2 id="准备测试集数据后运行训练模型获得文件out_test_ytxt准备训练集数据运行训练函数获得文件out_y_predtxt两文本文件中有对应的数据及分类号通过对比直观体现精度">准备测试集数据后，运行训练模型，获得文件<code>out_test_y.txt</code>；准备训练集数据运行，训练函数，获得文件<code>out_y_pred.txt</code>。两文本文件中有对应的数据及分类号，通过对比，直观体现精度</h2>
+<p>通过运行<code>Data Prepare</code>准备训练集集数据</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -80,7 +80,7 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
 
 <span class="c1">#Data_prepare(&#39;1&#39;)#编号为1的探测器</span>
 <span class="n">Data_prepare_non</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="c1">#编号为1的探测器。</span>
-</code></pre></div><p>通过运行{{ Test_Data Prepare }}准备测试集数据</p>
+</code></pre></div><p>通过运行<code>Test_Data Prepare</code>准备测试集数据</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -139,7 +139,7 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
 
 <span class="c1">#Data_prepare(&#39;1&#39;)#编号为1的探测器。</span>
 <span class="n">Data_prepare_non</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="c1">#编号为1的探测器。</span>
-</code></pre></div><p>运行两次训练模型（CVV求最优参），训练源码为{{ Train }}</p>
+</code></pre></div><p>运行两次训练模型（CVV求最优参），训练源码为<code>Train</code></p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1041,10 +1041,10 @@ $ vi themes/zafta/layouts/_default/single.html
 			
 			<guid>https://IMchenjianqu.github.io/posts/test-copy/</guid>
 			<description>为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此
- B  1.白斩鸡 2.包菜 3.布丁 </description>
+ B 1.白斩鸡 2.包菜 3.布丁 </description>
 			<content type="html"><![CDATA[<p>为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此</p>
 <hr>
-<h1 id="center-b-center"><!-- raw HTML omitted --> B <!-- raw HTML omitted --></h1>
+<h1 id="centerbcenter"><!-- raw HTML omitted -->B<!-- raw HTML omitted --></h1>
 <h1 id="center1白斩鸡center"><!-- raw HTML omitted -->1.白斩鸡<!-- raw HTML omitted --></h1>
 <!-- raw HTML omitted -->
 <h1 id="center2包菜center"><!-- raw HTML omitted -->2.包菜<!-- raw HTML omitted --></h1>

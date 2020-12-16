@@ -8,17 +8,19 @@
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="SVM实现（python）">
-<meta itemprop="description" content="通过python实现支持向量机实现——以高光谱数据为例 准备测试集数据后，运行训练模型，获得文件{{ out_test_y.txt }}；准备训练集数据运行，训练函数，获得文件{{ out_y_pred.txt }}。两文本文件中有对应的数据及分类号，通过对比，直观体现精度  通过运行{{ Data Prepare }}准备训练集集数据
+<meta itemprop="description" content="通过python实现支持向量机实现——以高光谱数据为例
+准备测试集数据后，运行训练模型，获得文件out_test_y.txt；准备训练集数据运行，训练函数，获得文件out_y_pred.txt。两文本文件中有对应的数据及分类号，通过对比，直观体现精度 通过运行Data Prepare准备训练集集数据
 import pandas as pd import numpy as np import os import joblib def file_name(file_dir): #读取当前文件下的所有文件 for root, dirs, files in os.walk(file_dir): # print(root) #当前目录路径 # print(dirs) #当前路径下所有子目录 return files #当前路径下所有非目录子文件 def Data_prepare_non(label):#输入的是你的探测器的编号，非归一化。 file_list = file_name(&#39;./data/&#39;&#43;label) print(file_list) hstack_list = [] for i in file_list: data = pd.read_excel(&#39;./data/&#39;&#43;label&#43;&#39;/&#39;&#43;i) # max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数 data_column = list(data.columns)#获取exexl中各个列名 hstack_list.append(np.array(data[[data_column[1]]]).reshape(1,-1)) x = hstack_list[0] for i in range(1,len(file_list)): x = np.">
 <meta itemprop="datePublished" content="2020-12-12T14:46:53+08:00" />
 <meta itemprop="dateModified" content="2020-12-12T14:46:53+08:00" />
-<meta itemprop="wordCount" content="469">
+<meta itemprop="wordCount" content="459">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta property="og:title" content="SVM实现（python）" />
-<meta property="og:description" content="通过python实现支持向量机实现——以高光谱数据为例 准备测试集数据后，运行训练模型，获得文件{{ out_test_y.txt }}；准备训练集数据运行，训练函数，获得文件{{ out_y_pred.txt }}。两文本文件中有对应的数据及分类号，通过对比，直观体现精度  通过运行{{ Data Prepare }}准备训练集集数据
+<meta property="og:description" content="通过python实现支持向量机实现——以高光谱数据为例
+准备测试集数据后，运行训练模型，获得文件out_test_y.txt；准备训练集数据运行，训练函数，获得文件out_y_pred.txt。两文本文件中有对应的数据及分类号，通过对比，直观体现精度 通过运行Data Prepare准备训练集集数据
 import pandas as pd import numpy as np import os import joblib def file_name(file_dir): #读取当前文件下的所有文件 for root, dirs, files in os.walk(file_dir): # print(root) #当前目录路径 # print(dirs) #当前路径下所有子目录 return files #当前路径下所有非目录子文件 def Data_prepare_non(label):#输入的是你的探测器的编号，非归一化。 file_list = file_name(&#39;./data/&#39;&#43;label) print(file_list) hstack_list = [] for i in file_list: data = pd.read_excel(&#39;./data/&#39;&#43;label&#43;&#39;/&#39;&#43;i) # max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数 data_column = list(data.columns)#获取exexl中各个列名 hstack_list.append(np.array(data[[data_column[1]]]).reshape(1,-1)) x = hstack_list[0] for i in range(1,len(file_list)): x = np." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://IMchenjianqu.github.io/posts/svm/" />
@@ -26,7 +28,8 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
 <meta property="article:modified_time" content="2020-12-12T14:46:53+08:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SVM实现（python）"/>
-<meta name="twitter:description" content="通过python实现支持向量机实现——以高光谱数据为例 准备测试集数据后，运行训练模型，获得文件{{ out_test_y.txt }}；准备训练集数据运行，训练函数，获得文件{{ out_y_pred.txt }}。两文本文件中有对应的数据及分类号，通过对比，直观体现精度  通过运行{{ Data Prepare }}准备训练集集数据
+<meta name="twitter:description" content="通过python实现支持向量机实现——以高光谱数据为例
+准备测试集数据后，运行训练模型，获得文件out_test_y.txt；准备训练集数据运行，训练函数，获得文件out_y_pred.txt。两文本文件中有对应的数据及分类号，通过对比，直观体现精度 通过运行Data Prepare准备训练集集数据
 import pandas as pd import numpy as np import os import joblib def file_name(file_dir): #读取当前文件下的所有文件 for root, dirs, files in os.walk(file_dir): # print(root) #当前目录路径 # print(dirs) #当前路径下所有子目录 return files #当前路径下所有非目录子文件 def Data_prepare_non(label):#输入的是你的探测器的编号，非归一化。 file_list = file_name(&#39;./data/&#39;&#43;label) print(file_list) hstack_list = [] for i in file_list: data = pd.read_excel(&#39;./data/&#39;&#43;label&#43;&#39;/&#39;&#43;i) # max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数 data_column = list(data.columns)#获取exexl中各个列名 hstack_list.append(np.array(data[[data_column[1]]]).reshape(1,-1)) x = hstack_list[0] for i in range(1,len(file_list)): x = np."/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -47,7 +50,7 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
 		<div class="hdr-wrapper section-inner">
 			<div class="hdr-left">
 				<div class="site-branding">
-					<a href="https://IMchenjianqu.github.io/">海藻 博客</a>
+					<a href="https://IMchenjianqu.github.io/">数据与方法</a>
 				</div>
 				<nav class="site-nav hide-in-mobile">
 					
@@ -77,10 +80,9 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
 			</header>
 			<div class="content">
 				<hr>
-<h1 id="通过python实现支持向量机实现以高光谱数据为例">通过python实现支持向量机实现——以高光谱数据为例<a href="#通过python实现支持向量机实现以高光谱数据为例" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
-<h2 id="准备测试集数据后运行训练模型获得文件-out_test_ytxt-准备训练集数据运行训练函数获得文件-out_y_predtxt-两文本文件中有对应的数据及分类号通过对比直观体现精度">准备测试集数据后，运行训练模型，获得文件{{ out_test_y.txt }}；准备训练集数据运行，训练函数，获得文件{{ out_y_pred.txt }}。两文本文件中有对应的数据及分类号，通过对比，直观体现精度<a href="#准备测试集数据后运行训练模型获得文件-out_test_ytxt-准备训练集数据运行训练函数获得文件-out_y_predtxt-两文本文件中有对应的数据及分类号通过对比直观体现精度" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<hr>
-<p>通过运行{{ Data Prepare }}准备训练集集数据</p>
+<p>通过python实现支持向量机实现——以高光谱数据为例</p>
+<h2 id="准备测试集数据后运行训练模型获得文件out_test_ytxt准备训练集数据运行训练函数获得文件out_y_predtxt两文本文件中有对应的数据及分类号通过对比直观体现精度">准备测试集数据后，运行训练模型，获得文件<code>out_test_y.txt</code>；准备训练集数据运行，训练函数，获得文件<code>out_y_pred.txt</code>。两文本文件中有对应的数据及分类号，通过对比，直观体现精度<a href="#准备测试集数据后运行训练模型获得文件out_test_ytxt准备训练集数据运行训练函数获得文件out_y_predtxt两文本文件中有对应的数据及分类号通过对比直观体现精度" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>通过运行<code>Data Prepare</code>准备训练集集数据</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -139,7 +141,7 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
 
 <span class="c1">#Data_prepare(&#39;1&#39;)#编号为1的探测器</span>
 <span class="n">Data_prepare_non</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="c1">#编号为1的探测器。</span>
-</code></pre></div><p>通过运行{{ Test_Data Prepare }}准备测试集数据</p>
+</code></pre></div><p>通过运行<code>Test_Data Prepare</code>准备测试集数据</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -198,7 +200,7 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
 
 <span class="c1">#Data_prepare(&#39;1&#39;)#编号为1的探测器。</span>
 <span class="n">Data_prepare_non</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="c1">#编号为1的探测器。</span>
-</code></pre></div><p>运行两次训练模型（CVV求最优参），训练源码为{{ Train }}</p>
+</code></pre></div><p>运行两次训练模型（CVV求最优参），训练源码为<code>Train</code></p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
