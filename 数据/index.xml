@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据s on 数据与方法</title>
+    <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/</link>
+    <description>Recent content in 数据s on 数据与方法</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 12 Dec 2020 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>海洋数据</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E6%B4%8B%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E6%B4%8B%E6%95%B0%E6%8D%AE/</guid>
+      <description>登陆 https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
+范围为global，时间为present(2000（不等）-present)
+选择合适范围、时间、水层后，下载数据
+若为模式数据model,分别通过以下IDL读取
+读取海流
+pro readcurrent,inpath,x1,x2,y1,y2,outpath unit=10 unitAVG=1 openr,unit,inpath path=&amp;#39;&amp;#39; readf,unit,path pathList=[path] while ~EOF(unit ) do begin readf,unit,path if(strlen(path)gt 1) then begin pathList=[pathList,path] endif else begin ; pathList=[path] endelse endwhile free_lun,unit unit=12 openw,unit,outpath,/GET_LUN printf,unit,&amp;#34;date,year,month,day,lon,lat,current_speed,current_direction,U,V&amp;#34; for i=0,N_ELEMENTS(pathList)-1 do begin print,pathList[i] ; readOneSSH,pathList[i],x1,x2,y1,y2,unit print,pathList[i] endfor free_LUN,unit end function GetRad,u,v if(u eq 0) then begin if(v gt 0) then begin return, 3.1415926/2.0 endif else begin return, 3.1415926/2.0*3.0 endelse endif else begin tn=atan(v/u) if(u gt 0) then begin return, tn lt 0?</description>
+    </item>
+    
+    <item>
+      <title>1</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/creating-a-new-theme/</link>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/creating-a-new-theme/</guid>
+      <description>介绍 This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+    </item>
+    
+    <item>
+      <title>python库下载</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/python%E5%BA%93/</link>
+      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/python%E5%BA%93/</guid>
+      <description>为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此
+ 1.可通过pycharm的设置setting下载（无法看见进度条）
+2.cmd运行
+pip install 库 当出现python不是内部命令时，可尝试
+python -m pip install 库 部分库下速度较慢，会导致失败 可多次尝试，或通过pip https://d.serctl.com/ 或通过国内资源pip https://cloud.tencent.com/developer/article/1566871 等
+python -m pip install 库 网址 3.通过运行以下代码
+import os libs = { &amp;#34;requests&amp;#34;,&amp;#34;jieba&amp;#34;,&amp;#34;beautifulsoup4&amp;#34;,\ &amp;#34;django&amp;#34;,&amp;#34;flask&amp;#34;,\ &amp;#34;此处填写需要下载的库的名称&amp;#34;,&amp;#34;pandas&amp;#34; } try: for lib in libs: os.system(&amp;#39;pip install &amp;#39;+lib) print(&amp;#34;Successful&amp;#34;) except: print(&amp;#39;error&amp;#39;) </description>
+    </item>
+    
+    <item>
+      <title>提取图片中的数据（matlab）</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%8F%90%E5%8F%96%E5%9B%BE%E7%89%87%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AEmatlab/</link>
+      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%8F%90%E5%8F%96%E5%9B%BE%E7%89%87%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AEmatlab/</guid>
+      <description>通过matlab半自动提取图片中的数据
+ 在matlab中运行
+im=imread(&amp;#39;tuX.png&amp;#39;); imshow(im); [x0,y0]=ginput; [x1,y1]=ginput; x1=(x1-min(x0))*XMAX/(max(x0)-min(x0)); y1=(y1-max(y1))*YMAX/(min(y0)-max(y0)); xlswrite(&amp;#39;0.xlsx&amp;#39;, x1, &amp;#39;A&amp;#39;); xlswrite(&amp;#39;0.xlsx&amp;#39;, y1, &amp;#39;B&amp;#39;); 将图片tuX.png中的数据读取到0.xlsx中</description>
+    </item>
+    
+    <item>
+      <title>7</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/the-figure-shortcode/</link>
+      <pubDate>Mon, 24 Dec 2018 12:29:41 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/the-figure-shortcode/</guid>
+      <description>Hugo has figure shortcode built in, so you can easily add figcaptions or hyperlink rel attributes to images. Documentations can be found here:
+https://gohugo.io/content-management/shortcodes/#figure
+This theme has 3 CSS classes made for figure elements:
+ big: images will break the width limit of main content area. left: images will float to the left. right: images will float to the right.  If a figure has no class set, the image will behave just like a normal markdown image: !</description>
+    </item>
+    
+    <item>
+      <title>5</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/post-with-featured-image/</link>
+      <pubDate>Mon, 01 Oct 2018 16:15:09 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/post-with-featured-image/</guid>
+      <description>Just define the image URL in the content’s front matter, the featured image will be displayed as the background.
+For example:
+---images:- https://picsum.photos/1024/768/?random---This is an array, you can set multiple urls, only the first url will be used. These images is also used in Twitter Cards and the Open Graph metadata.</description>
+    </item>
+    
+    <item>
+      <title>8</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/typography/</link>
+      <pubDate>Sat, 29 Sep 2018 11:36:33 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/typography/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ An apple is a sweet, edible fruit produced by an apple tree (Malus pumila).</description>
+    </item>
+    
+    <item>
+      <title>2</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/goisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/goisforlovers/</guid>
+      <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
+This document is a brief primer on using Go templates.</description>
+    </item>
+    
+    <item>
+      <title>3</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/hugoisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/hugoisforlovers/</guid>
+      <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at Install Hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+ Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
+    </item>
+    
+    <item>
+      <title>4</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/migrate-from-jekyll/</link>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/migrate-from-jekyll/</guid>
+      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
+▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
+    </item>
+    
+  </channel>
+</rss>

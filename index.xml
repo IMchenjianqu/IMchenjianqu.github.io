@@ -15,16 +15,15 @@
       
       <guid>https://IMchenjianqu.github.io/about-hugo/</guid>
       <description>常用数据及方法的聚合
-It makes use of a variety of open source projects including:
- https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
+It makes use of a variety of open source projects including:</description>
     </item>
     
     <item>
       <title>SVM实现（python）</title>
-      <link>https://IMchenjianqu.github.io/posts/svm/</link>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/svm/</link>
       <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
       
-      <guid>https://IMchenjianqu.github.io/posts/svm/</guid>
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/svm/</guid>
       <description>通过python实现支持向量机实现——以高光谱数据为例
 准备测试集数据后，运行训练模型，获得文件out_test_y.txt；准备训练集数据运行，训练函数，获得文件out_y_pred.txt。两文本文件中有对应的数据及分类号，通过对比，直观体现精度 通过运行Data Prepare准备训练集集数据
 import pandas as pd import numpy as np import os import joblib def file_name(file_dir): #读取当前文件下的所有文件 for root, dirs, files in os.walk(file_dir): # print(root) #当前目录路径 # print(dirs) #当前路径下所有子目录 return files #当前路径下所有非目录子文件 def Data_prepare_non(label):#输入的是你的探测器的编号，非归一化。 file_list = file_name(&amp;#39;./data/&amp;#39;+label) print(file_list) hstack_list = [] for i in file_list: data = pd.read_excel(&amp;#39;./data/&amp;#39;+label+&amp;#39;/&amp;#39;+i) # max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数 data_column = list(data.columns)#获取exexl中各个列名 hstack_list.append(np.array(data[[data_column[1]]]).reshape(1,-1)) x = hstack_list[0] for i in range(1,len(file_list)): x = np.</description>
@@ -32,81 +31,90 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
     
     <item>
       <title>Test</title>
-      <link>https://IMchenjianqu.github.io/posts1/test/</link>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/test/</link>
       <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
       
-      <guid>https://IMchenjianqu.github.io/posts1/test/</guid>
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/test/</guid>
       <description>test-local test1 test2 test3</description>
     </item>
     
     <item>
-      <title>Test</title>
-      <link>https://IMchenjianqu.github.io/posts/test/</link>
+      <title>海洋数据</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E6%B4%8B%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
       
-      <guid>https://IMchenjianqu.github.io/posts/test/</guid>
-      <description>test-local test1 test2 test3</description>
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E6%B4%8B%E6%95%B0%E6%8D%AE/</guid>
+      <description>登陆 https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
+范围为global，时间为present(2000（不等）-present)
+选择合适范围、时间、水层后，下载数据
+若为模式数据model,分别通过以下IDL读取
+读取海流
+pro readcurrent,inpath,x1,x2,y1,y2,outpath unit=10 unitAVG=1 openr,unit,inpath path=&amp;#39;&amp;#39; readf,unit,path pathList=[path] while ~EOF(unit ) do begin readf,unit,path if(strlen(path)gt 1) then begin pathList=[pathList,path] endif else begin ; pathList=[path] endelse endwhile free_lun,unit unit=12 openw,unit,outpath,/GET_LUN printf,unit,&amp;#34;date,year,month,day,lon,lat,current_speed,current_direction,U,V&amp;#34; for i=0,N_ELEMENTS(pathList)-1 do begin print,pathList[i] ; readOneSSH,pathList[i],x1,x2,y1,y2,unit print,pathList[i] endfor free_LUN,unit end function GetRad,u,v if(u eq 0) then begin if(v gt 0) then begin return, 3.1415926/2.0 endif else begin return, 3.1415926/2.0*3.0 endelse endif else begin tn=atan(v/u) if(u gt 0) then begin return, tn lt 0?</description>
     </item>
     
     <item>
-      <title>介绍</title>
-      <link>https://IMchenjianqu.github.io/posts1/creating-a-new-theme/</link>
+      <title>1</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/creating-a-new-theme/</link>
       <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://IMchenjianqu.github.io/posts1/creating-a-new-theme/</guid>
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/creating-a-new-theme/</guid>
       <description>介绍 This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>介绍</title>
-      <link>https://IMchenjianqu.github.io/posts/creating-a-new-theme/</link>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/creating-a-new-theme/</link>
       <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://IMchenjianqu.github.io/posts/creating-a-new-theme/</guid>
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/creating-a-new-theme/</guid>
       <description>介绍 This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>1</title>
-      <link>https://IMchenjianqu.github.io/posts/test-copy/</link>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/test-copy/</link>
       <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
       
-      <guid>https://IMchenjianqu.github.io/posts/test-copy/</guid>
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/test-copy/</guid>
       <description>B 1.白斩鸡 跟口水鸡差不多。中火煮鸡，七八分钟煮到大概熟就好（葱姜料酒放不放我觉得关系不大），焖半小时。捞出来泡冷水，剁成段。酱料：两勺鸡汤、两勺生抽、一勺老抽、少量白糖、麻油，视口味加葱姜末、蒜泥、辣椒油
 2.包菜 生抽、蚝油、醋、糖调料汁。辣椒、花椒、蒜末爆香，炒包菜，倒料汁
 3.布丁 牛奶 250 克，奶油 100 克，糖 35 克，蛋黄 4 个或蛋黄 2 个外加一个蛋，拌匀，分到容器中入烤箱烤或入蒸锅蒸</description>
     </item>
     
     <item>
-      <title>6</title>
-      <link>https://IMchenjianqu.github.io/posts1/test-copy/</link>
+      <title>python库下载</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/python%E5%BA%93/</link>
       <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
       
-      <guid>https://IMchenjianqu.github.io/posts1/test-copy/</guid>
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/python%E5%BA%93/</guid>
       <description>为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此
- B 1.白斩鸡 2.包菜 3.布丁 </description>
+ 1.可通过pycharm的设置setting下载（无法看见进度条）
+2.cmd运行
+pip install 库 当出现python不是内部命令时，可尝试
+python -m pip install 库 部分库下速度较慢，会导致失败 可多次尝试，或通过pip https://d.serctl.com/ 或通过国内资源pip https://cloud.tencent.com/developer/article/1566871 等
+python -m pip install 库 网址 3.通过运行以下代码
+import os libs = { &amp;#34;requests&amp;#34;,&amp;#34;jieba&amp;#34;,&amp;#34;beautifulsoup4&amp;#34;,\ &amp;#34;django&amp;#34;,&amp;#34;flask&amp;#34;,\ &amp;#34;此处填写需要下载的库的名称&amp;#34;,&amp;#34;pandas&amp;#34; } try: for lib in libs: os.system(&amp;#39;pip install &amp;#39;+lib) print(&amp;#34;Successful&amp;#34;) except: print(&amp;#39;error&amp;#39;) </description>
+    </item>
+    
+    <item>
+      <title>提取图片中的数据（matlab）</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%8F%90%E5%8F%96%E5%9B%BE%E7%89%87%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AEmatlab/</link>
+      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%8F%90%E5%8F%96%E5%9B%BE%E7%89%87%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AEmatlab/</guid>
+      <description>通过matlab半自动提取图片中的数据
+ 在matlab中运行
+im=imread(&amp;#39;tuX.png&amp;#39;); imshow(im); [x0,y0]=ginput; [x1,y1]=ginput; x1=(x1-min(x0))*XMAX/(max(x0)-min(x0)); y1=(y1-max(y1))*YMAX/(min(y0)-max(y0)); xlswrite(&amp;#39;0.xlsx&amp;#39;, x1, &amp;#39;A&amp;#39;); xlswrite(&amp;#39;0.xlsx&amp;#39;, y1, &amp;#39;B&amp;#39;); 将图片tuX.png中的数据读取到0.xlsx中</description>
     </item>
     
     <item>
       <title>7</title>
-      <link>https://IMchenjianqu.github.io/posts1/the-figure-shortcode/</link>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/the-figure-shortcode/</link>
       <pubDate>Mon, 24 Dec 2018 12:29:41 +0800</pubDate>
       
-      <guid>https://IMchenjianqu.github.io/posts1/the-figure-shortcode/</guid>
-      <description>Hugo has figure shortcode built in, so you can easily add figcaptions or hyperlink rel attributes to images. Documentations can be found here:
-https://gohugo.io/content-management/shortcodes/#figure
-This theme has 3 CSS classes made for figure elements:
- big: images will break the width limit of main content area. left: images will float to the left. right: images will float to the right.  If a figure has no class set, the image will behave just like a normal markdown image: !</description>
-    </item>
-    
-    <item>
-      <title>The &#34;figure&#34; Shortcode</title>
-      <link>https://IMchenjianqu.github.io/posts/the-figure-shortcode/</link>
-      <pubDate>Mon, 24 Dec 2018 12:29:41 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/posts/the-figure-shortcode/</guid>
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/the-figure-shortcode/</guid>
       <description>Hugo has figure shortcode built in, so you can easily add figcaptions or hyperlink rel attributes to images. Documentations can be found here:
 https://gohugo.io/content-management/shortcodes/#figure
 This theme has 3 CSS classes made for figure elements:
