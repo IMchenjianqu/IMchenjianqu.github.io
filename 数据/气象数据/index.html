@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="气象数据下载">
+<meta itemprop="description" content="和大家分享一个不用任何权限就可以下载逐小时地面观测气象数据的网站 http://gis.ncdc.noaa.gov/map/viewer/#app=clim&amp;cfg=cdo&amp;theme=hourly&amp;layers=1&amp;node=gis 简介：这个是美国NOAA的一个专门下载全球气象站数据的网站，不需要注册，不需要项目权限就可以，唯一要求就是你能够连接互联网就行。基本上中国所有县级气象站都有，还有其他国家的。三个小时一次的观测，气温降水等。可以克服“中国气象科学共享服务网”对权限的限制。也不就不用花大把的钱去气象局水文局买数据了。还有这个资料更新快，到二十天前，例如今天是20日，上面九月底的资料都出来了，资料比中国气象科学数据共享服务网的更新，更及时。台站资料也更全面，包括国际交换站、基本站等，还有民国时期的气象资料
+http://blog.sciencenet.cn/home.php?mod=space&amp;uid=461711&amp;do=blog&amp;id=772946 从博客里面转载来的一部分，未验证。
+http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/ 包括：综合资料、降水、SST、地面覆盖资料、风场/OLR/指数资料 Noaa资料库： http://www.cdc.noaa.gov NCEP资料介绍： http://www.nomad2.ncep.noaa.gov/ncep_data/ 欧洲气象中心资料(grib和NC格式的)： http://www.ecmwf.int/ Levitus资料： http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/.MONTHLY/ Ucar资料 http://www.cgd.ucar.edu/cas/guide/Atmos/Surface/data.html NASA资料： ftp://podaac.jpl.nasa.gov/seasurfaceheight/ 以前某天全国的天气情况　http://www.t7online.com/feature/hi301100.shtml 1度×1度资料 http://dss.ucar.edu/datasets/ds083.2/ ARGO资料 http://www.argo-cndc.org/web/ NCEP 系统资料： NCEP real-analyses and forecasts http://www.emc.ncep.noaa.gov/data/ NCEP/NCAR REANALYSIS http://dss.ucar.edu/pub/reanalysis/ NCEP Eta http://www.emc.ncep.noaa.gov/mmb/research/meso.products.html NCEP AVN http://www.emc.ncep.noaa.gov/modelinfo/ ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/ netCDF format NNRP1: 6 hourly, 2.5 degrees, from 1948 to present ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis/ NNRP2: 6 hourly, 2.5 degrees, from 1979 to 2002 ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis2/ 降水资料 CMAP资料: http://tao.atmos.washington.edu/data_sets/cmap_precip/ 全球土壤资料： http://acdisx.gsfc.nasa.gov/CAMPAIGN_DOCS/FTP_SITE/INT_DIS/readmes 全国160个站的降水资料 http://ncc.">
+<meta itemprop="datePublished" content="2020-08-12T14:46:53+08:00" />
+<meta itemprop="dateModified" content="2020-08-12T14:46:53+08:00" />
+<meta itemprop="wordCount" content="539">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="气象数据下载" />
+<meta property="og:description" content="和大家分享一个不用任何权限就可以下载逐小时地面观测气象数据的网站 http://gis.ncdc.noaa.gov/map/viewer/#app=clim&amp;cfg=cdo&amp;theme=hourly&amp;layers=1&amp;node=gis 简介：这个是美国NOAA的一个专门下载全球气象站数据的网站，不需要注册，不需要项目权限就可以，唯一要求就是你能够连接互联网就行。基本上中国所有县级气象站都有，还有其他国家的。三个小时一次的观测，气温降水等。可以克服“中国气象科学共享服务网”对权限的限制。也不就不用花大把的钱去气象局水文局买数据了。还有这个资料更新快，到二十天前，例如今天是20日，上面九月底的资料都出来了，资料比中国气象科学数据共享服务网的更新，更及时。台站资料也更全面，包括国际交换站、基本站等，还有民国时期的气象资料
+http://blog.sciencenet.cn/home.php?mod=space&amp;uid=461711&amp;do=blog&amp;id=772946 从博客里面转载来的一部分，未验证。
+http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/ 包括：综合资料、降水、SST、地面覆盖资料、风场/OLR/指数资料 Noaa资料库： http://www.cdc.noaa.gov NCEP资料介绍： http://www.nomad2.ncep.noaa.gov/ncep_data/ 欧洲气象中心资料(grib和NC格式的)： http://www.ecmwf.int/ Levitus资料： http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/.MONTHLY/ Ucar资料 http://www.cgd.ucar.edu/cas/guide/Atmos/Surface/data.html NASA资料： ftp://podaac.jpl.nasa.gov/seasurfaceheight/ 以前某天全国的天气情况　http://www.t7online.com/feature/hi301100.shtml 1度×1度资料 http://dss.ucar.edu/datasets/ds083.2/ ARGO资料 http://www.argo-cndc.org/web/ NCEP 系统资料： NCEP real-analyses and forecasts http://www.emc.ncep.noaa.gov/data/ NCEP/NCAR REANALYSIS http://dss.ucar.edu/pub/reanalysis/ NCEP Eta http://www.emc.ncep.noaa.gov/mmb/research/meso.products.html NCEP AVN http://www.emc.ncep.noaa.gov/modelinfo/ ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/ netCDF format NNRP1: 6 hourly, 2.5 degrees, from 1948 to present ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis/ NNRP2: 6 hourly, 2.5 degrees, from 1979 to 2002 ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis2/ 降水资料 CMAP资料: http://tao.atmos.washington.edu/data_sets/cmap_precip/ 全球土壤资料： http://acdisx.gsfc.nasa.gov/CAMPAIGN_DOCS/FTP_SITE/INT_DIS/readmes 全国160个站的降水资料 http://ncc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B0%94%E8%B1%A1%E6%95%B0%E6%8D%AE/" />
+<meta property="article:published_time" content="2020-08-12T14:46:53+08:00" />
+<meta property="article:modified_time" content="2020-08-12T14:46:53+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="气象数据下载"/>
+<meta name="twitter:description" content="和大家分享一个不用任何权限就可以下载逐小时地面观测气象数据的网站 http://gis.ncdc.noaa.gov/map/viewer/#app=clim&amp;cfg=cdo&amp;theme=hourly&amp;layers=1&amp;node=gis 简介：这个是美国NOAA的一个专门下载全球气象站数据的网站，不需要注册，不需要项目权限就可以，唯一要求就是你能够连接互联网就行。基本上中国所有县级气象站都有，还有其他国家的。三个小时一次的观测，气温降水等。可以克服“中国气象科学共享服务网”对权限的限制。也不就不用花大把的钱去气象局水文局买数据了。还有这个资料更新快，到二十天前，例如今天是20日，上面九月底的资料都出来了，资料比中国气象科学数据共享服务网的更新，更及时。台站资料也更全面，包括国际交换站、基本站等，还有民国时期的气象资料
+http://blog.sciencenet.cn/home.php?mod=space&amp;uid=461711&amp;do=blog&amp;id=772946 从博客里面转载来的一部分，未验证。
+http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/ 包括：综合资料、降水、SST、地面覆盖资料、风场/OLR/指数资料 Noaa资料库： http://www.cdc.noaa.gov NCEP资料介绍： http://www.nomad2.ncep.noaa.gov/ncep_data/ 欧洲气象中心资料(grib和NC格式的)： http://www.ecmwf.int/ Levitus资料： http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/.MONTHLY/ Ucar资料 http://www.cgd.ucar.edu/cas/guide/Atmos/Surface/data.html NASA资料： ftp://podaac.jpl.nasa.gov/seasurfaceheight/ 以前某天全国的天气情况　http://www.t7online.com/feature/hi301100.shtml 1度×1度资料 http://dss.ucar.edu/datasets/ds083.2/ ARGO资料 http://www.argo-cndc.org/web/ NCEP 系统资料： NCEP real-analyses and forecasts http://www.emc.ncep.noaa.gov/data/ NCEP/NCAR REANALYSIS http://dss.ucar.edu/pub/reanalysis/ NCEP Eta http://www.emc.ncep.noaa.gov/mmb/research/meso.products.html NCEP AVN http://www.emc.ncep.noaa.gov/modelinfo/ ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/ netCDF format NNRP1: 6 hourly, 2.5 degrees, from 1948 to present ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis/ NNRP2: 6 hourly, 2.5 degrees, from 1979 to 2002 ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis2/ 降水资料 CMAP资料: http://tao.atmos.washington.edu/data_sets/cmap_precip/ 全球土壤资料： http://acdisx.gsfc.nasa.gov/CAMPAIGN_DOCS/FTP_SITE/INT_DIS/readmes 全国160个站的降水资料 http://ncc."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>气象数据下载</title>
+	<link rel="stylesheet" href="https://IMchenjianqu.github.io/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://IMchenjianqu.github.io/">数据与方法</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE">数据</a>
+				<a href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/">方法</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE">数据</a></li>
+			<li><a href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/">方法</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>气象数据下载</h1>
+		<div class="content">
+			<p>和大家分享一个不用任何权限就可以下载逐小时地面观测气象数据的网站
+<a href="http://gis.ncdc.noaa.gov/map/viewer/#app=clim&amp;cfg=cdo&amp;theme=hourly&amp;layers=1&amp;node=gis">http://gis.ncdc.noaa.gov/map/viewer/#app=clim&amp;cfg=cdo&amp;theme=hourly&amp;layers=1&amp;node=gis</a>
+简介：这个是美国NOAA的一个专门下载全球气象站数据的网站，不需要注册，不需要项目权限就可以，唯一要求就是你能够连接互联网就行。基本上中国所有县级气象站都有，还有其他国家的。三个小时一次的观测，气温降水等。可以克服“中国气象科学共享服务网”对权限的限制。也不就不用花大把的钱去气象局水文局买数据了。还有这个资料更新快，到二十天前，例如今天是20日，上面九月底的资料都出来了，资料比中国气象科学数据共享服务网的更新，更及时。台站资料也更全面，包括国际交换站、基本站等，还有民国时期的气象资料</p>
+<p><a href="http://blog.sciencenet.cn/home.php?mod=space&amp;uid=461711&amp;do=blog&amp;id=772946">http://blog.sciencenet.cn/home.php?mod=space&amp;uid=461711&amp;do=blog&amp;id=772946</a>
+从博客里面转载来的一部分，未验证。</p>
+<p><a href="http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/">http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/</a>
+包括：综合资料、降水、SST、地面覆盖资料、风场/OLR/指数资料
+Noaa资料库：
+<a href="http://www.cdc.noaa.gov">http://www.cdc.noaa.gov</a>
+NCEP资料介绍：
+<a href="http://www.nomad2.ncep.noaa.gov/ncep_data/">http://www.nomad2.ncep.noaa.gov/ncep_data/</a>
+欧洲气象中心资料(grib和NC格式的)：
+<a href="http://www.ecmwf.int/">http://www.ecmwf.int/</a>
+Levitus资料：
+<a href="http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/.MONTHLY/">http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/.MONTHLY/</a>
+Ucar资料
+<a href="http://www.cgd.ucar.edu/cas/guide/Atmos/Surface/data.html">http://www.cgd.ucar.edu/cas/guide/Atmos/Surface/data.html</a>
+NASA资料：
+<a href="ftp://podaac.jpl.nasa.gov/seasurfaceheight/">ftp://podaac.jpl.nasa.gov/seasurfaceheight/</a>
+以前某天全国的天气情况　　
+<a href="http://www.t7online.com/feature/hi301100.shtml">http://www.t7online.com/feature/hi301100.shtml</a>
+1度×1度资料
+<a href="http://dss.ucar.edu/datasets/ds083.2/">http://dss.ucar.edu/datasets/ds083.2/</a>
+ARGO资料
+<a href="http://www.argo-cndc.org/web/">http://www.argo-cndc.org/web/</a>
+NCEP 系统资料：
+NCEP real-analyses and forecasts <a href="http://www.emc.ncep.noaa.gov/data/">http://www.emc.ncep.noaa.gov/data/</a>
+NCEP/NCAR REANALYSIS <a href="http://dss.ucar.edu/pub/reanalysis/">http://dss.ucar.edu/pub/reanalysis/</a>
+NCEP Eta <a href="http://www.emc.ncep.noaa.gov/mmb/research/meso.products.html">http://www.emc.ncep.noaa.gov/mmb/research/meso.products.html</a>
+NCEP AVN <a href="http://www.emc.ncep.noaa.gov/modelinfo/">http://www.emc.ncep.noaa.gov/modelinfo/</a>
+<a href="ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/">ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/</a>
+netCDF format
+NNRP1: 6 hourly, 2.5 degrees, from 1948 to present
+<a href="ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis/">ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis/</a>
+NNRP2: 6 hourly, 2.5 degrees, from 1979 to 2002
+<a href="ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis2/">ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis2/</a>
+降水资料
+CMAP资料:
+<a href="http://tao.atmos.washington.edu/data_sets/cmap_precip/">http://tao.atmos.washington.edu/data_sets/cmap_precip/</a>
+全球土壤资料：
+<a href="http://acdisx.gsfc.nasa.gov/CAMPAIGN_DOCS/FTP_SITE/INT_DIS/readmes">http://acdisx.gsfc.nasa.gov/CAMPAIGN_DOCS/FTP_SITE/INT_DIS/readmes</a>
+全国160个站的降水资料
+<a href="http://ncc.cma.gov.cn/Website/index.php?ChannelID=43&amp;WCHID=5">http://ncc.cma.gov.cn/Website/index.php?ChannelID=43&amp;WCHID=5</a>
+风场资料：
+<a href="http://www.cdc.noaa.gov/cdc/data.ncep.reanalysis.derived.html#surface_gauss">http://www.cdc.noaa.gov/cdc/data.ncep.reanalysis.derived.html#surface_gauss</a>
+NCEP-QSCAT混合风场资料
+<a href="http://www.coaps.fsu.edu/">http://www.coaps.fsu.edu/</a>
+海洋再分析资料：
+<a href="http://iridl.ldeo.columbia.edu/SOURCES/.UMD/.Carton/.goa/.beta7/">http://iridl.ldeo.columbia.edu/SOURCES/.UMD/.Carton/.goa/.beta7/</a>
+海表高度： <a href="ftp://podaac.jpl.nasa.gov/seasurfaceheight/">ftp://podaac.jpl.nasa.gov/seasurfaceheight/</a>
+<a href="ftp://podaac.jpl.nasa.gov/pub/sea_surface_height/topex_poseidon/mgdrb/data/MGB_423/MGB423.129.Z">ftp://podaac.jpl.nasa.gov/pub/sea_surface_height/topex_poseidon/mgdrb/data/MGB_423/MGB423.129.Z</a>
+海面风场：
+<a href="http://podaac-www.jpl.nasa.gov/">http://podaac-www.jpl.nasa.gov/</a>
+GSST: Gridded Sea Surface Temperature
+1990年至今的海温资料regcm3的主页上有连接的
+<a href="ftp://ftp.cdc.noaa.gov/pub/Datasets/noaa.oisst.v2/sst.wkmean.1990-present.nc">ftp://ftp.cdc.noaa.gov/pub/Datasets/noaa.oisst.v2/sst.wkmean.1990-present.nc</a>
+Reynolds&amp;Smith 的重构月平均海表温度资料（2×2）
+<a href="http://www.cdc.noaa.gov/cdc/data.noaa.ersst.html">http://www.cdc.noaa.gov/cdc/data.noaa.ersst.html</a>
+南海气候态温盐年平均格点资料：
+<a href="http://led.scsio.ac.cn/cgi-bin/topic.cgi?forum=2&amp;topic=24&amp;show=0">http://led.scsio.ac.cn/cgi-bin/topic.cgi?forum=2&amp;topic=24&amp;show=0</a> 　　
+ncep1*1再分析资料和avn资料网址( by 小歹 )
+<a href="ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/">ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/</a>
+<a href="http://dss.ucar.edu/datasets/ds083.2/data/">http://dss.ucar.edu/datasets/ds083.2/data/</a>
+1998年每周的雪盖资料(by jaodan)
+<a href="http://www.cpc.ncep.noaa.gov/data/snow/">http://www.cpc.ncep.noaa.gov/data/snow/</a>
+mm5中terrain部分中的25类植被数据
+<a href="ftp://ftp.ucar.edu/mesouser/Data/">ftp://ftp.ucar.edu/mesouser/Data/</a>
+卫星资料：
+<a href="http://www.nsoas.gov.cn/">http://www.nsoas.gov.cn/</a> 国家卫星海洋应用中心
+Aviation model 的avn data：
+<a href="http://weather.unisys.com/aviation/index.html">http://weather.unisys.com/aviation/index.html</a>
+Topex/Poseidon卫星资料：
+<a href="http://sealevel.jpl.nasa.gov/mission/topex.html">http://sealevel.jpl.nasa.gov/mission/topex.html</a>
+<a href="http://www-ccar.colorado.edu/research/topex/html/topex.html">http://www-ccar.colorado.edu/research/topex/html/topex.html</a>
+免费的遥感卫片资料：
+<a href="http://poet.jpl.nasa.gov//">http://poet.jpl.nasa.gov//</a>
+ENSO指数/El Nino3/SOI
+<a href="http://www.cdc.noaa.gov/ClimateIndices/List/">http://www.cdc.noaa.gov/ClimateIndices/List/</a>
+<a href="http://tao.atmos.washington.edu/pacs/additional_analyses/soi.html">http://tao.atmos.washington.edu/pacs/additional_analyses/soi.html</a>
+NDVI资料
+<a href="http://cybele.bu.edu/modismisr/products/avhrr/avhrrlaifpar.html">http://cybele.bu.edu/modismisr/products/avhrr/avhrrlaifpar.html</a>
+地面探空资料－MICAPS数据
+<a href="http://www.cdc.noaa.gov/cdc/data.ncep.reanalysis.derived.html#surface_gauss">http://www.cdc.noaa.gov/cdc/data.ncep.reanalysis.derived.html#surface_gauss</a>
+一些预报网址：　　
+<a href="http://www.opc.ncep.noaa.gov/shtml/pacsch.shtml">http://www.opc.ncep.noaa.gov/shtml/pacsch.shtml</a>
+<a href="http://www.soa.gov.cn/yubao/">http://www.soa.gov.cn/yubao/</a>
+<a href="http://www.wunderground.com/MAR/wpacm.html">http://www.wunderground.com/MAR/wpacm.html</a>
+<a href="http://polar.ncep.noaa.gov/cofs/">http://polar.ncep.noaa.gov/cofs/</a>
+水文资料：
+水文资料1： <a href="http://espejo.unesco.org.uy/index.html">http://espejo.unesco.org.uy/index.html</a>
+水文资料2： Global runoff data center(GRDC)
+<a href="http://www.bafg.de/grdc.htm">http://www.bafg.de/grdc.htm</a>
+水文资料3：US Geologic Survey(USGS)
+<a href="http://water.usgs.gov/">http://water.usgs.gov/</a>
+风场/OLR/指数资料
+NECP-QSCAT混合风场(一天四次,空间精度0.5度)
+<a href="ftp://ncardata.ucar.edu">ftp://ncardata.ucar.edu</a> user :nonymous passwd : anonymous
+目录/datasets/ds744.4/data
+混合风场 ncep的nc格式的风场:
+<a href="http://www.cdc.noaa.gov/cdc/reanalysis/">http://www.cdc.noaa.gov/cdc/reanalysis/</a>
+SODA（Simple Ocean Data Assimilation）的资料：
+<a href="http://iridl.ldeo.columbia.edu/SOURCES/.UMD/.Carton/.goa/">http://iridl.ldeo.columbia.edu/SOURCES/.UMD/.Carton/.goa/</a>
+NACR-NECP WIND STRESS 　 风场资料
+<a href="http://podaac.jpl.nasa.gov/sst/">http://podaac.jpl.nasa.gov/sst/</a>
+全球或太平洋的风场资料
+<a href="http://ingrid.ldeo.columbia.edu/SOURCES/">http://ingrid.ldeo.columbia.edu/SOURCES/</a>
+长序列南方涛动资料：
+<a href="http://www.jisao.washington.edu/pacs/additional_analyses/soi.html">http://www.jisao.washington.edu/pacs/additional_analyses/soi.html</a>
+台风和飓风路径资料：
+<a href="http://weather.unisys.com/hurricane/index.html">http://weather.unisys.com/hurricane/index.html</a>
+TOMS臭氧资料：
+<a href="http://toms.gsfc.nasa.gov/ozone/ozone.html">http://toms.gsfc.nasa.gov/ozone/ozone.html</a>
+日长变化资料：
+<a href="ftp://euler.jpl.nasa.gov//keof/combinations/2004">ftp://euler.jpl.nasa.gov//keof/combinations/2004</a>
+国内外地型/地图资料：
+全球地形资料： <a href="http://www.ngdc.noaa.gov/ngdcinfo/newdownloads.html">http://www.ngdc.noaa.gov/ngdcinfo/newdownloads.html</a>
+<a href="http://www.cdc.noaa.gov/Datasets/ferret/data/etopo60.cdf">http://www.cdc.noaa.gov/Datasets/ferret/data/etopo60.cdf</a>
+中国近海的地形数据：
+<a href="http://www.whigg.ac.cn/bbs/dispbbs.asp?boardID=2&amp;ID=51&amp;page=1">http://www.whigg.ac.cn/bbs/dispbbs.asp?boardID=2&amp;ID=51&amp;page=1</a>
+ETOPO5:全球5分＊5分的地形资料。就怕是对中国近海水深等值线而言分辨率不高
+<a href="http://www.odci.gov/cia/publications/factbook/">www.odci.gov/cia/publications/factbook/</a>
+edina.ed.ac.uk/digimap/
+edina.ed.ac.uk/ukborders
+data.geocomm.com/catalog/index.html
+<a href="http://www.maproom.psu.edu/dcw/">www.maproom.psu.edu/dcw/</a>
+<a href="http://www.english-nature.org.uk/pubs/gis/GIS_register.asp">www.english-nature.org.uk/pubs/gis/GIS_register.asp</a>
+glcf.umiacs.umd.edu/index.shtml
+<a href="http://www.landmap.ac.uk">www.landmap.ac.uk</a>
+<a href="http://www.whigg.ac.cn/bbs/dispbbs.asp?boardID=2&amp;ID=51&amp;page=1">http://www.whigg.ac.cn/bbs/dispbbs.asp?boardID=2&amp;ID=51&amp;page=1</a>
+名称: NASA&rsquo;s Global Change Master Directory (GCMD)
+链接: <a href="http://gcmd.nasa.gov/index.html">http://gcmd.nasa.gov/index.html</a>
+描述: 提供超过15,000个地球科学数据库的分类及搜索服务，内容涉及农业，大气，生物，气候，冰雪，人类活动，水文，地表，海洋，地质，古气候，遥感，太阳活动等多个方面。
+名称: the National Climatic Data Center website (NCDC)
+链接: <a href="http://www.ncdc.noaa.gov/oa/ncdc.html">http://www.ncdc.noaa.gov/oa/ncdc.html</a>
+描述: 美国国家气候数据中心，提供美国和全球气候数据集，但主要针对美国国内。该中心的资料广泛用于农业，空气质量，建筑，教育，能源，工程，林业，卫生，保险，园林设计，畜牧，制造业，休闲旅游，零售，运输，水资源管理等方面。关于数据产品的介绍见http://www5.ncdc.noaa.gov/cgi-bin/script/webcat.pl?action=ALL。
+状态: 少部分数据可免费使用。
+名称: European Centre for Medium-Range Weather Forecasts (ECMWF) Data Server
+链接: <a href="http://data.ecmwf.int/data/">http://data.ecmwf.int/data/</a>
+描述: 主要提供15年（ERA-15）和40年（ERA-40）两种再分析资料。ERA-15覆盖时间从1978年12月至1994年2月，模式采用 T106L31谱模式，同化方法采用优化插值。ERA-40覆盖时间从1957年9月至2002年8月，模式采用T159L60谱模式，使用三维变分同化技术。两种资料提供grib和netcdf两种数据格式。
+状态: 填上使用协议后可免费下载。
+名称: NOAA Climate Diagnostics Center (CDC)
+链接: <a href="http://www.cdc.noaa.gov/index.html">http://www.cdc.noaa.gov/index.html</a>
+描述: CDC提供了大约25种气候数据集，数据集的描述见http://www.cdc.noaa.gov/PublicData/data_descriptions.html。较为常用的有NCEP/NCAR再分析资料，覆盖时间1948年至今。
+状态: 可免费从ftp下载ftp://ftp.cdc.noaa.gov/。
+名称: Unisys weather Hurricane/Tropical Data
+链接: <a href="http://weather.unisys.com/hurricane/">http://weather.unisys.com/hurricane/</a>
+描述: Unisys 是一家为商务活动提供解决方案的机构，该机构网站提供了大西洋，东太平洋，西太平洋，南太平洋，南印度洋，北印度洋上的及时和历史的热带气旋最佳路径资料。
+状态: 可免费下载。
+名称: 中国科学院大气数据ftp服务器
+链接: ftp://159.226.119.20
+描述: 维护ds083.2分析资料。该资料从1999年9月15日开始至今，每天4次，水平分辨率为1.0x1.0 度，为grib格式，可用于数值模拟初始场。
+状态: 可下载
+名称: CISL&rsquo;s Research Data Archive, NCAR
+链接: <a href="http://dss.ucar.edu">http://dss.ucar.edu</a>
+描述: 维护有大气，海洋，地球物理，水文，格点分析资料以及MM5模式输入数据，所有数据的介绍见http://dss.ucar.edu/catalogs/summaries.html。
+状态: 部分数据集可免费使用
+名称: IPCC Model Output
+链接: <a href="https://esg.llnl.gov">https://esg.llnl.gov</a>:8443/index.jsp
+描述: 各种大气数值模式试验得到的数据
+状态: 数据集可免费使用
+数值模式
+名称: Program for Climate Model Diagnosis and Intercomparison (PCMDI)
+链接: <a href="http://www-pcmdi.llnl.gov/index.php">http://www-pcmdi.llnl.gov/index.php</a>
+描述: PCMDI由美国国家能源部的气候变化研究机构于1989年创立。
+任务: PCMDI的任务是为诊断和比较大气环流模式对气候的模拟提供方法和工具。
+卫星及遥感资料
+名称: National Evironmental Satellite, Data, and Information Service (NESDIS)
+链接: <a href="http://www.nesdis.noaa.gov/">http://www.nesdis.noaa.gov/</a>
+描述: NEDIS 是美国NOAA国家卫星资料中心，拥有四套卫星系统：GOES，POES，DMSP，NPOESS。其两颗静止卫星在距地球22,450英里处，追踪灾害性天气和太阳活动。450英里处两颗极轨环绕地球，观测大气风场和温度，为运行预报模式准备，此外还观测海温用于气候研究。详细产品见http://www.nesdis.noaa.gov/About/onepagers/onepagers.html
+状态: 提供丰富的卫星图像
+名称: NEDIS Operational Significant Event Imagery (OSEI)
+链接: <a href="http://www.osei.noaa.gov/">http://www.osei.noaa.gov/</a>
+描述: 提供灾害性天气事件的卫星图像，包括沙尘，火灾，水涝，冰盖，风暴，热带气旋，火山等。
+状态: 提供全球的卫星图像
+名称: Tropical Rainfall Measuring Mission (TRMM)
+链接: <a href="http://trmm.gsfc.nasa.gov/">http://trmm.gsfc.nasa.gov/</a>
+描述: TRMM卫星用于监测和研究热带降水
+状态: 提供卫星资料
+名称：Total Ozone Mapping Spectrometer (TOMS)
+连接：http://toms.gsfc.nasa.gov/
+任务：监测全球大气臭氧含量
+状态：自2006年1月开始由Ozone Monitoring Instrument (OMI)获取资料，2006年以前的资料仍可以获得
+名称：MODIS (Moderate Resolution Imaging Spectroradiometer)
+连接：http://modis.gsfc.nasa.gov/
+描述：搭载于美国EOS系列卫星之上的一个重要遥感传感器。 MODIS具有36个可见光-红外的光谱波段，空间分辨率为250-1000m。MODIS遥感数据是新一代的卫星遥感信息源，在生态学研究、环境监测、全球气候变化以及农业资源调查等诸多研究中具有广泛的应用前景。
+状态：数据资料可免费获取,http://disc.gsfc.nasa.gov/data/datapool/index.html
+软件及数值计算包
+名称: Unidata
+链接: <a href="http://www.unidata.ucar.edu">http://www.unidata.ucar.edu</a>
+描述: Unidata由UCAR（University Corporation for Atmospheric Research）管理，并由美国国家自然科学基金资助，主要提供地球科学数据管理，分析以及可视化研究和软件。提供了现在通用的netCDF数据格式标准，以及多种分析软件，对于地球科学数据网上管理提供了解决方案。
+状态: 提供所有的应用软件
+名称: PCMDI Software Portal
+链接: <a href="http://www-pcmdi.llnl.gov/software-portal">http://www-pcmdi.llnl.gov/software-portal</a>
+描述: PCMDI开发和维护几种用于气候研究的软件包。最常用的基于python语言的CDAT (Climate Data Analysis Tools) 软件包，有数据分析，制图等强大功能。
+状态: 提供所有的应用软件
+教育及研究机构
+名称: Meteorology Education &amp; Training
+链接: <a href="http://meted.ucar.edu">http://meted.ucar.edu</a>
+描述: 提供气象专业方面的网上教育和培训课程
+状态: 提供网上课程资料
+名称: the National center for Atmospheric Research (NCAR)
+链接: <a href="http://www.ncar.ucar.edu">http://www.ncar.ucar.edu</a>
+描述: 为大气和地球科学研究人员提供工具（如飞机，雷达），技术和协助，包括超级计算机，数值模式和用户指导。
+任务: 研究任务包括大气化学，气候，天气，太阳和地球相互作用，计算机技术创新和人类与天气气候的相互影响。
+名称: the University Corporation for Atmospheric Research (UCAR)
+链接: <a href="http://www.ucar.edu">http://www.ucar.edu</a>
+描述: 成立于1960年，属于北美非盈利性的大学联盟协定团体，主要专注于大气以及相关学科。
+任务: 支持和加强大学之间的国家以及国际间的交流合作，研究大气科学和相关领域，以及推动大气科学的普及。
+名称: UCAR Office of Programs (UOP)
+链接: <a href="http://www.uop.ucar.edu">http://www.uop.ucar.edu</a>
+描述: 通过大气科学以及相关领域的项目和计划，加强大气科学教育和研究水平。
+任务: 帮组组织科学研究计划，支持地球和大气的卫星观测，提供实时的天气数据，管理博士后学位，联系大学和业务预报部门，培训最新气象研究领域的人员。
+名称: Department of atmosphere sciences college of geoscience, Texas A&amp;M University
+链接: <a href="http://www.met.tamu.edu/courses">http://www.met.tamu.edu/courses</a>
+描述: Texas A&amp;M 大学大气科学系开设的大气科学课程，涉及大气动力，雷达，气候，数值预报等本科以及研究生课程。
+状态: 部分课程的讲稿可以下载。
+名称：The Atmospheric Chemistry and Dynamics Branch
+连接：http://code916.gsfc.nasa.gov/
+<a href="http://nanzt.westgis.ac.cn/2136.html">http://nanzt.westgis.ac.cn/2136.html</a>
+批量下载中国气象局的气象数据
+该站密码保护，登陆进去后，一个数据集可能有很多文件，比如中国地面气候资料日值数据集 v3.0有5952条文件。挨个下载十分累。
+借用wget可以较容易实现批量下载。</p>
+<ol>
+<li>搜索 wget for windows，下载最新版，注意其bin和dep 都是需要下载的，否则bin不能运行。</li>
+<li>登陆进去找到要下载的数据集，比如前面提到的日值地面气候资料。如图。
+Image(1)</li>
+<li>从中得到下载地址和文件名。形成一个files.txt文件。每行格式是&lt;下载地址&gt;&lt;空格&gt;&lt;文件名&gt;。
+tips，可以使用比如notepad++的replace功能，很容易把不要的内容去掉，保留需要的内容。</li>
+<li>新建一个wget1.bat 文件。内容是，
+echo off
+.wget-1.11.4-1-binbinwget –post-data=&ldquo;userid=&lt;你的用户名&gt;&amp;password=&lt;你的密码&gt;&rdquo; –save-cookies=cookie_wget –keep-session-cookies &ldquo;<a href="http://cdc.cma.gov.cn/login.do%22">http://cdc.cma.gov.cn/login.do&quot;</a>
+for /F &ldquo;tokens=1*&rdquo; %%i in (files.txt) do (
+.wget-1.11.4-1-binbinwget –load-cookies=cookie_wget -c %%i -O %%j
+)
+请注意wget的路径，和 files.txt的路径。如果路径不一致，请对应修改。
+第一句是保存合适的cookies，第二句是从files.txt里逐句读取，并通过 wget下载重命名。</li>
+<li>在命令行下运行 wget1.bat即可。
+Image
+Related posts:
+abaqus 6.10安装提示没有权限
+This entry was posted in Computers, work and tagged wget on August 14, 2013 by Zhuotong Nan.</li>
+</ol>
+<pre><code></code></pre>
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2020 <a href="https://IMchenjianqu.github.io/">团队</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://IMchenjianqu.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://IMchenjianqu.github.io/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

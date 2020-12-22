@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 12 Dec 2020 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Dec 2020 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>科学上网</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</link>
+      <pubDate>Tue, 22 Dec 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</guid>
+      <description>最直接方式是，购买一台境外服务器，网上搜索资料，搭建梯子（服务器记得删除云镜，否则搭建成功后依旧无法访问访问你想要访问的网页），通过SSH即可使电脑和手机一起科学上网。但另一方面，这个开销巨大，即便购买域名来搭建自己网站，这同样是得不偿失。
+ 手机端 IPhone用户可通过app store登陆国外账户（美服：ID：milefenxiang@aliyun.com，密码：Ah336611,千万不能在app store意外的地方登陆，否则手机可能变砖） 然后下载小火箭，配置：类型选择&amp;quot;subscribe&amp;quot;，Method选择“salsa20” 更新&amp;mdash;连通性检查&amp;mdash;选择网速快的节点即可网上冲浪
+ 电脑端 使用谷歌插件HOXX（不知现在版本是否还可行，我自己一直不更新，用旧版本可免费） 登陆邮箱同步</description>
+    </item>
+    
     <item>
       <title>关于IMchenjianqu</title>
       <link>https://IMchenjianqu.github.io/about-hugo/</link>
@@ -74,49 +85,41 @@ pro readcurrent,inpath,x1,x2,y1,y2,outpath unit=10 unitAVG=1 openr,unit,inpath p
     </item>
     
     <item>
+      <title>GIs与surfer网格数据互相转换</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E4%B8%8Esurfer%E7%BD%91%E6%A0%BC%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2/</link>
+      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E4%B8%8Esurfer%E7%BD%91%E6%A0%BC%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2/</guid>
+      <description>ASCⅡ吗打开Gis栅格文件（txt打开即可） 可得到如下格式
+ncols 252 #行数 nrows 262 #列数 xllcorner 121.87872314453 #最小x yllcorner 30.130676269531 #最小y cellsize 0.0024 #像元大小 NODATA_value -9999 #无数据 数据
+想要在surfer打开GIS网格数据，只需将上面数据转换成以下数据形式（surfer识别）即可
+DSAA ncols nrows 121.87872314453 122.4811231 #(xmax=xmin+(cellsize*(ncols-1)) 30.130676269531 30.75467626 #(ymax=ymin+(cellsize*(ncols-1)) zmin zmax #(zmin≠zmax) 数据（将nodata由-9999替换成1.70141e38）
+surfer&amp;mdash;网格&amp;mdash;转换&amp;mdash;反射变换γ&amp;mdash;确定
+同理，可将surfer数据换头，转为gis可加载格式 </description>
+    </item>
+    
+    <item>
+      <title>GIS数据下载</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gis%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gis%E6%95%B0%E6%8D%AE/</guid>
+      <description>国家各级行政边界图、一到五级水系图、交通网等国家基础地理信息系统数据及其他一些地理信息数据的下载途径
+https://pan.baidu.com/s/1aVJFwi0ta1wscNxpKencpg</description>
+    </item>
+    
+    <item>
       <title>python库下载</title>
       <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/python%E5%BA%93/</link>
       <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
       
       <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/python%E5%BA%93/</guid>
-      <description>为了方便自己看各种原料的用量及基本步骤，收集一些简化版的菜谱在此
- 1.可通过pycharm的设置setting下载（无法看见进度条）
+      <description>1.可通过pycharm的设置setting下载（无法看见进度条）
 2.cmd运行
 pip install 库 当出现python不是内部命令时，可尝试
 python -m pip install 库 部分库下速度较慢，会导致失败 可多次尝试，或通过pip https://d.serctl.com/ 或通过国内资源pip https://cloud.tencent.com/developer/article/1566871 等
 python -m pip install 库 网址 3.通过运行以下代码
 import os libs = { &amp;#34;requests&amp;#34;,&amp;#34;jieba&amp;#34;,&amp;#34;beautifulsoup4&amp;#34;,\ &amp;#34;django&amp;#34;,&amp;#34;flask&amp;#34;,\ &amp;#34;此处填写需要下载的库的名称&amp;#34;,&amp;#34;pandas&amp;#34; } try: for lib in libs: os.system(&amp;#39;pip install &amp;#39;+lib) print(&amp;#34;Successful&amp;#34;) except: print(&amp;#39;error&amp;#39;) </description>
-    </item>
-    
-    <item>
-      <title>主成分分析（PCA）</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90pca/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90pca/</guid>
-      <description>主成分分析，是指通过正交变换将一组可能存在相关性的变量转换为一组线性不相关的变量，转换后的这组变量叫主成分，是一个无量纲值。
-通过excel进行主成分分析 （实际为求数据的特征向量与特征根）
-录入一组数据，通过下式进行标准化
-由此可知，如果仅取第一主成分，可反映原来数据85.28%的信息，虽然丢弃第二主成分（14.72%的信息），但变量自由度减少一个。
-通过特征变量转换，将标准化处理后的数据X，转换为第一主成分z1第二主成分z2 主成分z1即可代表原来数据中85%的信息。</description>
-    </item>
-    
-    <item>
-      <title>典型相关性分析（CCA）</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%85%B8%E5%9E%8B%E7%9B%B8%E5%85%B3%E6%80%A7%E5%88%86%E6%9E%90/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%85%B8%E5%9E%8B%E7%9B%B8%E5%85%B3%E6%80%A7%E5%88%86%E6%9E%90/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>决策树分析</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%86%B3%E7%AD%96%E6%A0%91%E5%88%86%E6%9E%90/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%86%B3%E7%AD%96%E6%A0%91%E5%88%86%E6%9E%90/</guid>
-      <description>计算信息熵、信息增益 </description>
     </item>
     
   </channel>
