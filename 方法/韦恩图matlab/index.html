@@ -13,7 +13,7 @@
  xp = linspace(-1,1,256); x = ones(size(xp))&#39;*xp; y = xp&#39;*ones(size(xp)); a = sqrt((x&#43;0.3).^2&#43;y.^2)&lt;0.6; b = sqrt((x-0.3).^2&#43;y.^2)&lt;0.6; r1 = max(find(xp&lt;-0.7)); r2 = min(find(xp&gt;0.7)); a = a(r1:r2,:); b = b(r1:r2,:); % generate outlined box sz = size(a); u = ones(sz); u(1:2,:)=0; u(:,1:2)=0; u(sz(1)-(0:1),:)=0; u(:,sz(2)-(0:1))=0; % generate edge images se = strel(&#39;disk&#39;,2); ae = a - imerode(a,se); be = b - imerode(b,se); ue = double(and(u,~(ae|be))); % generate example venn diagram z = xor(a,b); rgb = cat(3,ue,ue,and(ue,~z)); imshow(rgb); 同理，三个时：">
 <meta itemprop="datePublished" content="2020-08-12T14:46:53+08:00" />
 <meta itemprop="dateModified" content="2020-08-12T14:46:53+08:00" />
-<meta itemprop="wordCount" content="172">
+<meta itemprop="wordCount" content="208">
 
 
 
@@ -78,6 +78,7 @@
 			<p>通过matlab绘制韦恩图</p>
 <p>两两叠加</p>
 <hr>
+<p><img src="/round/1.png" alt="image"></p>
 <div class="highlight"><pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">xp</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">256</span><span class="p">);</span>
 <span class="n">x</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">xp</span><span class="p">))</span><span class="o">&#39;*</span><span class="n">xp</span><span class="p">;</span>
 <span class="n">y</span> <span class="p">=</span> <span class="n">xp</span><span class="o">&#39;*</span><span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">xp</span><span class="p">));</span>
@@ -109,6 +110,23 @@
 <span class="n">imshow</span><span class="p">(</span><span class="n">rgb</span><span class="p">);</span>
 
 </code></pre></div><p>同理，三个时：</p>
+<p><img src="/round/2.png" alt="image"></p>
+<div class="highlight"><pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">xp</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">256</span><span class="p">);</span><span class="c">%调整范围</span>
+<span class="n">x</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">xp</span><span class="p">))</span><span class="o">&#39;*</span><span class="n">xp</span><span class="p">;</span><span class="c">%创建底图（矩阵）</span>
+<span class="n">y</span> <span class="p">=</span> <span class="n">xp</span><span class="o">&#39;*</span><span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">xp</span><span class="p">));</span>
+<span class="n">a</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.6</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.6</span><span class="p">;</span>
+<span class="n">z</span> <span class="p">=</span> <span class="n">xor</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">);</span><span class="c">%相交</span>
+<span class="n">p</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">z</span><span class="p">));</span><span class="c">%单位阵</span>
+<span class="n">rgb</span> <span class="p">=</span> <span class="nb">cat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">and</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="o">~</span><span class="n">z</span><span class="p">));</span><span class="c">%创建三维矩阵</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span><span class="c">%两个相交圆</span>
+
+
+<span class="n">c</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">((</span><span class="n">y</span><span class="o">+</span><span class="mf">0.3</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.6</span><span class="p">;</span>
+<span class="n">z</span> <span class="p">=</span> <span class="n">xor</span><span class="p">(</span><span class="n">xor</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="n">c</span><span class="p">);</span><span class="c">%三个圆相交</span>
+<span class="n">rgb</span> <span class="p">=</span> <span class="nb">cat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">and</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="o">~</span><span class="n">z</span><span class="p">));</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span><span class="c">%三个相交圆</span>
+</code></pre></div><p>或：</p>
 <div class="highlight"><pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">xp</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">512</span><span class="p">);</span>
 <span class="n">x</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">xp</span><span class="p">))</span><span class="o">&#39;*</span><span class="n">xp</span><span class="p">;</span>
 <span class="n">y</span> <span class="p">=</span> <span class="n">xp</span><span class="o">&#39;*</span><span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">xp</span><span class="p">));</span>
