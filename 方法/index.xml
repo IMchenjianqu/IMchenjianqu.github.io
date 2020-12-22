@@ -75,6 +75,19 @@ surfer&amp;mdash;网格&amp;mdash;转换&amp;mdash;反射变换γ&amp;mdash;确�
     </item>
     
     <item>
+      <title>GIS叠加</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E5%8F%A0%E5%8A%A0/</link>
+      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E5%8F%A0%E5%8A%A0/</guid>
+      <description>层次分析法，是指将与决策总是有关的元素分解成目标、准则、方案等层次，在此基础之上进行定性和定量分析的决策方法。
+ 通过层次分析后，可得出各要素的权重值，将他们应用在GIS的要素叠加上
+重采样&amp;mdash;-所有要素重采样到相同大小网格
+重分类&amp;mdash;-根据大黄鱼最适生长环境、建造网箱最好条件设定适宜指数（1&amp;ndash;5）
+通过地图代数进行叠加</description>
+    </item>
+    
+    <item>
       <title>主成分分析（PCA）</title>
       <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90pca/</link>
       <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
@@ -103,26 +116,6 @@ surfer&amp;mdash;网格&amp;mdash;转换&amp;mdash;反射变换γ&amp;mdash;确�
       
       <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%86%B3%E7%AD%96%E6%A0%91%E5%88%86%E6%9E%90/</guid>
       <description>计算信息熵、信息增益 </description>
-    </item>
-    
-    <item>
-      <title>基于hugo搭建网站（http方式）</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%9F%BA%E4%BA%8Ehugo%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99http%E6%96%B9%E5%BC%8F/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%9F%BA%E4%BA%8Ehugo%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99http%E6%96%B9%E5%BC%8F/</guid>
-      <description>材料：1.安装hugo，2.安装git,3.安装编写markdown语言编译器（VS studio），4.GitHub账号、主题  1.下载hugo、git、VS，安装后配置路径
-2.打开cmd，输入hugo，检查是否正确配置路径，若正确，输入hugo new site yourname.com 此时，在电脑c盘的用户路径上出现yourname.com文件夹
-3.下载主题（ https://themes.gohugo.io/ ）解压在yourname。com文件夹内
-4.配置主题（不同主题配置方式不一，但主要是配置config.toml文件），以改网站的hermit为例，将example site中的content、config.toml替换yourname目录下的相应文件
-5.VS studio打开文件&amp;mdash;打开终端&amp;mdash;输入hugo server(本地打开)
-6.VS中打开config文件，修改内容（baseurl=&amp;ldquo;https://yourname.com&amp;rdquo;）
-7.github创建库githubname\yourname.github.io
-8.yourname目录下gir bush here输入hugo，生成public文件夹
-9.键入后，继续git bush 依次输入git init（若为empty则在输入一次） git add -A git commit -am&amp;quot;init&amp;quot; 如果为首次使用，需先登陆（git remote add origin https://github.com/githubname/yourname.github.io.git弹出框登陆github即可） git push -f origin master
- 常见问题 1.登入新账号 此前我已使用hoxx搭建 https://jontycleopoly.github.io/，因此每次登陆时，会自动登上这个已不使用的网站，这时需打开控制面板&amp;mdash;外观和个性化&amp;mdash;用户账户&amp;mdash;管理Windows凭据&amp;mdash;GitHub下拉删除账户信息即可
-2.github无法正常加载主题 GitHub仓库两分支，改名main&amp;mdash;master（需要删除原来的库再新建后重命名，重新git）
-3.更新 VS使用MD编辑，保存，可先使用hugo server观看本地效果 上传github hugo git add -A git commit -m&amp;quot;xxx&amp;quot; git push -f origin master</description>
     </item>
     
   </channel>

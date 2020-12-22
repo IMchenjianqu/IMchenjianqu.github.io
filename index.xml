@@ -99,6 +99,19 @@ surfer&amp;mdash;网格&amp;mdash;转换&amp;mdash;反射变换γ&amp;mdash;确�
     </item>
     
     <item>
+      <title>GIS叠加</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E5%8F%A0%E5%8A%A0/</link>
+      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E5%8F%A0%E5%8A%A0/</guid>
+      <description>层次分析法，是指将与决策总是有关的元素分解成目标、准则、方案等层次，在此基础之上进行定性和定量分析的决策方法。
+ 通过层次分析后，可得出各要素的权重值，将他们应用在GIS的要素叠加上
+重采样&amp;mdash;-所有要素重采样到相同大小网格
+重分类&amp;mdash;-根据大黄鱼最适生长环境、建造网箱最好条件设定适宜指数（1&amp;ndash;5）
+通过地图代数进行叠加</description>
+    </item>
+    
+    <item>
       <title>GIS数据下载</title>
       <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gis%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
@@ -106,20 +119,6 @@ surfer&amp;mdash;网格&amp;mdash;转换&amp;mdash;反射变换γ&amp;mdash;确�
       <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gis%E6%95%B0%E6%8D%AE/</guid>
       <description>国家各级行政边界图、一到五级水系图、交通网等国家基础地理信息系统数据及其他一些地理信息数据的下载途径
 https://pan.baidu.com/s/1aVJFwi0ta1wscNxpKencpg</description>
-    </item>
-    
-    <item>
-      <title>python库下载</title>
-      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/python%E5%BA%93/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/python%E5%BA%93/</guid>
-      <description>1.可通过pycharm的设置setting下载（无法看见进度条）
-2.cmd运行
-pip install 库 当出现python不是内部命令时，可尝试
-python -m pip install 库 部分库下速度较慢，会导致失败 可多次尝试，或通过pip https://d.serctl.com/ 或通过国内资源pip https://cloud.tencent.com/developer/article/1566871 等
-python -m pip install 库 网址 3.通过运行以下代码
-import os libs = { &amp;#34;requests&amp;#34;,&amp;#34;jieba&amp;#34;,&amp;#34;beautifulsoup4&amp;#34;,\ &amp;#34;django&amp;#34;,&amp;#34;flask&amp;#34;,\ &amp;#34;此处填写需要下载的库的名称&amp;#34;,&amp;#34;pandas&amp;#34; } try: for lib in libs: os.system(&amp;#39;pip install &amp;#39;+lib) print(&amp;#34;Successful&amp;#34;) except: print(&amp;#39;error&amp;#39;) </description>
     </item>
     
   </channel>
