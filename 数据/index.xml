@@ -68,5 +68,15 @@ http://blog.sciencenet.cn/home.php?mod=space&amp;amp;uid=461711&amp;amp;do=blog&
 http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/ 包括：综合资料、降水、SST、地面覆盖资料、风场/OLR/指数资料 Noaa资料库： http://www.cdc.noaa.gov NCEP资料介绍： http://www.nomad2.ncep.noaa.gov/ncep_data/ 欧洲气象中心资料(grib和NC格式的)： http://www.ecmwf.int/ Levitus资料： http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/.MONTHLY/ Ucar资料 http://www.cgd.ucar.edu/cas/guide/Atmos/Surface/data.html NASA资料： ftp://podaac.jpl.nasa.gov/seasurfaceheight/ 以前某天全国的天气情况　http://www.t7online.com/feature/hi301100.shtml 1度×1度资料 http://dss.ucar.edu/datasets/ds083.2/ ARGO资料 http://www.argo-cndc.org/web/ NCEP 系统资料： NCEP real-analyses and forecasts http://www.emc.ncep.noaa.gov/data/ NCEP/NCAR REANALYSIS http://dss.ucar.edu/pub/reanalysis/ NCEP Eta http://www.emc.ncep.noaa.gov/mmb/research/meso.products.html NCEP AVN http://www.emc.ncep.noaa.gov/modelinfo/ ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/ netCDF format NNRP1: 6 hourly, 2.5 degrees, from 1948 to present ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis/ NNRP2: 6 hourly, 2.5 degrees, from 1979 to 2002 ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis2/ 降水资料 CMAP资料: http://tao.atmos.washington.edu/data_sets/cmap_precip/ 全球土壤资料： http://acdisx.gsfc.nasa.gov/CAMPAIGN_DOCS/FTP_SITE/INT_DIS/readmes 全国160个站的降水资料 http://ncc.</description>
     </item>
     
+    <item>
+      <title>音乐爬虫</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E9%9F%B3%E4%B9%90%E7%88%AC%E8%99%AB/</link>
+      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E9%9F%B3%E4%B9%90%E7%88%AC%E8%99%AB/</guid>
+      <description>爬取网易云、QQ音乐等音乐，无视VIP
+https://pan.baidu.com/s/1k0EQugmB0DpKBOeIaM1lbw</description>
+    </item>
+    
   </channel>
 </rss>
