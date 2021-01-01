@@ -58,14 +58,25 @@ im=imread(&amp;#39;tuX.png&amp;#39;); imshow(im); [x0,y0]=ginput; [x1,y1]=ginput
     </item>
     
     <item>
+      <title>机器学习样本集制作</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/lambelme/</link>
+      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/lambelme/</guid>
+      <description>pip install pyqt pip install labelme 在终端中运行
+labelme 出现以下窗口
+绘制训练集</description>
+    </item>
+    
+    <item>
       <title>气象数据下载</title>
       <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B0%94%E8%B1%A1%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
       
       <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B0%94%E8%B1%A1%E6%95%B0%E6%8D%AE/</guid>
-      <description>和大家分享一个不用任何权限就可以下载逐小时地面观测气象数据的网站 http://gis.ncdc.noaa.gov/map/viewer/#app=clim&amp;amp;cfg=cdo&amp;amp;theme=hourly&amp;amp;layers=1&amp;amp;node=gis 简介：这个是美国NOAA的一个专门下载全球气象站数据的网站，不需要注册，不需要项目权限就可以，唯一要求就是你能够连接互联网就行。基本上中国所有县级气象站都有，还有其他国家的。三个小时一次的观测，气温降水等。可以克服“中国气象科学共享服务网”对权限的限制。也不就不用花大把的钱去气象局水文局买数据了。还有这个资料更新快，到二十天前，例如今天是20日，上面九月底的资料都出来了，资料比中国气象科学数据共享服务网的更新，更及时。台站资料也更全面，包括国际交换站、基本站等，还有民国时期的气象资料
+      <description>和大家分享一个不用任何权限就可以下载逐小时地面观测气象数据的网站 http://gis.ncdc.noaa.gov/map/viewer/#app=clim&amp;amp;cfg=cdo&amp;amp;theme=hourly&amp;amp;layers=1&amp;amp;node=gis
 http://blog.sciencenet.cn/home.php?mod=space&amp;amp;uid=461711&amp;amp;do=blog&amp;amp;id=772946 从博客里面转载来的一部分，未验证。
-http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/ 包括：综合资料、降水、SST、地面覆盖资料、风场/OLR/指数资料 Noaa资料库： http://www.cdc.noaa.gov NCEP资料介绍： http://www.nomad2.ncep.noaa.gov/ncep_data/ 欧洲气象中心资料(grib和NC格式的)： http://www.ecmwf.int/ Levitus资料： http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/.MONTHLY/ Ucar资料 http://www.cgd.ucar.edu/cas/guide/Atmos/Surface/data.html NASA资料： ftp://podaac.jpl.nasa.gov/seasurfaceheight/ 以前某天全国的天气情况　http://www.t7online.com/feature/hi301100.shtml 1度×1度资料 http://dss.ucar.edu/datasets/ds083.2/ ARGO资料 http://www.argo-cndc.org/web/ NCEP 系统资料： NCEP real-analyses and forecasts http://www.emc.ncep.noaa.gov/data/ NCEP/NCAR REANALYSIS http://dss.ucar.edu/pub/reanalysis/ NCEP Eta http://www.emc.ncep.noaa.gov/mmb/research/meso.products.html NCEP AVN http://www.emc.ncep.noaa.gov/modelinfo/ ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/ netCDF format NNRP1: 6 hourly, 2.5 degrees, from 1948 to present ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis/ NNRP2: 6 hourly, 2.5 degrees, from 1979 to 2002 ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis2/ 降水资料 CMAP资料: http://tao.atmos.washington.edu/data_sets/cmap_precip/ 全球土壤资料： http://acdisx.gsfc.nasa.gov/CAMPAIGN_DOCS/FTP_SITE/INT_DIS/readmes 全国160个站的降水资料 http://ncc.</description>
+http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/ 包括：综合资料、降水、SST、地面覆盖资料、风场/OLR/指数资料 Noaa资料库： http://www.cdc.noaa.gov NCEP资料介绍： http://www.nomad2.ncep.noaa.gov/ncep_data/ 欧洲气象中心资料(grib和NC格式的)： http://www.ecmwf.int/ Levitus资料： http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/.MONTHLY/ Ucar资料 http://www.cgd.ucar.edu/cas/guide/Atmos/Surface/data.html NASA资料： ftp://podaac.jpl.nasa.gov/seasurfaceheight/ 以前某天全国的天气情况　http://www.t7online.com/feature/hi301100.shtml 1度×1度资料 http://dss.ucar.edu/datasets/ds083.2/ ARGO资料 http://www.argo-cndc.org/web/ NCEP 系统资料： NCEP real-analyses and forecasts http://www.emc.ncep.noaa.gov/data/ NCEP/NCAR REANALYSIS http://dss.ucar.edu/pub/reanalysis/ NCEP Eta http://www.emc.ncep.noaa.gov/mmb/research/meso.products.html NCEP AVN http://www.emc.ncep.noaa.gov/modelinfo/ ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/ netCDF format NNRP1: 6 hourly, 2.5 degrees, from 1948 to present ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis/ NNRP2: 6 hourly, 2.5 degrees, from 1979 to 2002 ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis2/ 降水资料 CMAP资料: http://tao.atmos.washington.edu/data_sets/cmap_precip/ 全球土壤资料： http://acdisx.gsfc.nasa.gov/CAMPAIGN_DOCS/FTP_SITE/INT_DIS/readmes 全国160个站的降水资料 http://ncc.cma.gov.cn/Website/index.php?ChannelID=43&amp;amp;WCHID=5 风场资料： http://www.</description>
     </item>
     
     <item>
@@ -74,7 +85,7 @@ http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/ 包括�
       <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
       
       <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E9%9F%B3%E4%B9%90%E7%88%AC%E8%99%AB/</guid>
-      <description>爬取网易云、QQ音乐等音乐，无视VIP
+      <description>爬取网易云、QQ音乐等音乐，可下载VIP歌曲
 https://pan.baidu.com/s/1k0EQugmB0DpKBOeIaM1lbw</description>
     </item>
     
