@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 22 Dec 2020 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 20 Jan 2021 20:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>投票刷票器</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E6%8A%95%E7%A5%A8%E5%88%B7%E7%A5%A8%E5%99%A8/</link>
+      <pubDate>Wed, 20 Jan 2021 20:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E6%8A%95%E7%A5%A8%E5%88%B7%E7%A5%A8%E5%99%A8/</guid>
+      <description>投票刷票器，python，HTML
+通过管理者工具，抓包查看post文件，获取投票服务器地址、投票人ID、协议头、动态参数位置
+import urllib2,cookielib def vote(id=...%目标人员在服务器的ID); cookie = cookielib.CookieJar()%创建cookie对象 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))%创建打开对象 urllib2.install_opener(opener)%将opener对象安装到全局 req = urllib2.Request(url=&amp;#39;http...&amp;#39;%当前网址url) html = urllib2.urlopen(req).read() a = html.find(&amp;#39;value=&amp;#34;&amp;#39;)%查找动态参数，亦可通过正则表达式获取 b = html.find(&amp;#39;&amp;#34;&amp;#39;,a+len(&amp;#39;value=&amp;#34;&amp;#39;)) token = html[a+len(&amp;#39;value=&amp;#34;&amp;#39;):b]%通过切片，获取动态参数 req = urllib2.Request(url=&amp;#39;http...&amp;#39;%投票服务器 data=&amp;#39;__RequestVerificationToken=%s&amp;amp;Chioce=%s&amp;amp;X...&amp;#39;)%输入动态参数与ID req.add_header(&amp;#34;User-Agent&amp;#34;,&amp;#34;...&amp;#34;)%协议头 req.add_header(&amp;#39;Referer&amp;#39;,&amp;#34;http...&amp;#34;)%投票服务器 html = urllib2.urlopen(req).read() for i in xrange(1000):%投1000票 vote() print(i) 可import threading模块进行多线程，提高投票速度
+可同时投多人</description>
+    </item>
+    
     <item>
       <title>科学上网</title>
       <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</link>
@@ -109,16 +121,6 @@ surfer&amp;mdash;网格&amp;mdash;转换&amp;mdash;反射变换γ&amp;mdash;确�
 重采样&amp;mdash;-所有要素重采样到相同大小网格
 重分类&amp;mdash;-根据大黄鱼最适生长环境、建造网箱最好条件设定适宜指数（1&amp;ndash;5）
 通过地图代数进行叠加</description>
-    </item>
-    
-    <item>
-      <title>GIS数据下载</title>
-      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gis%E6%95%B0%E6%8D%AE/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gis%E6%95%B0%E6%8D%AE/</guid>
-      <description>国家各级行政边界图、一到五级水系图、交通网等国家基础地理信息系统数据及其他一些地理信息数据的下载途径
-https://pan.baidu.com/s/1aVJFwi0ta1wscNxpKencpg</description>
     </item>
     
   </channel>

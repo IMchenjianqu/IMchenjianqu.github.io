@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="投票刷票器">
+<meta itemprop="description" content="投票刷票器，python，HTML
+通过管理者工具，抓包查看post文件，获取投票服务器地址、投票人ID、协议头、动态参数位置
+import urllib2,cookielib def vote(id=...%目标人员在服务器的ID); cookie = cookielib.CookieJar()%创建cookie对象 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))%创建打开对象 urllib2.install_opener(opener)%将opener对象安装到全局 req = urllib2.Request(url=&#39;http...&#39;%当前网址url) html = urllib2.urlopen(req).read() a = html.find(&#39;value=&#34;&#39;)%查找动态参数，亦可通过正则表达式获取 b = html.find(&#39;&#34;&#39;,a&#43;len(&#39;value=&#34;&#39;)) token = html[a&#43;len(&#39;value=&#34;&#39;):b]%通过切片，获取动态参数 req = urllib2.Request(url=&#39;http...&#39;%投票服务器 data=&#39;__RequestVerificationToken=%s&amp;Chioce=%s&amp;X...&#39;)%输入动态参数与ID req.add_header(&#34;User-Agent&#34;,&#34;...&#34;)%协议头 req.add_header(&#39;Referer&#39;,&#34;http...&#34;)%投票服务器 html = urllib2.urlopen(req).read() for i in xrange(1000):%投1000票 vote() print(i) 可import threading模块进行多线程，提高投票速度
+可同时投多人">
+<meta itemprop="datePublished" content="2021-01-20T20:46:53+08:00" />
+<meta itemprop="dateModified" content="2021-01-20T20:46:53+08:00" />
+<meta itemprop="wordCount" content="46">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta property="og:title" content="投票刷票器" />
+<meta property="og:description" content="投票刷票器，python，HTML
+通过管理者工具，抓包查看post文件，获取投票服务器地址、投票人ID、协议头、动态参数位置
+import urllib2,cookielib def vote(id=...%目标人员在服务器的ID); cookie = cookielib.CookieJar()%创建cookie对象 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))%创建打开对象 urllib2.install_opener(opener)%将opener对象安装到全局 req = urllib2.Request(url=&#39;http...&#39;%当前网址url) html = urllib2.urlopen(req).read() a = html.find(&#39;value=&#34;&#39;)%查找动态参数，亦可通过正则表达式获取 b = html.find(&#39;&#34;&#39;,a&#43;len(&#39;value=&#34;&#39;)) token = html[a&#43;len(&#39;value=&#34;&#39;):b]%通过切片，获取动态参数 req = urllib2.Request(url=&#39;http...&#39;%投票服务器 data=&#39;__RequestVerificationToken=%s&amp;Chioce=%s&amp;X...&#39;)%输入动态参数与ID req.add_header(&#34;User-Agent&#34;,&#34;...&#34;)%协议头 req.add_header(&#39;Referer&#39;,&#34;http...&#34;)%投票服务器 html = urllib2.urlopen(req).read() for i in xrange(1000):%投1000票 vote() print(i) 可import threading模块进行多线程，提高投票速度
+可同时投多人" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E6%8A%95%E7%A5%A8%E5%88%B7%E7%A5%A8%E5%99%A8/" />
+<meta property="article:published_time" content="2021-01-20T20:46:53+08:00" />
+<meta property="article:modified_time" content="2021-01-20T20:46:53+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="投票刷票器"/>
+<meta name="twitter:description" content="投票刷票器，python，HTML
+通过管理者工具，抓包查看post文件，获取投票服务器地址、投票人ID、协议头、动态参数位置
+import urllib2,cookielib def vote(id=...%目标人员在服务器的ID); cookie = cookielib.CookieJar()%创建cookie对象 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))%创建打开对象 urllib2.install_opener(opener)%将opener对象安装到全局 req = urllib2.Request(url=&#39;http...&#39;%当前网址url) html = urllib2.urlopen(req).read() a = html.find(&#39;value=&#34;&#39;)%查找动态参数，亦可通过正则表达式获取 b = html.find(&#39;&#34;&#39;,a&#43;len(&#39;value=&#34;&#39;)) token = html[a&#43;len(&#39;value=&#34;&#39;):b]%通过切片，获取动态参数 req = urllib2.Request(url=&#39;http...&#39;%投票服务器 data=&#39;__RequestVerificationToken=%s&amp;Chioce=%s&amp;X...&#39;)%输入动态参数与ID req.add_header(&#34;User-Agent&#34;,&#34;...&#34;)%协议头 req.add_header(&#39;Referer&#39;,&#34;http...&#34;)%投票服务器 html = urllib2.urlopen(req).read() for i in xrange(1000):%投1000票 vote() print(i) 可import threading模块进行多线程，提高投票速度
+可同时投多人"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>投票刷票器</title>
+	<link rel="stylesheet" href="https://IMchenjianqu.github.io/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://IMchenjianqu.github.io/">数据与方法</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE">数据</a>
+				<a href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/">方法</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE">数据</a></li>
+			<li><a href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/">方法</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>投票刷票器</h1>
+		<div class="content">
+			<p>投票刷票器，python，HTML</p>
+<p>通过管理者工具，抓包查看post文件，获取投票服务器地址、投票人ID、协议头、动态参数位置</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span><span class="nn">cookielib</span>
+<span class="k">def</span> <span class="nf">vote</span><span class="p">(</span><span class="nb">id</span><span class="o">=...%</span><span class="err">目标人员在服务器的</span><span class="n">ID</span><span class="p">);</span>
+    <span class="n">cookie</span> <span class="o">=</span> <span class="n">cookielib</span><span class="o">.</span><span class="n">CookieJar</span><span class="p">()</span><span class="o">%</span><span class="err">创建</span><span class="n">cookie对象</span>
+    <span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">))</span><span class="o">%</span><span class="err">创建打开对象</span>
+    <span class="n">urllib2</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">opener</span><span class="p">)</span><span class="o">%</span><span class="err">将</span><span class="n">opener对象安装到全局</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http...&#39;</span><span class="o">%</span><span class="err">当前网址</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;value=&#34;&#39;</span><span class="p">)</span><span class="o">%</span><span class="err">查找动态参数，亦可通过正则表达式获取</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;&#34;&#39;</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;value=&#34;&#39;</span><span class="p">))</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">html</span><span class="p">[</span><span class="n">a</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;value=&#34;&#39;</span><span class="p">):</span><span class="n">b</span><span class="p">]</span><span class="o">%</span><span class="err">通过切片，获取动态参数</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http...&#39;</span><span class="o">%</span><span class="err">投票服务器</span>
+                    <span class="n">data</span><span class="o">=</span><span class="s1">&#39;__RequestVerificationToken=</span><span class="si">%s</span><span class="s1">&amp;Chioce=</span><span class="si">%s</span><span class="s1">&amp;X...&#39;</span><span class="p">)</span><span class="o">%</span><span class="err">输入动态参数与</span><span class="n">ID</span>
+    <span class="n">req</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s2">&#34;User-Agent&#34;</span><span class="p">,</span><span class="s2">&#34;...&#34;</span><span class="p">)</span><span class="o">%</span><span class="err">协议头</span>
+    <span class="n">req</span><span class="o">.</span><span class="n">add_header</span><span class="p">(</span><span class="s1">&#39;Referer&#39;</span><span class="p">,</span><span class="s2">&#34;http...&#34;</span><span class="p">)</span><span class="o">%</span><span class="err">投票服务器</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span><span class="o">%</span><span class="err">投</span><span class="mi">1000</span><span class="err">票</span>
+    <span class="n">vote</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div><p>可import threading模块进行多线程，提高投票速度</p>
+<p>可同时投多人</p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://IMchenjianqu.github.io/">团队</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://IMchenjianqu.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://IMchenjianqu.github.io/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
