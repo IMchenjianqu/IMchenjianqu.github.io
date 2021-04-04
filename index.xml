@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Wed, 20 Jan 2021 20:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Mar 2021 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>计算钢筋能否承力（悬臂梁）</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E8%AE%A1%E7%AE%97%E9%92%A2%E7%AD%8B%E8%83%BD%E5%90%A6%E6%89%BF%E5%8A%9B%E6%82%AC%E8%87%82%E6%A2%81/</link>
+      <pubDate>Fri, 26 Mar 2021 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E8%AE%A1%E7%AE%97%E9%92%A2%E7%AD%8B%E8%83%BD%E5%90%A6%E6%89%BF%E5%8A%9B%E6%82%AC%E8%87%82%E6%A2%81/</guid>
+      <description>1.分析结构，得到结构简图；进行受力分析，得到受力分析图；计算弯矩，得到弯矩图
+2.计算物体所承受的弯矩
+3.计算钢筋混凝土所能提供的弯矩
+4.比较两者大小</description>
+    </item>
+    
     <item>
       <title>投票刷票器</title>
       <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E6%8A%95%E7%A5%A8%E5%88%B7%E7%A5%A8%E5%99%A8/</link>
@@ -108,19 +120,6 @@ ncols 252 #行数 nrows 262 #列数 xllcorner 121.87872314453 #最小x yllcorner
 DSAA ncols nrows 121.87872314453 122.4811231 #(xmax=xmin+(cellsize*(ncols-1)) 30.130676269531 30.75467626 #(ymax=ymin+(cellsize*(ncols-1)) zmin zmax #(zmin≠zmax) 数据（将nodata由-9999替换成1.70141e38）
 surfer&amp;mdash;网格&amp;mdash;转换&amp;mdash;反射变换γ&amp;mdash;确定
 同理，可将surfer数据换头，转为gis可加载格式 </description>
-    </item>
-    
-    <item>
-      <title>GIS叠加</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E5%8F%A0%E5%8A%A0/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E5%8F%A0%E5%8A%A0/</guid>
-      <description>层次分析法，是指将与决策总是有关的元素分解成目标、准则、方案等层次，在此基础之上进行定性和定量分析的决策方法。
- 通过层次分析后，可得出各要素的权重值，将他们应用在GIS的要素叠加上
-重采样&amp;mdash;-所有要素重采样到相同大小网格
-重分类&amp;mdash;-根据大黄鱼最适生长环境、建造网箱最好条件设定适宜指数（1&amp;ndash;5）
-通过地图代数进行叠加</description>
     </item>
     
   </channel>
