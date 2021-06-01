@@ -7,11 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Fri, 26 Mar 2021 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SVM、XGBoost及其融合模型（voting）在分类上的效果</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/svmxgboost%E5%8F%8A%E5%85%B6%E8%9E%8D%E5%90%88%E6%A8%A1%E5%9E%8Bvoting%E5%9C%A8%E5%88%86%E7%B1%BB%E4%B8%8A%E7%9A%84%E6%95%88%E6%9E%9C/</link>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/svmxgboost%E5%8F%8A%E5%85%B6%E8%9E%8D%E5%90%88%E6%A8%A1%E5%9E%8Bvoting%E5%9C%A8%E5%88%86%E7%B1%BB%E4%B8%8A%E7%9A%84%E6%95%88%E6%9E%9C/</guid>
+      <description>1.将光谱数据通过单因素方差分析后，选取P值较小（差异显著）的参数，每种藻选择前20个，一共三种藻，添加随机数random，打乱顺序 2.简单计算每个参数间的相关性，进行观察 3.计算两种模型的预测结果（左），计算两种模型通过voting算法融合的预测结果（右） 4.模型融合后，准确率显著提高
+注 python代码如下：
+# 数据处理 import numpy as np import pandas as pd # 可视化 import matplotlib.pyplot as plt import seaborn as sns # 机器学习 from sklearn.preprocessing import LabelEncoder from sklearn.preprocessing import StandardScaler from sklearn.metrics import accuracy_score from sklearn.model_selection import cross_val_score from sklearn.model_selection import KFold from sklearn.model_selection import GridSearchCV from sklearn.model_selection import train_test_split from sklearn.linear_model import LogisticRegression from sklearn.neighbors import KNeighborsClassifier from sklearn.svm import SVC from sklearn.tree import DecisionTreeClassifier from sklearn.</description>
+    </item>
+    
+    <item>
+      <title>灰度共生矩阵（GLCM）进行生物量回归</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E7%81%B0%E5%BA%A6%E5%85%B1%E7%94%9F%E7%9F%A9%E9%98%B5glcm%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E9%87%8F%E5%9B%9E%E5%BD%92/</link>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E7%81%B0%E5%BA%A6%E5%85%B1%E7%94%9F%E7%9F%A9%E9%98%B5glcm%E8%BF%9B%E8%A1%8C%E7%94%9F%E7%89%A9%E9%87%8F%E5%9B%9E%E5%BD%92/</guid>
+      <description>1.通过matlab选择不同滑动窗口，获得灰度共生矩阵，并求得常用的一些参数，如熵，能量，同质性等（11张照片，每张照片4个特征参数） 2.通过python建模（Random Forest）进行简单回归，得到预测生物量及R方 注： matlab主要应用graycomatrix及graycoprops
+RF代码如下
+import pandas as pd import numpy as np from sklearn.model_selection import train_test_split import matplotlib.pyplot as plt #from sklearn import metrics from sklearn.metrics import r2_score from sklearn.ensemble import RandomForestRegressor from sklearn.model_selection import GridSearchCV seaweed_data = pd.read_csv(r&amp;#39;F:\biomass_feature.csv&amp;#39;, error_bad_lines=False) X = seaweed_data.drop([&amp;#34;biomass&amp;#34;], axis=1) y = seaweed_data[&amp;#34;biomass&amp;#34;] x_train, x_test, y_train, y_test = train_test_split(X, y, random_state=0) param_grid = { &amp;#39;n_estimators&amp;#39;: [5, 10, 20, 50, 100, 200],#决策树个数 &amp;#39;max_depth&amp;#39;: [3, 5, 7, 9],#最大树深 &amp;#39;max_features&amp;#39;: [0.</description>
+    </item>
+    
+    <item>
+      <title>坐标格式间批量转换</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%9D%90%E6%A0%87%E6%A0%BC%E5%BC%8F%E9%97%B4%E6%89%B9%E9%87%8F%E8%BD%AC%E6%8D%A2/</link>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%9D%90%E6%A0%87%E6%A0%BC%E5%BC%8F%E9%97%B4%E6%89%B9%E9%87%8F%E8%BD%AC%E6%8D%A2/</guid>
+      <description>通过百度坐标拾取、谷歌地球添加地标或其他方式获取的坐标点的格式不同（XXX.XXX°与XXX°XXX′XXX″），使用时需要转换，云端转换常常无法做到批量处理
+ 通过excel对坐标点进行批量转换
+left与find函数截取“度”的数值
+mid与find函数截取“分”的值并除以60
+mid与find函数截取“秒”的值并除以3600
+由于通过mid函数只能获取指定范围的切片，当实际切片与获得切片不符时，转换结果会出错
+为得到更准确的结果，需要对特定位置进行修改，如上图，需要将“2”改为“4”（获取20.9），转换结果正确
+转换为原始状态较为简单，只需使用text函数即可</description>
+    </item>
+    
     <item>
       <title>钢筋承力计算（悬臂梁）</title>
       <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E9%92%A2%E7%AD%8B%E6%89%BF%E5%8A%9B%E8%AE%A1%E7%AE%97/</link>
-      <pubDate>Fri, 26 Mar 2021 14:46:53 +0800</pubDate>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E9%92%A2%E7%AD%8B%E6%89%BF%E5%8A%9B%E8%AE%A1%E7%AE%97/</guid>
       <description>1.分析结构，得到结构简图；进行受力分析，得到受力分析图；计算弯矩，得到弯矩图
@@ -82,46 +120,6 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
       <description>SVM(support vector machine)支持向量机
 硬间隔（hard margin）SVM
 区别于硬间隔（hard-margin）算法，软间隔SVM引入一个松弛变量ξ，使SVM算法适用范围更广。</description>
-    </item>
-    
-    <item>
-      <title>GIs与surfer网格数据互相转换</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E4%B8%8Esurfer%E7%BD%91%E6%A0%BC%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E4%B8%8Esurfer%E7%BD%91%E6%A0%BC%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2/</guid>
-      <description>ASCⅡ吗打开Gis栅格文件（txt打开即可） 可得到如下格式
-ncols 252 #行数 nrows 262 #列数 xllcorner 121.87872314453 #最小x yllcorner 30.130676269531 #最小y cellsize 0.0024 #像元大小 NODATA_value -9999 #无数据 数据
-想要在surfer打开GIS网格数据，只需将上面数据转换成以下数据形式（surfer识别）即可
-DSAA ncols nrows 121.87872314453 122.4811231 #(xmax=xmin+(cellsize*(ncols-1)) 30.130676269531 30.75467626 #(ymax=ymin+(cellsize*(ncols-1)) zmin zmax #(zmin≠zmax) 数据（将nodata由-9999替换成1.70141e38）
-surfer&amp;mdash;网格&amp;mdash;转换&amp;mdash;反射变换γ&amp;mdash;确定
-同理，可将surfer数据换头，转为gis可加载格式 </description>
-    </item>
-    
-    <item>
-      <title>GIS叠加</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E5%8F%A0%E5%8A%A0/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/gis%E5%8F%A0%E5%8A%A0/</guid>
-      <description>层次分析法，是指将与决策总是有关的元素分解成目标、准则、方案等层次，在此基础之上进行定性和定量分析的决策方法。
- 通过层次分析后，可得出各要素的权重值，将他们应用在GIS的要素叠加上
-重采样&amp;mdash;-所有要素重采样到相同大小网格
-重分类&amp;mdash;-根据大黄鱼最适生长环境、建造网箱最好条件设定适宜指数（1&amp;ndash;5）
-通过地图代数进行叠加</description>
-    </item>
-    
-    <item>
-      <title>主成分分析（PCA）</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90pca/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90pca/</guid>
-      <description>主成分分析，是指通过正交变换将一组可能存在相关性的变量转换为一组线性不相关的变量，转换后的这组变量叫主成分，是一个无量纲值。
-通过excel进行主成分分析 （实际为求数据的特征向量与特征根）
-录入一组数据，通过下式进行标准化
-由此可知，如果仅取第一主成分，可反映原来数据85.28%的信息，虽然丢弃第二主成分（14.72%的信息），但变量自由度减少一个。
-通过特征变量转换，将标准化处理后的数据X，转换为第一主成分z1第二主成分z2 主成分z1即可代表原来数据中85%的信息。</description>
     </item>
     
   </channel>

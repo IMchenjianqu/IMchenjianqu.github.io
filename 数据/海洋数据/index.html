@@ -16,7 +16,7 @@
 pro readcurrent,inpath,x1,x2,y1,y2,outpath unit=10 unitAVG=1 openr,unit,inpath path=&#39;&#39; readf,unit,path pathList=[path] while ~EOF(unit ) do begin readf,unit,path if(strlen(path)gt 1) then begin pathList=[pathList,path] endif else begin ; pathList=[path] endelse endwhile free_lun,unit unit=12 openw,unit,outpath,/GET_LUN printf,unit,&#34;date,year,month,day,lon,lat,current_speed,current_direction,U,V&#34; for i=0,N_ELEMENTS(pathList)-1 do begin print,pathList[i] ; readOneSSH,pathList[i],x1,x2,y1,y2,unit print,pathList[i] endfor free_LUN,unit end function GetRad,u,v if(u eq 0) then begin if(v gt 0) then begin return, 3.1415926/2.0 endif else begin return, 3.1415926/2.0*3.0 endelse endif else begin tn=atan(v/u) if(u gt 0) then begin return, tn lt 0?">
 <meta itemprop="datePublished" content="2020-12-12T14:46:53+08:00" />
 <meta itemprop="dateModified" content="2020-12-12T14:46:53+08:00" />
-<meta itemprop="wordCount" content="531">
+<meta itemprop="wordCount" content="265">
 
 
 
@@ -91,45 +91,45 @@ pro readcurrent,inpath,x1,x2,y1,y2,outpath unit=10 unitAVG=1 openr,unit,inpath p
 <p>选择合适范围、时间、水层后，下载数据</p>
 <p>若为模式数据<code>model</code>,分别通过以下IDL读取</p>
 <p>读取海流</p>
-<div class="highlight"><pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">pro</span> <span class="n">readcurrent</span><span class="p">,</span><span class="n">inpath</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">outpath</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pro</span> <span class="n">readcurrent</span><span class="p">,</span><span class="n">inpath</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">outpath</span>
 
 
 
-  <span class="n">unit</span><span class="p">=</span><span class="mi">10</span>
+  <span class="n">unit</span><span class="o">=</span><span class="mi">10</span>
 
-  <span class="n">unitAVG</span><span class="p">=</span><span class="mi">1</span>
+  <span class="n">unitAVG</span><span class="o">=</span><span class="mi">1</span>
 
   <span class="n">openr</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">inpath</span>
-  <span class="n">path</span><span class="p">=</span><span class="s">&#39;&#39;</span>
+  <span class="n">path</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
 
   <span class="n">readf</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">path</span>
-  <span class="n">pathList</span><span class="p">=[</span><span class="n">path</span><span class="p">]</span>
+  <span class="n">pathList</span><span class="o">=</span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
   <span class="k">while</span> <span class="o">~</span><span class="n">EOF</span><span class="p">(</span><span class="n">unit</span> <span class="p">)</span> <span class="n">do</span> <span class="n">begin</span>
     <span class="n">readf</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">path</span>
     <span class="k">if</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="n">gt</span> <span class="mi">1</span><span class="p">)</span> <span class="n">then</span>  <span class="n">begin</span>
 
-      <span class="n">pathList</span><span class="p">=[</span><span class="n">pathList</span><span class="p">,</span><span class="n">path</span><span class="p">]</span>
+      <span class="n">pathList</span><span class="o">=</span><span class="p">[</span><span class="n">pathList</span><span class="p">,</span><span class="n">path</span><span class="p">]</span>
     <span class="n">endif</span> <span class="k">else</span> <span class="n">begin</span>
-      <span class="p">;</span> <span class="n">pathList</span><span class="p">=[</span><span class="n">path</span><span class="p">]</span>
+      <span class="p">;</span> <span class="n">pathList</span><span class="o">=</span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
     <span class="n">endelse</span>
   <span class="n">endwhile</span>
   <span class="n">free_lun</span><span class="p">,</span><span class="n">unit</span>
 
- <span class="n">unit</span><span class="p">=</span><span class="mi">12</span>
+ <span class="n">unit</span><span class="o">=</span><span class="mi">12</span>
   <span class="n">openw</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">outpath</span><span class="p">,</span><span class="o">/</span><span class="n">GET_LUN</span>
   
   
-<span class="n">printf</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span>&#34;<span class="n">date</span><span class="p">,</span><span class="n">year</span><span class="p">,</span><span class="n">month</span><span class="p">,</span><span class="n">day</span><span class="p">,</span><span class="n">lon</span><span class="p">,</span><span class="n">lat</span><span class="p">,</span><span class="n">current_speed</span><span class="p">,</span><span class="n">current_direction</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">V</span>&#34;
-  <span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">0</span><span class="p">,</span><span class="n">N_ELEMENTS</span><span class="p">(</span><span class="n">pathList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
-    <span class="n">print</span><span class="p">,</span><span class="n">pathList</span><span class="p">[</span><span class="nb">i</span><span class="p">]</span>
+<span class="n">printf</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="s2">&#34;date,year,month,day,lon,lat,current_speed,current_direction,U,V&#34;</span>
+  <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">N_ELEMENTS</span><span class="p">(</span><span class="n">pathList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
+    <span class="k">print</span><span class="p">,</span><span class="n">pathList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="p">;</span>
-    <span class="n">readOneSSH</span><span class="p">,</span><span class="n">pathList</span><span class="p">[</span><span class="nb">i</span><span class="p">],</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">unit</span>
-    <span class="n">print</span><span class="p">,</span><span class="n">pathList</span><span class="p">[</span><span class="nb">i</span><span class="p">]</span>
+    <span class="n">readOneSSH</span><span class="p">,</span><span class="n">pathList</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">unit</span>
+    <span class="k">print</span><span class="p">,</span><span class="n">pathList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
   <span class="n">endfor</span>
   <span class="n">free_LUN</span><span class="p">,</span><span class="n">unit</span>
 
-<span class="k">end</span>
-<span class="k">function</span> <span class="nf">GetRad</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">v</span>
+<span class="n">end</span>
+<span class="n">function</span> <span class="n">GetRad</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">v</span>
 <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="n">eq</span> <span class="mi">0</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
  <span class="k">if</span><span class="p">(</span><span class="n">v</span> <span class="n">gt</span> <span class="mi">0</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span> 
  <span class="k">return</span><span class="p">,</span> <span class="mf">3.1415926</span><span class="o">/</span><span class="mf">2.0</span>
@@ -137,257 +137,108 @@ pro readcurrent,inpath,x1,x2,y1,y2,outpath unit=10 unitAVG=1 openr,unit,inpath p
  <span class="k">return</span><span class="p">,</span> <span class="mf">3.1415926</span><span class="o">/</span><span class="mf">2.0</span><span class="o">*</span><span class="mf">3.0</span>
  <span class="n">endelse</span>
  <span class="n">endif</span> <span class="k">else</span> <span class="n">begin</span>
- <span class="n">tn</span><span class="p">=</span><span class="nb">atan</span><span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="n">u</span><span class="p">)</span>
+ <span class="n">tn</span><span class="o">=</span><span class="n">atan</span><span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="n">u</span><span class="p">)</span>
  
  <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="n">gt</span> <span class="mi">0</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
   
- <span class="k">return</span><span class="p">,</span> <span class="n">tn</span> <span class="n">lt</span> <span class="mi">0</span>?<span class="n">tn</span><span class="o">+</span><span class="mf">3.1415926</span><span class="o">*</span><span class="mi">2</span><span class="p">:</span><span class="n">tn</span>
+ <span class="k">return</span><span class="p">,</span> <span class="n">tn</span> <span class="n">lt</span> <span class="mi">0</span><span class="err">?</span><span class="n">tn</span><span class="o">+</span><span class="mf">3.1415926</span><span class="o">*</span><span class="mi">2</span><span class="p">:</span><span class="n">tn</span>
  <span class="n">endif</span> <span class="k">else</span> <span class="n">begin</span>
   <span class="k">return</span><span class="p">,</span> <span class="n">tn</span><span class="o">+</span><span class="mf">3.1415926</span>
  <span class="n">endelse</span> 
  <span class="n">endelse</span>
  
- <span class="n">tn</span><span class="p">=</span><span class="nb">atan</span><span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="n">u</span><span class="p">)</span>
-<span class="k">end</span>
+ <span class="n">tn</span><span class="o">=</span><span class="n">atan</span><span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="n">u</span><span class="p">)</span>
+<span class="n">end</span>
 <span class="n">pro</span> <span class="n">readOneSSH</span><span class="p">,</span><span class="n">inPath</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">outunit</span>
 
-  <span class="p">;</span> <span class="n">finame</span> <span class="p">=</span> <span class="s">&#39;d:\test\R20110327_prof.nc&#39;</span>
-  <span class="n">finame</span><span class="p">=</span><span class="n">inPath</span><span class="p">;</span><span class="s">&#39;D:\test\dt_ref_global_merged_msla_h_y1992_m12.nc\dt_ref_global_merged_msla_h_y1992_m12.nc&#39;</span>
+  <span class="p">;</span> <span class="n">finame</span> <span class="o">=</span> <span class="s1">&#39;d:</span><span class="se">\t</span><span class="s1">est\R20110327_prof.nc&#39;</span>
+  <span class="n">finame</span><span class="o">=</span><span class="n">inPath</span><span class="p">;</span><span class="s1">&#39;D:</span><span class="se">\t</span><span class="s1">est\dt_ref_global_merged_msla_h_y1992_m12.nc\dt_ref_global_merged_msla_h_y1992_m12.nc&#39;</span>
   
-  <span class="p">;</span><span class="n">finame</span><span class="p">=</span><span class="s">&#39;F:\Program Files\ADE_1_2\sample_data\GFS20110410032056_1.NC&#39;</span>
-  <span class="n">NCid</span> <span class="p">=</span> <span class="n">NCDF_OPEN</span><span class="p">(</span><span class="n">finame</span><span class="p">)</span>
-  <span class="n">NCinfo</span> <span class="p">=</span> <span class="n">NCDF_INQUIRE</span><span class="p">(</span><span class="n">NCid</span><span class="p">)</span>
-  <span class="n">print</span><span class="p">,</span><span class="n">NCinfo</span>
+  <span class="p">;</span><span class="n">finame</span><span class="o">=</span><span class="s1">&#39;F:\Program Files\ADE_1_2\sample_data\GFS20110410032056_1.NC&#39;</span>
+  <span class="n">NCid</span> <span class="o">=</span> <span class="n">NCDF_OPEN</span><span class="p">(</span><span class="n">finame</span><span class="p">)</span>
+  <span class="n">NCinfo</span> <span class="o">=</span> <span class="n">NCDF_INQUIRE</span><span class="p">(</span><span class="n">NCid</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">,</span><span class="n">NCinfo</span>
 
-  <span class="p">;</span>  <span class="n">print</span><span class="p">,</span> <span class="n">NCinfo</span><span class="p">.</span><span class="n">Nvars</span>
+  <span class="p">;</span>  <span class="k">print</span><span class="p">,</span> <span class="n">NCinfo</span><span class="o">.</span><span class="n">Nvars</span>
 
-  <span class="p">;</span> ��ѯ<span class="n">NC</span>�ļ��еı������Լ������� <span class="n">att</span> ��Ϣ
-  <span class="n">lon</span><span class="p">=</span>&#34;&#34;
-  <span class="n">lat</span><span class="p">=</span>&#34;&#34;
-  <span class="n">ssh</span><span class="p">=</span>&#34;&#34;
-  <span class="n">td</span><span class="p">=</span>&#34;&#34;
-  <span class="k">for</span> <span class="n">iAtt</span><span class="p">=</span><span class="mi">0</span><span class="p">,</span><span class="n">NCinfo</span><span class="p">.</span><span class="n">NGATTS</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
-    <span class="n">attInfo</span><span class="p">=</span><span class="n">NCDF_attname</span><span class="p">(</span><span class="n">ncid</span><span class="p">,</span><span class="o">/</span><span class="k">global</span><span class="p">,</span><span class="n">iAtt</span><span class="p">)</span>
+  <span class="p">;</span> <span class="err">��ѯ</span><span class="n">NC</span><span class="err">�ļ��еı������Լ�������</span> <span class="n">att</span> <span class="err">��Ϣ</span>
+  <span class="n">lon</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+  <span class="n">lat</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+  <span class="n">ssh</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+  <span class="n">td</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+  <span class="k">for</span> <span class="n">iAtt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">NCinfo</span><span class="o">.</span><span class="n">NGATTS</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
+    <span class="n">attInfo</span><span class="o">=</span><span class="n">NCDF_attname</span><span class="p">(</span><span class="n">ncid</span><span class="p">,</span><span class="o">/</span><span class="k">global</span><span class="p">,</span><span class="n">iAtt</span><span class="p">)</span>
     <span class="n">NCDF_ATTGet</span><span class="p">,</span><span class="n">ncid</span><span class="p">,</span><span class="o">/</span><span class="k">global</span><span class="p">,</span><span class="n">attinfo</span><span class="p">,</span><span class="n">attVar</span>
-    <span class="n">print</span><span class="p">,</span><span class="n">attInfo</span>
+    <span class="k">print</span><span class="p">,</span><span class="n">attInfo</span>
   <span class="n">endfor</span>
 
-  <span class="n">FOR</span> <span class="n">iVar</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NCinfo</span><span class="p">.</span><span class="n">Nvars</span><span class="o">-</span><span class="mi">1</span> <span class="n">DO</span> <span class="n">BEGIN</span>
-    <span class="n">Varinfo</span> <span class="p">=</span> <span class="n">NCDF_VARINQ</span><span class="p">(</span><span class="n">NCid</span><span class="p">,</span> <span class="n">iVar</span><span class="p">)</span>
-    <span class="n">print</span><span class="p">,</span> &#34;<span class="n">Var</span> <span class="n">Name</span><span class="p">:</span> &#34;<span class="p">,</span> <span class="n">Varinfo</span><span class="p">.</span><span class="n">Name</span>
-    <span class="n">print</span><span class="p">,</span> &#34;<span class="n">Att</span> <span class="n">Number</span><span class="p">:</span> &#34;<span class="p">,</span> <span class="n">Varinfo</span><span class="p">.</span><span class="n">Natts</span>
-    <span class="n">Dataid</span><span class="p">=</span><span class="n">NCDF_VARID</span><span class="p">(</span><span class="n">NCid</span><span class="p">,</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+  <span class="n">FOR</span> <span class="n">iVar</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NCinfo</span><span class="o">.</span><span class="n">Nvars</span><span class="o">-</span><span class="mi">1</span> <span class="n">DO</span> <span class="n">BEGIN</span>
+    <span class="n">Varinfo</span> <span class="o">=</span> <span class="n">NCDF_VARINQ</span><span class="p">(</span><span class="n">NCid</span><span class="p">,</span> <span class="n">iVar</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">,</span> <span class="s2">&#34;Var Name: &#34;</span><span class="p">,</span> <span class="n">Varinfo</span><span class="o">.</span><span class="n">Name</span>
+    <span class="k">print</span><span class="p">,</span> <span class="s2">&#34;Att Number: &#34;</span><span class="p">,</span> <span class="n">Varinfo</span><span class="o">.</span><span class="n">Natts</span>
+    <span class="n">Dataid</span><span class="o">=</span><span class="n">NCDF_VARID</span><span class="p">(</span><span class="n">NCid</span><span class="p">,</span><span class="n">Varinfo</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
     <span class="n">NCDF_VARGET</span><span class="p">,</span><span class="n">NCid</span><span class="p">,</span><span class="n">Dataid</span><span class="p">,</span><span class="n">DataP</span>
-    <span class="p">;</span><span class="n">print</span><span class="p">,</span>&#34;个数&#34;<span class="p">,</span><span class="n">N_Elements</span><span class="p">(</span><span class="n">DataP</span><span class="p">)</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">time</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">td</span><span class="p">=</span><span class="n">DataP</span>
+    <span class="p">;</span><span class="k">print</span><span class="p">,</span><span class="s2">&#34;个数&#34;</span><span class="p">,</span><span class="n">N_Elements</span><span class="p">(</span><span class="n">DataP</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="o">.</span><span class="n">name</span> <span class="n">eq</span> <span class="s2">&#34;time&#34;</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
+      <span class="n">td</span><span class="o">=</span><span class="n">DataP</span>
     <span class="n">endif</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">longitude</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">lon</span><span class="p">=</span><span class="n">DataP</span>
-      <span class="p">;</span><span class="n">print</span><span class="p">,</span>&#34;<span class="n">X</span><span class="p">:</span>&#34;<span class="p">,</span><span class="n">min</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="n">max</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="o">.</span><span class="n">name</span> <span class="n">eq</span> <span class="s2">&#34;longitude&#34;</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
+      <span class="n">lon</span><span class="o">=</span><span class="n">DataP</span>
+      <span class="p">;</span><span class="k">print</span><span class="p">,</span><span class="s2">&#34;X:&#34;</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="nb">max</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span>
     <span class="n">endif</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">latitude</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">lat</span><span class="p">=</span><span class="n">DataP</span>
-      <span class="p">;</span><span class="n">print</span><span class="p">,</span>&#34;<span class="n">y</span><span class="p">:</span>&#34;<span class="p">,</span><span class="n">min</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="n">max</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="o">.</span><span class="n">name</span> <span class="n">eq</span> <span class="s2">&#34;latitude&#34;</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
+      <span class="n">lat</span><span class="o">=</span><span class="n">DataP</span>
+      <span class="p">;</span><span class="k">print</span><span class="p">,</span><span class="s2">&#34;y:&#34;</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="nb">max</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
     <span class="n">endif</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">vo</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">V</span><span class="p">=</span><span class="n">DataP</span>
-      <span class="p">;</span><span class="n">print</span><span class="p">,</span>&#34;<span class="n">ssh</span><span class="p">:</span>&#34;<span class="p">,</span><span class="n">min</span><span class="p">(</span><span class="n">ssh</span><span class="p">),</span><span class="n">max</span><span class="p">(</span><span class="n">ssh</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="o">.</span><span class="n">name</span> <span class="n">eq</span> <span class="s2">&#34;vo&#34;</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
+      <span class="n">V</span><span class="o">=</span><span class="n">DataP</span>
+      <span class="p">;</span><span class="k">print</span><span class="p">,</span><span class="s2">&#34;ssh:&#34;</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">ssh</span><span class="p">),</span><span class="nb">max</span><span class="p">(</span><span class="n">ssh</span><span class="p">)</span>
     <span class="n">endif</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">uo</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">U</span><span class="p">=</span><span class="n">DataP</span>
-      <span class="p">;</span><span class="n">print</span><span class="p">,</span>&#34;<span class="n">ssh</span><span class="p">:</span>&#34;<span class="p">,</span><span class="n">min</span><span class="p">(</span><span class="n">ssh</span><span class="p">),</span><span class="n">max</span><span class="p">(</span><span class="n">ssh</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="o">.</span><span class="n">name</span> <span class="n">eq</span> <span class="s2">&#34;uo&#34;</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
+      <span class="n">U</span><span class="o">=</span><span class="n">DataP</span>
+      <span class="p">;</span><span class="k">print</span><span class="p">,</span><span class="s2">&#34;ssh:&#34;</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">ssh</span><span class="p">),</span><span class="nb">max</span><span class="p">(</span><span class="n">ssh</span><span class="p">)</span>
     <span class="n">endif</span>
 
-    <span class="n">FOR</span> <span class="n">iAtt</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Varinfo</span><span class="p">.</span><span class="n">Natts</span><span class="o">-</span><span class="mi">1</span> <span class="n">DO</span> <span class="n">BEGIN</span>
-      <span class="n">AttName</span> <span class="p">=</span> <span class="n">NCDF_ATTNAME</span><span class="p">(</span><span class="n">NCid</span><span class="p">,</span> <span class="n">iVar</span><span class="p">,</span> <span class="n">iAtt</span><span class="p">)</span>
+    <span class="n">FOR</span> <span class="n">iAtt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Varinfo</span><span class="o">.</span><span class="n">Natts</span><span class="o">-</span><span class="mi">1</span> <span class="n">DO</span> <span class="n">BEGIN</span>
+      <span class="n">AttName</span> <span class="o">=</span> <span class="n">NCDF_ATTNAME</span><span class="p">(</span><span class="n">NCid</span><span class="p">,</span> <span class="n">iVar</span><span class="p">,</span> <span class="n">iAtt</span><span class="p">)</span>
       <span class="n">NCDF_ATTGET</span><span class="p">,</span> <span class="n">NCid</span><span class="p">,</span> <span class="n">iVar</span><span class="p">,</span> <span class="n">AttName</span><span class="p">,</span> <span class="n">Att</span>
-      <span class="n">print</span><span class="p">,</span> <span class="n">AttName</span><span class="p">,</span> &#34;<span class="p">:</span>  &#34;<span class="p">,</span> <span class="n">STRING</span><span class="p">(</span><span class="n">Att</span><span class="p">)</span>
+      <span class="k">print</span><span class="p">,</span> <span class="n">AttName</span><span class="p">,</span> <span class="s2">&#34;:  &#34;</span><span class="p">,</span> <span class="n">STRING</span><span class="p">(</span><span class="n">Att</span><span class="p">)</span>
     <span class="n">ENDFOR</span>
-    <span class="n">print</span><span class="p">,</span> &#34;<span class="o">==========</span>&#34;
+    <span class="k">print</span><span class="p">,</span> <span class="s2">&#34;==========&#34;</span>
   <span class="n">ENDFOR</span>
-  <span class="n">unit</span><span class="p">=</span><span class="mi">10</span>
-  <span class="p">;</span><span class="n">openw</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">outPath</span><span class="o">+</span>&#34;<span class="n">chile1</span><span class="p">.</span><span class="n">TXT</span>&#34;<span class="p">,</span><span class="o">/</span><span class="n">GET_LUN</span>
-  <span class="p">;</span><span class="n">printf</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span>&#34;<span class="n">rq</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">ssh</span>&#34;
+  <span class="n">unit</span><span class="o">=</span><span class="mi">10</span>
+  <span class="p">;</span><span class="n">openw</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">outPath</span><span class="o">+</span><span class="s2">&#34;chile1.TXT&#34;</span><span class="p">,</span><span class="o">/</span><span class="n">GET_LUN</span>
+  <span class="p">;</span><span class="n">printf</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="s2">&#34;rq,x,y,ssh&#34;</span>
 
   <span class="p">;</span><span class="k">if</span> <span class="p">(</span><span class="n">uint</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">ge</span> <span class="mi">2002</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
  
-<span class="p">;</span><span class="n">print</span><span class="p">,</span><span class="n">td</span>
-  <span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">0</span><span class="n">L</span> <span class="p">,</span> <span class="n">N_Elements</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
-    <span class="k">for</span> <span class="nb">j</span><span class="p">=</span><span class="mi">0</span><span class="n">L</span><span class="p">,</span><span class="n">N_Elements</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
-      <span class="k">for</span> <span class="n">k</span><span class="p">=</span><span class="mi">0</span><span class="n">L</span><span class="p">,</span><span class="n">N_Elements</span><span class="p">(</span><span class="n">td</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
+<span class="p">;</span><span class="k">print</span><span class="p">,</span><span class="n">td</span>
+  <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="il">0L</span> <span class="p">,</span> <span class="n">N_Elements</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
+    <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="il">0L</span><span class="p">,</span><span class="n">N_Elements</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
+      <span class="k">for</span> <span class="n">k</span><span class="o">=</span><span class="il">0L</span><span class="p">,</span><span class="n">N_Elements</span><span class="p">(</span><span class="n">td</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
      
         <span class="n">CALDAT</span><span class="p">,</span> <span class="n">julday</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1950</span><span class="p">)</span><span class="o">+</span><span class="n">td</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">yr</span>
         
-        <span class="p">;</span><span class="n">print</span><span class="p">,</span><span class="n">strtrim</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">strtrim</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="n">lon</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">lat</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span><span class="n">ssh</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">),</span><span class="n">format</span><span class="p">=</span>&#34;<span class="p">(</span><span class="n">A4</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>&#34;
-        <span class="p">;</span><span class="n">print</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">m</span><span class="p">,</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">lon</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">lat</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">ssh</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">),</span> <span class="n">Format</span><span class="p">=</span><span class="s">&#39;(A4,A2,A1,F8.2,A1,F8.2,A1,F8.2)&#39;</span>
-        <span class="n">dtStr</span><span class="p">=</span><span class="n">string</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;-&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;-&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;,&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;,&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;,&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;,&#39;</span>
-        <span class="n">dtStr</span><span class="p">=</span><span class="n">STRCOMPRESS</span><span class="p">(</span><span class="n">dtStr</span><span class="p">,</span><span class="o">/</span><span class="n">Remove_all</span><span class="p">)</span>
-        <span class="n">uVal</span><span class="p">=</span><span class="n">U</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="mf">0.00061037019</span>
-        <span class="n">vVal</span><span class="p">=</span><span class="n">V</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="mf">0.00061037019</span>
-        <span class="n">Rad</span><span class="p">=</span><span class="n">GetRad</span><span class="p">(</span><span class="n">uVal</span><span class="p">,</span><span class="n">vVal</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="mf">3.1415926</span>
-        <span class="n">scale</span><span class="p">=</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">uVal</span><span class="o">*</span><span class="n">uVal</span><span class="o">+</span><span class="n">vVal</span><span class="o">*</span><span class="n">vVal</span><span class="p">)</span>
-       <span class="p">;</span> <span class="n">print</span><span class="p">,</span><span class="n">yr</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">lon</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">lat</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span><span class="n">uVal</span><span class="p">,</span><span class="n">vVal</span><span class="p">,</span><span class="n">Rad</span><span class="p">,</span><span class="n">scale</span>
-        <span class="n">printF</span><span class="p">,</span><span class="n">outunit</span><span class="p">,</span><span class="n">dtStr</span><span class="p">,</span><span class="n">lon</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">lat</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">scale</span><span class="p">,</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">Rad</span><span class="p">,</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">uVal</span><span class="p">,</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">vVal</span><span class="p">,</span> <span class="n">Format</span><span class="p">=</span><span class="s">&#39;(A,F,A1,F,A1,F,A1,F,A1,F,A1,F)&#39;</span>
+        <span class="p">;</span><span class="k">print</span><span class="p">,</span><span class="n">strtrim</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">strtrim</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="n">lon</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">lat</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="n">ssh</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="n">format</span><span class="o">=</span><span class="s2">&#34;(A4,A2,f,f,f)&#34;</span>
+        <span class="p">;</span><span class="k">print</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="s2">&#34;,&#34;</span><span class="p">,</span><span class="n">lon</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="s2">&#34;,&#34;</span><span class="p">,</span><span class="n">lat</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="s2">&#34;,&#34;</span><span class="p">,</span><span class="n">ssh</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">),</span> <span class="n">Format</span><span class="o">=</span><span class="s1">&#39;(A4,A2,A1,F8.2,A1,F8.2,A1,F8.2)&#39;</span>
+        <span class="n">dtStr</span><span class="o">=</span><span class="n">string</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;,&#39;</span>
+        <span class="n">dtStr</span><span class="o">=</span><span class="n">STRCOMPRESS</span><span class="p">(</span><span class="n">dtStr</span><span class="p">,</span><span class="o">/</span><span class="n">Remove_all</span><span class="p">)</span>
+        <span class="n">uVal</span><span class="o">=</span><span class="n">U</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="mf">0.00061037019</span>
+        <span class="n">vVal</span><span class="o">=</span><span class="n">V</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="mf">0.00061037019</span>
+        <span class="n">Rad</span><span class="o">=</span><span class="n">GetRad</span><span class="p">(</span><span class="n">uVal</span><span class="p">,</span><span class="n">vVal</span><span class="p">)</span><span class="o">*</span><span class="mi">180</span><span class="o">/</span><span class="mf">3.1415926</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">sqrt</span><span class="p">(</span><span class="n">uVal</span><span class="o">*</span><span class="n">uVal</span><span class="o">+</span><span class="n">vVal</span><span class="o">*</span><span class="n">vVal</span><span class="p">)</span>
+       <span class="p">;</span> <span class="k">print</span><span class="p">,</span><span class="n">yr</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">lon</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">lat</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="n">uVal</span><span class="p">,</span><span class="n">vVal</span><span class="p">,</span><span class="n">Rad</span><span class="p">,</span><span class="n">scale</span>
+        <span class="n">printF</span><span class="p">,</span><span class="n">outunit</span><span class="p">,</span><span class="n">dtStr</span><span class="p">,</span><span class="n">lon</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="s2">&#34;,&#34;</span><span class="p">,</span><span class="n">lat</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="s2">&#34;,&#34;</span><span class="p">,</span><span class="n">scale</span><span class="p">,</span><span class="s2">&#34;,&#34;</span><span class="p">,</span><span class="n">Rad</span><span class="p">,</span><span class="s2">&#34;,&#34;</span><span class="p">,</span><span class="n">uVal</span><span class="p">,</span><span class="s2">&#34;,&#34;</span><span class="p">,</span><span class="n">vVal</span><span class="p">,</span> <span class="n">Format</span><span class="o">=</span><span class="s1">&#39;(A,F,A1,F,A1,F,A1,F,A1,F,A1,F)&#39;</span>
      <span class="p">;</span> <span class="n">endif</span>
     <span class="n">endfor</span>
   <span class="n">endfor</span>
 <span class="n">endfor</span>
   <span class="p">;</span><span class="n">endif</span><span class="p">;</span><span class="k">if</span> <span class="o">&gt;</span><span class="mi">2002</span>
   <span class="n">ncdf_close</span><span class="p">,</span><span class="n">NCid</span>
-<span class="k">end</span>
+<span class="n">end</span>
 </code></pre></div><p>读取方法为：
 <code>IDL&gt; readcurrent,'C:\Users\hp\Desktop\read_NC_example\read_NC_example\data1List.txt',0,360,-90,90,'C:\Users\hp\Desktop\read_NC_example\read_NC_example\result\XXX.csv'</code></p>
-<p>同理，海温为：</p>
-<div class="highlight"><pre class="chroma"><code class="language-matlab" data-lang="matlab"><span class="n">pro</span> <span class="n">readsst</span><span class="p">,</span><span class="n">inpath</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">outpath</span>
 
-
-
-  <span class="n">unit</span><span class="p">=</span><span class="mi">10</span>
-
-  <span class="n">unitAVG</span><span class="p">=</span><span class="mi">1</span>
-
-  <span class="n">openr</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">inpath</span>
-  <span class="n">path</span><span class="p">=</span><span class="s">&#39;&#39;</span>
-
-  <span class="n">readf</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">path</span>
-  <span class="n">pathList</span><span class="p">=[</span><span class="n">path</span><span class="p">]</span>
-  <span class="k">while</span> <span class="o">~</span><span class="n">EOF</span><span class="p">(</span><span class="n">unit</span> <span class="p">)</span> <span class="n">do</span> <span class="n">begin</span>
-    <span class="n">readf</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">path</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="n">gt</span> <span class="mi">1</span><span class="p">)</span> <span class="n">then</span>  <span class="n">begin</span>
-
-      <span class="n">pathList</span><span class="p">=[</span><span class="n">pathList</span><span class="p">,</span><span class="n">path</span><span class="p">]</span>
-    <span class="n">endif</span> <span class="k">else</span> <span class="n">begin</span>
-      <span class="p">;</span> <span class="n">pathList</span><span class="p">=[</span><span class="n">path</span><span class="p">]</span>
-    <span class="n">endelse</span>
-  <span class="n">endwhile</span>
-  <span class="n">free_lun</span><span class="p">,</span><span class="n">unit</span>
-
-  <span class="n">unit</span><span class="p">=</span><span class="mi">12</span>
-  <span class="n">openw</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">outpath</span><span class="p">,</span><span class="o">/</span><span class="n">GET_LUN</span>
-<span class="n">printf</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span>&#34;<span class="n">date</span><span class="p">,</span><span class="n">year</span><span class="p">,</span><span class="n">month</span><span class="p">,</span><span class="n">day</span><span class="p">,</span><span class="n">lon</span><span class="p">,</span><span class="n">lat</span><span class="p">,</span><span class="n">sst</span>&#34;
-  <span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">0</span><span class="p">,</span><span class="n">N_ELEMENTS</span><span class="p">(</span><span class="n">pathList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
-    <span class="n">print</span><span class="p">,</span><span class="n">pathList</span><span class="p">[</span><span class="nb">i</span><span class="p">]</span>
-    <span class="p">;</span>
-    <span class="n">readOneSSH</span><span class="p">,</span><span class="n">pathList</span><span class="p">[</span><span class="nb">i</span><span class="p">],</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">unit</span>
-    <span class="n">print</span><span class="p">,</span><span class="n">pathList</span><span class="p">[</span><span class="nb">i</span><span class="p">]</span>
-  <span class="n">endfor</span>
-  <span class="n">free_LUN</span><span class="p">,</span><span class="n">unit</span>
-
-<span class="k">end</span>
-<span class="k">function</span> <span class="nf">GetRad</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">v</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="n">eq</span> <span class="mi">0</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">v</span> <span class="n">gt</span> <span class="mi">0</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="k">return</span><span class="p">,</span> <span class="mf">3.1415926</span><span class="o">/</span><span class="mf">2.0</span>
-    <span class="n">endif</span> <span class="k">else</span> <span class="n">begin</span>
-      <span class="k">return</span><span class="p">,</span> <span class="mf">3.1415926</span><span class="o">/</span><span class="mf">2.0</span><span class="o">*</span><span class="mf">3.0</span>
-    <span class="n">endelse</span>
-  <span class="n">endif</span> <span class="k">else</span> <span class="n">begin</span>
-    <span class="n">tn</span><span class="p">=</span><span class="nb">atan</span><span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="n">u</span><span class="p">)</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="n">gt</span> <span class="mi">0</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-
-      <span class="k">return</span><span class="p">,</span> <span class="n">tn</span> <span class="n">lt</span> <span class="mi">0</span>?<span class="n">tn</span><span class="o">+</span><span class="mf">3.1415926</span><span class="o">*</span><span class="mi">2</span><span class="p">:</span><span class="n">tn</span>
-    <span class="n">endif</span> <span class="k">else</span> <span class="n">begin</span>
-      <span class="k">return</span><span class="p">,</span> <span class="n">tn</span><span class="o">+</span><span class="mf">3.1415926</span>
-    <span class="n">endelse</span>
-  <span class="n">endelse</span>
-
-  <span class="n">tn</span><span class="p">=</span><span class="nb">atan</span><span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="n">u</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="n">pro</span> <span class="n">readOneSSH</span><span class="p">,</span><span class="n">inPath</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">outunit</span>
-
-  <span class="p">;</span> <span class="n">finame</span> <span class="p">=</span> <span class="s">&#39;d:\test\R20110327_prof.nc&#39;</span>
-  <span class="n">finame</span><span class="p">=</span><span class="n">inPath</span><span class="p">;</span><span class="s">&#39;D:\test\dt_ref_global_merged_msla_h_y1992_m12.nc\dt_ref_global_merged_msla_h_y1992_m12.nc&#39;</span>
-
-  <span class="p">;</span><span class="n">finame</span><span class="p">=</span><span class="s">&#39;F:\Program Files\ADE_1_2\sample_data\GFS20110410032056_1.NC&#39;</span>
-  <span class="n">NCid</span> <span class="p">=</span> <span class="n">NCDF_OPEN</span><span class="p">(</span><span class="n">finame</span><span class="p">)</span>
-  <span class="n">NCinfo</span> <span class="p">=</span> <span class="n">NCDF_INQUIRE</span><span class="p">(</span><span class="n">NCid</span><span class="p">)</span>
-  <span class="n">print</span><span class="p">,</span><span class="n">NCinfo</span>
-
-  <span class="p">;</span>  <span class="n">print</span><span class="p">,</span> <span class="n">NCinfo</span><span class="p">.</span><span class="n">Nvars</span>
-
-  <span class="p">;</span> ��ѯ<span class="n">NC</span>�ļ��еı������Լ������� <span class="n">att</span> ��Ϣ
-  <span class="n">lon</span><span class="p">=</span>&#34;&#34;
-  <span class="n">lat</span><span class="p">=</span>&#34;&#34;
-  <span class="n">ssh</span><span class="p">=</span>&#34;&#34;
-  <span class="n">td</span><span class="p">=</span>&#34;&#34;
-  <span class="k">for</span> <span class="n">iAtt</span><span class="p">=</span><span class="mi">0</span><span class="p">,</span><span class="n">NCinfo</span><span class="p">.</span><span class="n">NGATTS</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
-    <span class="n">attInfo</span><span class="p">=</span><span class="n">NCDF_attname</span><span class="p">(</span><span class="n">ncid</span><span class="p">,</span><span class="o">/</span><span class="k">global</span><span class="p">,</span><span class="n">iAtt</span><span class="p">)</span>
-    <span class="n">NCDF_ATTGet</span><span class="p">,</span><span class="n">ncid</span><span class="p">,</span><span class="o">/</span><span class="k">global</span><span class="p">,</span><span class="n">attinfo</span><span class="p">,</span><span class="n">attVar</span>
-    <span class="n">print</span><span class="p">,</span><span class="n">attInfo</span>
-  <span class="n">endfor</span>
-
-  <span class="n">FOR</span> <span class="n">iVar</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NCinfo</span><span class="p">.</span><span class="n">Nvars</span><span class="o">-</span><span class="mi">1</span> <span class="n">DO</span> <span class="n">BEGIN</span>
-    <span class="n">Varinfo</span> <span class="p">=</span> <span class="n">NCDF_VARINQ</span><span class="p">(</span><span class="n">NCid</span><span class="p">,</span> <span class="n">iVar</span><span class="p">)</span>
-    <span class="n">print</span><span class="p">,</span> &#34;<span class="n">Var</span> <span class="n">Name</span><span class="p">:</span> &#34;<span class="p">,</span> <span class="n">Varinfo</span><span class="p">.</span><span class="n">Name</span>
-    <span class="n">print</span><span class="p">,</span> &#34;<span class="n">Att</span> <span class="n">Number</span><span class="p">:</span> &#34;<span class="p">,</span> <span class="n">Varinfo</span><span class="p">.</span><span class="n">Natts</span>
-    <span class="n">Dataid</span><span class="p">=</span><span class="n">NCDF_VARID</span><span class="p">(</span><span class="n">NCid</span><span class="p">,</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
-    <span class="n">NCDF_VARGET</span><span class="p">,</span><span class="n">NCid</span><span class="p">,</span><span class="n">Dataid</span><span class="p">,</span><span class="n">DataP</span>
-    <span class="p">;</span><span class="n">print</span><span class="p">,</span>&#34;个数&#34;<span class="p">,</span><span class="n">N_Elements</span><span class="p">(</span><span class="n">DataP</span><span class="p">)</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">time</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">td</span><span class="p">=</span><span class="n">DataP</span>
-    <span class="n">endif</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">longitude</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">lon</span><span class="p">=</span><span class="n">DataP</span>
-      <span class="p">;</span><span class="n">print</span><span class="p">,</span>&#34;<span class="n">X</span><span class="p">:</span>&#34;<span class="p">,</span><span class="n">min</span><span class="p">(</span><span class="n">lon</span><span class="p">),</span><span class="n">max</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span>
-    <span class="n">endif</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">latitude</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">lat</span><span class="p">=</span><span class="n">DataP</span>
-      <span class="p">;</span><span class="n">print</span><span class="p">,</span>&#34;<span class="n">y</span><span class="p">:</span>&#34;<span class="p">,</span><span class="n">min</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="n">max</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
-    <span class="n">endif</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">thetao</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">T</span><span class="p">=</span><span class="n">DataP</span>
-    <span class="n">endif</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">so</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">S</span><span class="p">=</span><span class="n">DataP</span>
-    <span class="n">endif</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">vo</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">V</span><span class="p">=</span><span class="n">DataP</span>
-      <span class="p">;</span><span class="n">print</span><span class="p">,</span>&#34;<span class="n">ssh</span><span class="p">:</span>&#34;<span class="p">,</span><span class="n">min</span><span class="p">(</span><span class="n">ssh</span><span class="p">),</span><span class="n">max</span><span class="p">(</span><span class="n">ssh</span><span class="p">)</span>
-    <span class="n">endif</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Varinfo</span><span class="p">.</span><span class="n">name</span> <span class="n">eq</span> &#34;<span class="n">uo</span>&#34;<span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-      <span class="n">U</span><span class="p">=</span><span class="n">DataP</span>
-      <span class="p">;</span><span class="n">print</span><span class="p">,</span>&#34;<span class="n">ssh</span><span class="p">:</span>&#34;<span class="p">,</span><span class="n">min</span><span class="p">(</span><span class="n">ssh</span><span class="p">),</span><span class="n">max</span><span class="p">(</span><span class="n">ssh</span><span class="p">)</span>
-    <span class="n">endif</span>
-
-    <span class="n">FOR</span> <span class="n">iAtt</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Varinfo</span><span class="p">.</span><span class="n">Natts</span><span class="o">-</span><span class="mi">1</span> <span class="n">DO</span> <span class="n">BEGIN</span>
-      <span class="n">AttName</span> <span class="p">=</span> <span class="n">NCDF_ATTNAME</span><span class="p">(</span><span class="n">NCid</span><span class="p">,</span> <span class="n">iVar</span><span class="p">,</span> <span class="n">iAtt</span><span class="p">)</span>
-      <span class="n">NCDF_ATTGET</span><span class="p">,</span> <span class="n">NCid</span><span class="p">,</span> <span class="n">iVar</span><span class="p">,</span> <span class="n">AttName</span><span class="p">,</span> <span class="n">Att</span>
-      <span class="n">print</span><span class="p">,</span> <span class="n">AttName</span><span class="p">,</span> &#34;<span class="p">:</span>  &#34;<span class="p">,</span> <span class="n">STRING</span><span class="p">(</span><span class="n">Att</span><span class="p">)</span>
-    <span class="n">ENDFOR</span>
-    <span class="n">print</span><span class="p">,</span> &#34;<span class="o">==========</span>&#34;
-  <span class="n">ENDFOR</span>
-  <span class="n">unit</span><span class="p">=</span><span class="mi">10</span>
-  <span class="p">;</span><span class="n">openw</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span><span class="n">outPath</span><span class="o">+</span>&#34;<span class="n">chile1</span><span class="p">.</span><span class="n">TXT</span>&#34;<span class="p">,</span><span class="o">/</span><span class="n">GET_LUN</span>
-  <span class="p">;</span><span class="n">printf</span><span class="p">,</span><span class="n">unit</span><span class="p">,</span>&#34;<span class="n">rq</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">ssh</span>&#34;
-
-  <span class="p">;</span><span class="k">if</span> <span class="p">(</span><span class="n">uint</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">ge</span> <span class="mi">2002</span><span class="p">)</span> <span class="n">then</span> <span class="n">begin</span>
-  
-
-  <span class="k">for</span> <span class="nb">i</span><span class="p">=</span><span class="mi">0</span><span class="n">L</span> <span class="p">,</span> <span class="n">N_Elements</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
-    <span class="k">for</span> <span class="nb">j</span><span class="p">=</span><span class="mi">0</span><span class="n">L</span><span class="p">,</span><span class="n">N_Elements</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
-      <span class="k">for</span> <span class="n">k</span><span class="p">=</span><span class="mi">0</span><span class="n">L</span><span class="p">,</span><span class="n">N_Elements</span><span class="p">(</span><span class="n">td</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span> <span class="n">do</span> <span class="n">begin</span>
-
-        <span class="n">CALDAT</span><span class="p">,</span> <span class="n">julday</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1950</span><span class="p">)</span><span class="o">+</span><span class="n">td</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="mi">24</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">yr</span>
-
-        <span class="p">;</span><span class="n">print</span><span class="p">,</span><span class="n">strtrim</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">strtrim</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="n">lon</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">lat</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span><span class="n">ssh</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">),</span><span class="n">format</span><span class="p">=</span>&#34;<span class="p">(</span><span class="n">A4</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>&#34;
-        <span class="p">;</span><span class="n">print</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">m</span><span class="p">,</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">lon</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">lat</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">ssh</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">),</span> <span class="n">Format</span><span class="p">=</span><span class="s">&#39;(A4,A2,A1,F8.2,A1,F8.2,A1,F8.2)&#39;</span>
-        <span class="n">dtStr</span><span class="p">=</span><span class="n">string</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;-&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;-&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;,&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">yr</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;,&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;,&#39;</span><span class="o">+</span><span class="n">string</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;,&#39;</span>
-        <span class="n">dtStr</span><span class="p">=</span><span class="n">STRCOMPRESS</span><span class="p">(</span><span class="n">dtStr</span><span class="p">,</span><span class="o">/</span><span class="n">Remove_all</span><span class="p">)</span>
-        <span class="n">tVal</span><span class="p">=</span><span class="n">T</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="mf">0.00073244423</span><span class="o">+</span><span class="mi">21</span>
-
-
-        <span class="p">;</span> <span class="n">print</span><span class="p">,</span><span class="n">yr</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">lon</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">lat</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span><span class="n">uVal</span><span class="p">,</span><span class="n">vVal</span><span class="p">,</span><span class="n">Rad</span><span class="p">,</span><span class="n">scale</span>
-        <span class="n">printF</span><span class="p">,</span><span class="n">outunit</span><span class="p">,</span><span class="n">dtStr</span><span class="p">,</span><span class="n">lon</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">lat</span><span class="p">(</span><span class="nb">j</span><span class="p">),</span>&#34;<span class="p">,</span>&#34;<span class="p">,</span><span class="n">tVal</span><span class="p">,</span> <span class="n">Format</span><span class="p">=</span><span class="s">&#39;(A,F,A1,F,A1,F)&#39;</span>
-        <span class="p">;</span> <span class="n">endif</span>
-      <span class="n">endfor</span>
-    <span class="n">endfor</span>
-  <span class="n">endfor</span>
-  <span class="p">;</span><span class="n">endif</span><span class="p">;</span><span class="k">if</span> <span class="o">&gt;</span><span class="mi">2002</span>
-  <span class="n">ncdf_close</span><span class="p">,</span><span class="n">NCid</span>
-<span class="k">end</span>
-</code></pre></div>
 		</div>
 	</main>
 

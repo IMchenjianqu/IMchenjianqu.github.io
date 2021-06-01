@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 12 Dec 2020 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>海洋数据</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E6%B4%8B%E6%95%B0%E6%8D%AE-%E6%9B%B4%E6%96%B0/</link>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E6%B4%8B%E6%95%B0%E6%8D%AE-%E6%9B%B4%E6%96%B0/</guid>
+      <description>登陆 https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
+范围为global，时间为present(2000（不等）-present)
+选择合适范围、时间、水层后，下载数据
+若为模式数据model,分别通过以下IDL读取
+ 更新： 此前IDL中仅能读取流、盐、温、波高、风等数据 此处更新读取其他更多的数据（.nc），如浮游生物在海水中以碳的形式表达的质量含量（zooc，g m-2）、透明度&amp;hellip;
+主要通过matlab进行半自动化提取
+通过ncdisp对目标数据进行观察，具体思路是通过创建元胞组将经纬度读取成n×n的cell，再把z值（透明度，溶氧&amp;hellip;）同样读取成cell，再整合成n*n行，1列的cell，进行串联及输出 注 完整matlab代码如下
+ncdisp(&amp;#39;1.nc&amp;#39;) %time = ncread(&amp;#39;1.nc&amp;#39;,&amp;#39;time&amp;#39;) x = ncread(&amp;#39;1.nc&amp;#39;,&amp;#39;latitude&amp;#39;); y = ncread(&amp;#39;1.nc&amp;#39;,&amp;#39;longitude&amp;#39;); %cont = 61*61; xy = cell(61) for m = 1:61 for n = 1:61 xy{m,n} = [y(m),x(n)] end end z = ncread(&amp;#39;1.nc&amp;#39;,&amp;#39;so&amp;#39;); xyz = cell(3721,1) for i = 1:61 for j = 1:61 xyz{61*(i-1)+j,1} = xy{i,j} end end so = (3721:1); for i = 1:61 for j = 1:61 so(61*(i-1)+j,1) = z(i,j) end end A = cell(3721,1) for cont = 1:3721 A{cont,1} = [xyz{cont,1},so(cont,1)] end %xlswrite(&amp;#39;salinity.</description>
+    </item>
+    
     <item>
       <title>海洋数据</title>
       <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E6%B4%8B%E6%95%B0%E6%8D%AE/</link>
