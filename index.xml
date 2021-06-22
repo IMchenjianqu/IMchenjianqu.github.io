@@ -20,10 +20,10 @@
 1.3运行环境 硬件：Intel i5、16G内存、500G硬盘 操作系统：windows7、windows10等
 1.4软件下载 当前版本由数据与方法 (imchenjianqu.github.io)向用户提供，用户可以在计算机的编译器中使用该系统
 2.功能介绍
-2.1RGB影像处理 可对目标影像进行光谱特征参数的提取（包括24个特征参数R、G、B、r、g、b、Exg、NGBVI、GBRI、VEGI、NPCI、RGBVI、RGRI、RGMPI、RBRI、RBMPI、RBMI、RGMI、RGPI、RBPI、GBPI、GBMI、VDVI、VARI）及获取灰度共生矩阵，获得纹理特征（包括27个特征参数Mean_R、Variance_R、Homogeneity_R、Contrast_R、Second Moment_R、Entropy_R、Correlation_R、ASM_R、IDM_R、Mean_G、Variance_G、Homogeneity_G、Contrast_G、Second Moment_G、Entropy_G、Correlation_G、ASM_G、IDM_G、Mean_B、Variance_B、Homogeneity_B、Contrast_B、Second Moment_B、Entropy_B、Correlation_B、ASM_B、IDM_B），并将结果输出到特定文件夹的csv文件中。 ![image](/biomass system/1.png)
-2.2三个机器学习模型对生物量进行初步预测（网格搜索，CV=4） ![image](/biomass system/2.png) ![image](/biomass system/3.png)
-2.3得到每个特征的贡献率及皮尔逊相关系数进行参数筛选 ![image](/biomass system/4.png) ![image](/biomass system/5.png)
-2.4得到最优模型预测结果（孔石莼[R20.905]、鼠尾藻[R20.881]、羊栖菜[R20.821]） ![image](/biomass system/6.png) ![image](/biomass system/7.png) ![image](/biomass system/8.png)
+2.1RGB影像处理 可对目标影像进行光谱特征参数的提取（包括24个特征参数R、G、B、r、g、b、Exg、NGBVI、GBRI、VEGI、NPCI、RGBVI、RGRI、RGMPI、RBRI、RBMPI、RBMI、RGMI、RGPI、RBPI、GBPI、GBMI、VDVI、VARI）及获取灰度共生矩阵，获得纹理特征（包括27个特征参数Mean_R、Variance_R、Homogeneity_R、Contrast_R、Second Moment_R、Entropy_R、Correlation_R、ASM_R、IDM_R、Mean_G、Variance_G、Homogeneity_G、Contrast_G、Second Moment_G、Entropy_G、Correlation_G、ASM_G、IDM_G、Mean_B、Variance_B、Homogeneity_B、Contrast_B、Second Moment_B、Entropy_B、Correlation_B、ASM_B、IDM_B），并将结果输出到特定文件夹的csv文件中。
+2.2三个机器学习模型对生物量进行初步预测（网格搜索，CV=4）
+2.3得到每个特征的贡献率及皮尔逊相关系数进行参数筛选
+2.4得到最优模型预测结果（孔石莼[R20.905]、鼠尾藻[R20.881]、羊栖菜[R20.821]）
 3.版本更新
 3.1更多的藻类模型及其他机器学习模型
 3.2深度学习模型
