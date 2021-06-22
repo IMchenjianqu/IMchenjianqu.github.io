@@ -7,7 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>海藻生物量评估系统v1.0</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E8%97%BB%E7%94%9F%E7%89%A9%E9%87%8F%E8%AF%84%E4%BC%B0%E7%B3%BB%E7%BB%9Fv1.0/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E8%97%BB%E7%94%9F%E7%89%A9%E9%87%8F%E8%AF%84%E4%BC%B0%E7%B3%BB%E7%BB%9Fv1.0/</guid>
+      <description>1.系统概述
+1.1系统用途 “潮间带海藻生物量评估系统 v1.0”主要用于海洋调查中的潮间带调查，目标对象为大型海藻。主要应用RGB影像对潮间带海藻的生物量进行反演评估，减少海洋调查中投入大量的人力物力，同时减少由于大范围调查导致的生态破坏。该系统目前能进行反演的藻种主要有中国潮间带常见的三种优势藻种：孔石莼、鼠尾藻、羊栖菜。本系统将原位调查与机器学习方法进行结合，具有大众化、高效、环保的优点，且未来将继续探索其他海藻的反演模型，以期为潮间带调查提供新视角。
+1.2功能概述 操作员可以通过RGB影像得知海藻生物量，而不需要在实地对海藻进行采集，也不需要对采集的海藻进行生物量的测定； 本系统不需要过高的硬件设施，具有大众化、高效的特点，操作人员只需按操作流程，将数据处理完毕即可使用。
+1.3运行环境 硬件：Intel i5、16G内存、500G硬盘 操作系统：windows7、windows10等
+1.4软件下载 当前版本由数据与方法 (imchenjianqu.github.io)向用户提供，用户可以在计算机的编译器中使用该系统
+2.功能介绍
+2.1RGB影像处理 可对目标影像进行光谱特征参数的提取（包括24个特征参数R、G、B、r、g、b、Exg、NGBVI、GBRI、VEGI、NPCI、RGBVI、RGRI、RGMPI、RBRI、RBMPI、RBMI、RGMI、RGPI、RBPI、GBPI、GBMI、VDVI、VARI）及获取灰度共生矩阵，获得纹理特征（包括27个特征参数Mean_R、Variance_R、Homogeneity_R、Contrast_R、Second Moment_R、Entropy_R、Correlation_R、ASM_R、IDM_R、Mean_G、Variance_G、Homogeneity_G、Contrast_G、Second Moment_G、Entropy_G、Correlation_G、ASM_G、IDM_G、Mean_B、Variance_B、Homogeneity_B、Contrast_B、Second Moment_B、Entropy_B、Correlation_B、ASM_B、IDM_B），并将结果输出到特定文件夹的csv文件中。 ![image](/biomass system/1.png)
+2.2三个机器学习模型对生物量进行初步预测（网格搜索，CV=4） ![image](/biomass system/2.png) ![image](/biomass system/3.png)
+2.3得到每个特征的贡献率及皮尔逊相关系数进行参数筛选 ![image](/biomass system/4.png) ![image](/biomass system/5.png)
+2.4得到最优模型预测结果（孔石莼[R20.905]、鼠尾藻[R20.881]、羊栖菜[R20.821]） ![image](/biomass system/6.png) ![image](/biomass system/7.png) ![image](/biomass system/8.png)
+3.版本更新
+3.1更多的藻类模型及其他机器学习模型
+3.2深度学习模型
+下载地址：</description>
+    </item>
+    
     <item>
       <title>海洋数据</title>
       <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E6%B4%8B%E6%95%B0%E6%8D%AE-%E6%9B%B4%E6%96%B0/</link>
@@ -30,7 +52,9 @@ ncdisp(&amp;#39;1.nc&amp;#39;) %time = ncread(&amp;#39;1.nc&amp;#39;,&amp;#39;ti
       <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
       
       <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E6%B4%8B%E6%95%B0%E6%8D%AE/</guid>
-      <description>登陆 https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
+      <description>登陆
+账号：cjianqu 密码：Iamqu19960926!
+https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
 范围为global，时间为present(2000（不等）-present)
 选择合适范围、时间、水层后，下载数据
 若为模式数据model,分别通过以下IDL读取
@@ -63,7 +87,7 @@ import os libs = { &amp;#34;requests&amp;#34;,&amp;#34;jieba&amp;#34;,&amp;#34;b
     </item>
     
     <item>
-      <title>提取图片中的数据（matlab）</title>
+      <title>提取图表中的数据（matlab）</title>
       <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%8F%90%E5%8F%96%E5%9B%BE%E7%89%87%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AEmatlab/</link>
       <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
       

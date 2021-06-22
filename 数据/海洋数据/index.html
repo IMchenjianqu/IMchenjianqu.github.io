@@ -8,7 +8,9 @@
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="海洋数据">
-<meta itemprop="description" content="登陆 https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
+<meta itemprop="description" content="登陆
+账号：cjianqu 密码：Iamqu19960926!
+https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
 范围为global，时间为present(2000（不等）-present)
 选择合适范围、时间、水层后，下载数据
 若为模式数据model,分别通过以下IDL读取
@@ -16,13 +18,15 @@
 pro readcurrent,inpath,x1,x2,y1,y2,outpath unit=10 unitAVG=1 openr,unit,inpath path=&#39;&#39; readf,unit,path pathList=[path] while ~EOF(unit ) do begin readf,unit,path if(strlen(path)gt 1) then begin pathList=[pathList,path] endif else begin ; pathList=[path] endelse endwhile free_lun,unit unit=12 openw,unit,outpath,/GET_LUN printf,unit,&#34;date,year,month,day,lon,lat,current_speed,current_direction,U,V&#34; for i=0,N_ELEMENTS(pathList)-1 do begin print,pathList[i] ; readOneSSH,pathList[i],x1,x2,y1,y2,unit print,pathList[i] endfor free_LUN,unit end function GetRad,u,v if(u eq 0) then begin if(v gt 0) then begin return, 3.1415926/2.0 endif else begin return, 3.1415926/2.0*3.0 endelse endif else begin tn=atan(v/u) if(u gt 0) then begin return, tn lt 0?">
 <meta itemprop="datePublished" content="2020-12-12T14:46:53+08:00" />
 <meta itemprop="dateModified" content="2020-12-12T14:46:53+08:00" />
-<meta itemprop="wordCount" content="265">
+<meta itemprop="wordCount" content="267">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta property="og:title" content="海洋数据" />
-<meta property="og:description" content="登陆 https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
+<meta property="og:description" content="登陆
+账号：cjianqu 密码：Iamqu19960926!
+https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
 范围为global，时间为present(2000（不等）-present)
 选择合适范围、时间、水层后，下载数据
 若为模式数据model,分别通过以下IDL读取
@@ -34,7 +38,9 @@ pro readcurrent,inpath,x1,x2,y1,y2,outpath unit=10 unitAVG=1 openr,unit,inpath p
 <meta property="article:modified_time" content="2020-12-12T14:46:53+08:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="海洋数据"/>
-<meta name="twitter:description" content="登陆 https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
+<meta name="twitter:description" content="登陆
+账号：cjianqu 密码：Iamqu19960926!
+https://marine.copernicus.eu/寻找适合数据 （其中包括0.083°×0.083°分辨率的海水温度、盐度、流速，有效波高、风速等，0.5°×0.5°的叶绿素a、透明度等数据）
 范围为global，时间为present(2000（不等）-present)
 选择合适范围、时间、水层后，下载数据
 若为模式数据model,分别通过以下IDL读取
@@ -84,8 +90,10 @@ pro readcurrent,inpath,x1,x2,y1,y2,outpath unit=10 unitAVG=1 openr,unit,inpath p
 	<main class="site-main section-inner thin animated fadeIn faster">
 		<h1>海洋数据</h1>
 		<div class="content">
-			<p>登陆
-<a href="https://marine.copernicus.eu/">https://marine.copernicus.eu/</a>寻找适合数据
+			<p>登陆</p>
+<p>账号：cjianqu
+密码：Iamqu19960926!</p>
+<p><a href="https://marine.copernicus.eu/">https://marine.copernicus.eu/</a>寻找适合数据
 （其中包括<code>0.083°×0.083°</code>分辨率的海水温度、盐度、流速，有效波高、风速等，<code>0.5°×0.5°</code>的叶绿素a、透明度等数据）</p>
 <p>范围为<code>global</code>，时间为<code>present</code>(2000（不等）-present)</p>
 <p>选择合适范围、时间、水层后，下载数据</p>

@@ -7,7 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>海藻生物量评估系统v1.0</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E8%97%BB%E7%94%9F%E7%89%A9%E9%87%8F%E8%AF%84%E4%BC%B0%E7%B3%BB%E7%BB%9Fv1.0/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E8%97%BB%E7%94%9F%E7%89%A9%E9%87%8F%E8%AF%84%E4%BC%B0%E7%B3%BB%E7%BB%9Fv1.0/</guid>
+      <description>1.系统概述
+1.1系统用途 “潮间带海藻生物量评估系统 v1.0”主要用于海洋调查中的潮间带调查，目标对象为大型海藻。主要应用RGB影像对潮间带海藻的生物量进行反演评估，减少海洋调查中投入大量的人力物力，同时减少由于大范围调查导致的生态破坏。该系统目前能进行反演的藻种主要有中国潮间带常见的三种优势藻种：孔石莼、鼠尾藻、羊栖菜。本系统将原位调查与机器学习方法进行结合，具有大众化、高效、环保的优点，且未来将继续探索其他海藻的反演模型，以期为潮间带调查提供新视角。
+1.2功能概述 操作员可以通过RGB影像得知海藻生物量，而不需要在实地对海藻进行采集，也不需要对采集的海藻进行生物量的测定； 本系统不需要过高的硬件设施，具有大众化、高效的特点，操作人员只需按操作流程，将数据处理完毕即可使用。
+1.3运行环境 硬件：Intel i5、16G内存、500G硬盘 操作系统：windows7、windows10等
+1.4软件下载 当前版本由数据与方法 (imchenjianqu.github.io)向用户提供，用户可以在计算机的编译器中使用该系统
+2.功能介绍
+2.1RGB影像处理 可对目标影像进行光谱特征参数的提取（包括24个特征参数R、G、B、r、g、b、Exg、NGBVI、GBRI、VEGI、NPCI、RGBVI、RGRI、RGMPI、RBRI、RBMPI、RBMI、RGMI、RGPI、RBPI、GBPI、GBMI、VDVI、VARI）及获取灰度共生矩阵，获得纹理特征（包括27个特征参数Mean_R、Variance_R、Homogeneity_R、Contrast_R、Second Moment_R、Entropy_R、Correlation_R、ASM_R、IDM_R、Mean_G、Variance_G、Homogeneity_G、Contrast_G、Second Moment_G、Entropy_G、Correlation_G、ASM_G、IDM_G、Mean_B、Variance_B、Homogeneity_B、Contrast_B、Second Moment_B、Entropy_B、Correlation_B、ASM_B、IDM_B），并将结果输出到特定文件夹的csv文件中。 ![image](/biomass system/1.png)
+2.2三个机器学习模型对生物量进行初步预测（网格搜索，CV=4） ![image](/biomass system/2.png) ![image](/biomass system/3.png)
+2.3得到每个特征的贡献率及皮尔逊相关系数进行参数筛选 ![image](/biomass system/4.png) ![image](/biomass system/5.png)
+2.4得到最优模型预测结果（孔石莼[R20.905]、鼠尾藻[R20.881]、羊栖菜[R20.821]） ![image](/biomass system/6.png) ![image](/biomass system/7.png) ![image](/biomass system/8.png)
+3.版本更新
+3.1更多的藻类模型及其他机器学习模型
+3.2深度学习模型
+下载地址：</description>
+    </item>
+    
     <item>
       <title>SVM、XGBoost及其融合模型（voting）在分类上的效果</title>
       <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/svmxgboost%E5%8F%8A%E5%85%B6%E8%9E%8D%E5%90%88%E6%A8%A1%E5%9E%8Bvoting%E5%9C%A8%E5%88%86%E7%B1%BB%E4%B8%8A%E7%9A%84%E6%95%88%E6%9E%9C/</link>
@@ -116,16 +138,6 @@ It makes use of a variety of open source projects including:</description>
       <description>通过python实现支持向量机实现——以高光谱数据为例
 准备测试集数据后，运行训练模型，获得文件out_test_y.txt；准备训练集数据运行，训练函数，获得文件out_y_pred.txt。两文本文件中有对应的数据及分类号，通过对比，直观体现精度 通过运行Data Prepare准备训练集集数据
 import pandas as pd import numpy as np import os import joblib def file_name(file_dir): #读取当前文件下的所有文件 for root, dirs, files in os.walk(file_dir): # print(root) #当前目录路径 # print(dirs) #当前路径下所有子目录 return files #当前路径下所有非目录子文件 def Data_prepare_non(label):#输入的是你的探测器的编号，非归一化。 file_list = file_name(&amp;#39;./data/&amp;#39;+label) print(file_list) hstack_list = [] for i in file_list: data = pd.read_excel(&amp;#39;./data/&amp;#39;+label+&amp;#39;/&amp;#39;+i) # max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数 data_column = list(data.columns)#获取exexl中各个列名 hstack_list.append(np.array(data[[data_column[1]]]).reshape(1,-1)) x = hstack_list[0] for i in range(1,len(file_list)): x = np.</description>
-    </item>
-    
-    <item>
-      <title>假设检验</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</link>
-      <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</guid>
-      <description>Z检验
-对比检验两次考试成绩，验证是否有所提高；对比试验前后病人的症状，证明某种药是否有效。这些都属于两均值对比的应用。</description>
     </item>
     
   </channel>
