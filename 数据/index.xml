@@ -7,7 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GEE数据</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gee%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gee%E6%95%B0%E6%8D%AE/</guid>
+      <description>注册并登陆https://earthengine.google.com/&amp;ndash;进入editor界面
+注：由于审核是人工审核，最好使用教育邮箱进行注册
+例：左侧脚本中的dataset中找到需要的遥感数据，进行使用。如果通过python的API端口，则拷贝其名字，使用ee进行使用
+例：editor界面也包含一些分析方法
+例：也可以在右侧上传自己的数据进行分析处理
+ 由于网页版语言为Javascript，但*用python较多，因此常使用其提供的python API接口使用遥感数据
+注：需先把电脑端口设置成与梯子端口一致，否则出现winerror 1060，或time out error
+如图，我梯子端口为10809，设置完成后，访问无问题
+为了更好展示，下面使用jupyter notebook
+conda activate gee jupyter notebook conda的pip命令需要加！，如
+!pip install geemap !pip install ee 通过editor界面找到自己所需数据名称，使用ee进行添加
+如图，add了Landsat7与DEM数据层
+当然，如谷歌卫星图，ESRI底图，道路图等基本地图均可使用。</description>
+    </item>
+    
+    <item>
+      <title>未整理的数据</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%9C%AA%E6%95%B4%E7%90%86%E7%9A%84%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%9C%AA%E6%95%B4%E7%90%86%E7%9A%84%E6%95%B0%E6%8D%AE/</guid>
+      <description>一些书籍、实战项目
+链接：https://pan.baidu.com/s/11Aro6LNtr-FG8PUwBlpAQg 提取码：diw5 &amp;ndash;来自百度网盘超级会员V1的分享
+ </description>
+    </item>
+    
     <item>
       <title>海藻生物量评估系统v1.0</title>
       <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E8%97%BB%E7%94%9F%E7%89%A9%E9%87%8F%E8%AF%84%E4%BC%B0%E7%B3%BB%E7%BB%9Fv1.0/</link>
@@ -117,16 +149,6 @@ labelme 出现以下窗口
       <description>和大家分享一个不用任何权限就可以下载逐小时地面观测气象数据的网站 http://gis.ncdc.noaa.gov/map/viewer/#app=clim&amp;amp;cfg=cdo&amp;amp;theme=hourly&amp;amp;layers=1&amp;amp;node=gis
 http://blog.sciencenet.cn/home.php?mod=space&amp;amp;uid=461711&amp;amp;do=blog&amp;amp;id=772946 从博客里面转载来的一部分，未验证。
 http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/ 包括：综合资料、降水、SST、地面覆盖资料、风场/OLR/指数资料 Noaa资料库： http://www.cdc.noaa.gov NCEP资料介绍： http://www.nomad2.ncep.noaa.gov/ncep_data/ 欧洲气象中心资料(grib和NC格式的)： http://www.ecmwf.int/ Levitus资料： http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/.MONTHLY/ Ucar资料 http://www.cgd.ucar.edu/cas/guide/Atmos/Surface/data.html NASA资料： ftp://podaac.jpl.nasa.gov/seasurfaceheight/ 以前某天全国的天气情况　http://www.t7online.com/feature/hi301100.shtml 1度×1度资料 http://dss.ucar.edu/datasets/ds083.2/ ARGO资料 http://www.argo-cndc.org/web/ NCEP 系统资料： NCEP real-analyses and forecasts http://www.emc.ncep.noaa.gov/data/ NCEP/NCAR REANALYSIS http://dss.ucar.edu/pub/reanalysis/ NCEP Eta http://www.emc.ncep.noaa.gov/mmb/research/meso.products.html NCEP AVN http://www.emc.ncep.noaa.gov/modelinfo/ ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/ netCDF format NNRP1: 6 hourly, 2.5 degrees, from 1948 to present ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis/ NNRP2: 6 hourly, 2.5 degrees, from 1979 to 2002 ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis2/ 降水资料 CMAP资料: http://tao.atmos.washington.edu/data_sets/cmap_precip/ 全球土壤资料： http://acdisx.gsfc.nasa.gov/CAMPAIGN_DOCS/FTP_SITE/INT_DIS/readmes 全国160个站的降水资料 http://ncc.cma.gov.cn/Website/index.php?ChannelID=43&amp;amp;WCHID=5 风场资料： http://www.</description>
-    </item>
-    
-    <item>
-      <title>音乐爬虫</title>
-      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E9%9F%B3%E4%B9%90%E7%88%AC%E8%99%AB/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E9%9F%B3%E4%B9%90%E7%88%AC%E8%99%AB/</guid>
-      <description>爬取网易云、QQ音乐等音乐，可下载VIP歌曲
-https://pan.baidu.com/s/1k0EQugmB0DpKBOeIaM1lbw</description>
     </item>
     
   </channel>

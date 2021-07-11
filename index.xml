@@ -7,7 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GEE数据</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gee%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gee%E6%95%B0%E6%8D%AE/</guid>
+      <description>注册并登陆https://earthengine.google.com/&amp;ndash;进入editor界面
+注：由于审核是人工审核，最好使用教育邮箱进行注册
+例：左侧脚本中的dataset中找到需要的遥感数据，进行使用。如果通过python的API端口，则拷贝其名字，使用ee进行使用
+例：editor界面也包含一些分析方法
+例：也可以在右侧上传自己的数据进行分析处理
+ 由于网页版语言为Javascript，但*用python较多，因此常使用其提供的python API接口使用遥感数据
+注：需先把电脑端口设置成与梯子端口一致，否则出现winerror 1060，或time out error
+如图，我梯子端口为10809，设置完成后，访问无问题
+为了更好展示，下面使用jupyter notebook
+conda activate gee jupyter notebook conda的pip命令需要加！，如
+!pip install geemap !pip install ee 通过editor界面找到自己所需数据名称，使用ee进行添加
+如图，add了Landsat7与DEM数据层
+当然，如谷歌卫星图，ESRI底图，道路图等基本地图均可使用。</description>
+    </item>
+    
+    <item>
+      <title>未整理的数据</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%9C%AA%E6%95%B4%E7%90%86%E7%9A%84%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%9C%AA%E6%95%B4%E7%90%86%E7%9A%84%E6%95%B0%E6%8D%AE/</guid>
+      <description>一些书籍、实战项目
+链接：https://pan.baidu.com/s/11Aro6LNtr-FG8PUwBlpAQg 提取码：diw5 &amp;ndash;来自百度网盘超级会员V1的分享
+ </description>
+    </item>
+    
     <item>
       <title>海藻生物量评估系统v1.0</title>
       <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B5%B7%E8%97%BB%E7%94%9F%E7%89%A9%E9%87%8F%E8%AF%84%E4%BC%B0%E7%B3%BB%E7%BB%9Fv1.0/</link>
@@ -117,27 +149,6 @@ import urllib2,cookielib def vote(id=...%目标人员在服务器的ID); cookie 
       <description>最直接方式是，购买一台境外服务器，网上搜索资料，搭建梯子（服务器记得删除云镜，否则搭建成功后依旧无法访问访问你想要访问的网页），通过SSH即可使电脑和手机一起科学上网。但另一方面，这个开销巨大，即便购买域名来搭建自己网站，这同样是得不偿失。
  手机端 IPhone用户可通过app store登陆国外账户（美服：ID：milefenxiang@aliyun.com，密码：Ah336611,千万不能在app store意外的地方登陆，否则手机可能变砖） 然后下载小火箭，配置：类型选择&amp;quot;subscribe&amp;quot;，Method选择“salsa20” 更新&amp;mdash;连通性检查&amp;mdash;选择网速快的节点即可网上冲浪
  电脑端 使用谷歌插件HOXX（不知现在版本是否还可行，我自己一直不更新，用旧版本可免费） 登陆邮箱同步</description>
-    </item>
-    
-    <item>
-      <title>关于IMchenjianqu</title>
-      <link>https://IMchenjianqu.github.io/about-hugo/</link>
-      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/about-hugo/</guid>
-      <description>常用数据及方法的聚合
-It makes use of a variety of open source projects including:</description>
-    </item>
-    
-    <item>
-      <title>SVM实现（python）</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/svm/</link>
-      <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/svm/</guid>
-      <description>通过python实现支持向量机实现——以高光谱数据为例
-准备测试集数据后，运行训练模型，获得文件out_test_y.txt；准备训练集数据运行，训练函数，获得文件out_y_pred.txt。两文本文件中有对应的数据及分类号，通过对比，直观体现精度 通过运行Data Prepare准备训练集集数据
-import pandas as pd import numpy as np import os import joblib def file_name(file_dir): #读取当前文件下的所有文件 for root, dirs, files in os.walk(file_dir): # print(root) #当前目录路径 # print(dirs) #当前路径下所有子目录 return files #当前路径下所有非目录子文件 def Data_prepare_non(label):#输入的是你的探测器的编号，非归一化。 file_list = file_name(&amp;#39;./data/&amp;#39;+label) print(file_list) hstack_list = [] for i in file_list: data = pd.read_excel(&amp;#39;./data/&amp;#39;+label+&amp;#39;/&amp;#39;+i) # max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数 data_column = list(data.columns)#获取exexl中各个列名 hstack_list.append(np.array(data[[data_column[1]]]).reshape(1,-1)) x = hstack_list[0] for i in range(1,len(file_list)): x = np.</description>
     </item>
     
   </channel>
