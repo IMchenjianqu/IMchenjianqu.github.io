@@ -7,7 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Jul 2021 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>raspberry pi部署</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/raspberry_pi/</link>
+      <pubDate>Tue, 13 Jul 2021 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/raspberry_pi/</guid>
+      <description>树莓派（raspberry pi）作为微电脑，大小如同卡片，但“五脏俱全”，常见的树莓派项目有魔镜、NAS、机器人等。可运行Linux等系统，趁毕业之际，捡了一块，对其进行简单部署，可用于各种实际需求。
+部分项目网站 https://shumeipai.nxez.com/ https://www.douban.com/note/609506167/
+ 001.系统部署 1.TF卡烧制 通过imager_1.5.exe，读卡器等工具，将想要的系统烧制至TF卡中
+ 2.通过插入外设部署 插入显示器、键鼠等外设进行部署
+ 3.通过ssh方式部署 通过读卡器，在电脑中打开制作的TF卡，在根目录找到cmdline，打开，添加任意IP，例如ip=192.168.137.100
+在网络适配器中，将默认英特网以外的网络进行禁用，对默认英特网连接进行属性设置，禁用ipv6，将ip地址改为，如192.168.137.101
+通过网线将插入TF卡的树莓派与电脑相连
+win R，打开cmd，输入ipconfig查看本机ip，应为修改后的192.168.137.101，ping树莓派，成功后打开putty进行设置
+输入树莓派IP，默认账号密码为：pi，raspberry，进入shell后（linux），输入sudo su，获取管理员权限，设置部署VNC
+通过VNC打开树莓派的图形界面，进行设置
+ 4.关机 使用shutdown
+ 注 硬件材料：树莓派（3B、3B+、4B），tf卡，读卡器，电脑，网线，键鼠，电源线等
+软件材料：以下链接中提供tf卡烧制，VNC等工具，以及树莓派官方系统
+复制这段内容后打开百度网盘手机App，操作更方便哦 链接：https://pan.baidu.com/s/1hITl62ZoXQA0LmiFugDEYw 提取码：m5wv</description>
+    </item>
+    
     <item>
       <title>SVM、XGBoost及其融合模型（voting）在分类上的效果</title>
       <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/svmxgboost%E5%8F%8A%E5%85%B6%E8%9E%8D%E5%90%88%E6%A8%A1%E5%9E%8Bvoting%E5%9C%A8%E5%88%86%E7%B1%BB%E4%B8%8A%E7%9A%84%E6%95%88%E6%9E%9C/</link>
@@ -109,17 +131,6 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
       
       <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E9%81%A5%E6%84%9F%E5%9B%BE%E5%83%8F%E9%81%93%E8%B7%AF%E6%8F%90%E5%8F%96/</guid>
       <description>已做成视频 https://www.bilibili.com/video/BV1Tz4y1d7J9/</description>
-    </item>
-    
-    <item>
-      <title>软间隔SVM算法</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/svm%E7%AE%97%E6%B3%95soft-margin/</link>
-      <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/svm%E7%AE%97%E6%B3%95soft-margin/</guid>
-      <description>SVM(support vector machine)支持向量机
-硬间隔（hard margin）SVM
-区别于硬间隔（hard-margin）算法，软间隔SVM引入一个松弛变量ξ，使SVM算法适用范围更广。</description>
     </item>
     
   </channel>
