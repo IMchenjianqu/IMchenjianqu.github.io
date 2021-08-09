@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 13 Jul 2021 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Aug 2021 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>买入及卖出</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B9%B0%E5%85%A5%E5%8F%8A%E5%8D%96%E5%87%BA/</link>
+      <pubDate>Mon, 09 Aug 2021 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B9%B0%E5%85%A5%E5%8F%8A%E5%8D%96%E5%87%BA/</guid>
+      <description>探讨股票等产品的买入卖出时间段及选择，以达盈利目的
+ 买入卖出时间段 1.根据市场变动的信号（类似量化交易），选择买入卖出时间，在概率、数学期望层面上获胜
+例 北向资金的变化，导致市场变动
+通过爬虫在tushare、香港交易所、东方财经网等财经资讯网站爬取流入上、深交易所资金量、此后几天开盘及收盘总价，进行整理后得出
+因此，结合其他一些信号，运用知网上相关机器学习应用在交易上的论文方法，提高概率增加赢钱的数学期望，选择合适时间买入卖出
+免费获取市场信息，但是有积分门槛 https://tushare.pro/
+买入板块 作为散户，最可靠的信息来源就是国家发布的消息，在国家统计局、发改委、海关总署、人民银行等网站查找今年或某段时间的热门板块（例，国家统计局可以看CPI、PPI等，每周两更）
+传送门 http://www.pbc.gov.cn/ http://www.customs.gov.cn/ https://www.ndrc.gov.cn/?code=&amp;amp;state=123 http://www.stats.gov.cn/
+ 基金 由于股票过于昂贵，而基金则较为便宜。另一方面，基金作为股票的组合，只需以相同方法分析基金，并多了解基金公司、经理，多考虑则可同理购买售卖。
+ 实践 由于时间、资金问题，我的策略是尽早选择某段时间热门板块，然后持有某些基金一段较长的时间
+ 忠告 十赌九输</description>
+    </item>
+    
     <item>
       <title>raspberry pi部署</title>
       <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/raspberry_pi/</link>
@@ -148,18 +167,6 @@ mid与find函数截取“秒”的值并除以3600
 2.计算物体所承受的弯矩
 3.计算钢筋混凝土所能提供的弯矩
 4.比较两者大小</description>
-    </item>
-    
-    <item>
-      <title>投票刷票器</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E6%8A%95%E7%A5%A8%E5%88%B7%E7%A5%A8%E5%99%A8/</link>
-      <pubDate>Wed, 20 Jan 2021 20:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E6%8A%95%E7%A5%A8%E5%88%B7%E7%A5%A8%E5%99%A8/</guid>
-      <description>投票刷票器，python，HTML
-通过管理者工具，抓包查看post文件，获取投票服务器地址、投票人ID、协议头、动态参数位置
-import urllib2,cookielib def vote(id=...%目标人员在服务器的ID); cookie = cookielib.CookieJar()%创建cookie对象 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookie))%创建打开对象 urllib2.install_opener(opener)%将opener对象安装到全局 req = urllib2.Request(url=&amp;#39;http...&amp;#39;%当前网址url) html = urllib2.urlopen(req).read() a = html.find(&amp;#39;value=&amp;#34;&amp;#39;)%查找动态参数，亦可通过正则表达式获取 b = html.find(&amp;#39;&amp;#34;&amp;#39;,a+len(&amp;#39;value=&amp;#34;&amp;#39;)) token = html[a+len(&amp;#39;value=&amp;#34;&amp;#39;):b]%通过切片，获取动态参数 req = urllib2.Request(url=&amp;#39;http...&amp;#39;%投票服务器 data=&amp;#39;__RequestVerificationToken=%s&amp;amp;Chioce=%s&amp;amp;X...&amp;#39;)%输入动态参数与ID req.add_header(&amp;#34;User-Agent&amp;#34;,&amp;#34;...&amp;#34;)%协议头 req.add_header(&amp;#39;Referer&amp;#39;,&amp;#34;http...&amp;#34;)%投票服务器 html = urllib2.urlopen(req).read() for i in xrange(1000):%投1000票 vote() print(i) 可import threading模块进行多线程，提高投票速度
-可同时投多人</description>
     </item>
     
   </channel>

@@ -7,7 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Tue, 13 Jul 2021 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Aug 2021 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>买入及卖出</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B9%B0%E5%85%A5%E5%8F%8A%E5%8D%96%E5%87%BA/</link>
+      <pubDate>Mon, 09 Aug 2021 14:46:53 +0800</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B9%B0%E5%85%A5%E5%8F%8A%E5%8D%96%E5%87%BA/</guid>
+      <description>探讨股票等产品的买入卖出时间段及选择，以达盈利目的
+ 买入卖出时间段 1.根据市场变动的信号（类似量化交易），选择买入卖出时间，在概率、数学期望层面上获胜
+例 北向资金的变化，导致市场变动
+通过爬虫在tushare、香港交易所、东方财经网等财经资讯网站爬取流入上、深交易所资金量、此后几天开盘及收盘总价，进行整理后得出
+因此，结合其他一些信号，运用知网上相关机器学习应用在交易上的论文方法，提高概率增加赢钱的数学期望，选择合适时间买入卖出
+免费获取市场信息，但是有积分门槛 https://tushare.pro/
+买入板块 作为散户，最可靠的信息来源就是国家发布的消息，在国家统计局、发改委、海关总署、人民银行等网站查找今年或某段时间的热门板块（例，国家统计局可以看CPI、PPI等，每周两更）
+传送门 http://www.pbc.gov.cn/ http://www.customs.gov.cn/ https://www.ndrc.gov.cn/?code=&amp;amp;state=123 http://www.stats.gov.cn/
+ 基金 由于股票过于昂贵，而基金则较为便宜。另一方面，基金作为股票的组合，只需以相同方法分析基金，并多了解基金公司、经理，多考虑则可同理购买售卖。
+ 实践 由于时间、资金问题，我的策略是尽早选择某段时间热门板块，然后持有某些基金一段较长的时间
+ 忠告 十赌九输</description>
+    </item>
+    
     <item>
       <title>raspberry pi部署</title>
       <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/raspberry_pi/</link>
@@ -122,15 +141,6 @@ import pandas as pd import numpy as np import os import joblib def file_name(fil
       <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</guid>
       <description>Z检验
 对比检验两次考试成绩，验证是否有所提高；对比试验前后病人的症状，证明某种药是否有效。这些都属于两均值对比的应用。</description>
-    </item>
-    
-    <item>
-      <title>基于机器学习的遥感图像道路提取</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E9%81%A5%E6%84%9F%E5%9B%BE%E5%83%8F%E9%81%93%E8%B7%AF%E6%8F%90%E5%8F%96/</link>
-      <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E9%81%A5%E6%84%9F%E5%9B%BE%E5%83%8F%E9%81%93%E8%B7%AF%E6%8F%90%E5%8F%96/</guid>
-      <description>已做成视频 https://www.bilibili.com/video/BV1Tz4y1d7J9/</description>
     </item>
     
   </channel>
