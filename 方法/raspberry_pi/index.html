@@ -116,11 +116,11 @@ win R，打开cmd，输入ipconfig查看本机ip，应为修改后的192.168.137
 <h3 id="001系统部署">001.系统部署<a href="#001系统部署" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
 <h2 id="1tf卡烧制">1.TF卡烧制<a href="#1tf卡烧制" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>通过imager_1.5.exe，读卡器等工具，将想要的系统烧制至TF卡中</p>
-<p><img src="/raspberry%E2%80%94%E2%80%94pi/1.png" alt="image"></p>
+<p><img src="/raspberry/1.png" alt="image"></p>
 <hr>
 <h2 id="2通过插入外设部署">2.通过插入外设部署<a href="#2通过插入外设部署" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>插入显示器、键鼠等外设进行部署</p>
-<p><img src="/raspberry%E2%80%94%E2%80%94pi/2.png" alt="image"></p>
+<p><img src="/raspberry/2.png" alt="image"></p>
 <hr>
 <h2 id="3通过ssh方式部署">3.通过ssh方式部署<a href="#3通过ssh方式部署" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>通过读卡器，在电脑中打开制作的TF卡，在根目录找到cmdline，打开，添加任意IP，例如ip=192.168.137.100</p>
@@ -128,13 +128,13 @@ win R，打开cmd，输入ipconfig查看本机ip，应为修改后的192.168.137
 <p>通过网线将插入TF卡的树莓派与电脑相连</p>
 <p>win R，打开cmd，输入ipconfig查看本机ip，应为修改后的192.168.137.101，ping树莓派，成功后打开putty进行设置</p>
 <p>输入树莓派IP，默认账号密码为：pi，raspberry，进入shell后（linux），输入sudo su，获取管理员权限，设置部署VNC</p>
-<p><img src="/raspberry%E2%80%94%E2%80%94pi/3.png" alt="image"></p>
+<p><img src="/raspberry/3.png" alt="image"></p>
 <p>通过VNC打开树莓派的图形界面，进行设置</p>
-<p><img src="/raspberry%E2%80%94%E2%80%94pi/4.png" alt="image"></p>
+<p><img src="/raspberry/4.png" alt="image"></p>
 <hr>
 <h2 id="4关机">4.关机<a href="#4关机" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>使用shutdown</p>
-<p><img src="/raspberry%E2%80%94%E2%80%94pi/5.png" alt="image"></p>
+<p><img src="/raspberry/5.png" alt="image"></p>
 <hr>
 <h2 id="注">注<a href="#注" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>硬件材料：树莓派（3B、3B+、4B），tf卡，读卡器，电脑，网线，键鼠，电源线等</p>
