@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 09 Aug 2021 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BioSonics使用（内业）</title>
+      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/biosonics%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/biosonics%E4%BD%BF%E7%94%A8/</guid>
+      <description>通过声纳侧扫方法，获取水下物体（植被）的株高覆盖度参数，内业处理方法
+ 在外业的VisualAcquisition中获取的数据导入VisualHabitat中
+设置参数（分贝等），对数据进行人工识别
+导出csv及kml类型数据
+在谷歌地球中打开kml，kml的属性即为株高等参数</description>
+    </item>
+    
     <item>
       <title>买入及卖出</title>
       <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B9%B0%E5%85%A5%E5%8F%8A%E5%8D%96%E5%87%BA/</link>
@@ -131,16 +144,6 @@ import urllib2,cookielib def vote(id=...%目标人员在服务器的ID); cookie 
       <description>通过python实现支持向量机实现——以高光谱数据为例
 准备测试集数据后，运行训练模型，获得文件out_test_y.txt；准备训练集数据运行，训练函数，获得文件out_y_pred.txt。两文本文件中有对应的数据及分类号，通过对比，直观体现精度 通过运行Data Prepare准备训练集集数据
 import pandas as pd import numpy as np import os import joblib def file_name(file_dir): #读取当前文件下的所有文件 for root, dirs, files in os.walk(file_dir): # print(root) #当前目录路径 # print(dirs) #当前路径下所有子目录 return files #当前路径下所有非目录子文件 def Data_prepare_non(label):#输入的是你的探测器的编号，非归一化。 file_list = file_name(&amp;#39;./data/&amp;#39;+label) print(file_list) hstack_list = [] for i in file_list: data = pd.read_excel(&amp;#39;./data/&amp;#39;+label+&amp;#39;/&amp;#39;+i) # max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))#归一化到（0，1）之间的函数 data_column = list(data.columns)#获取exexl中各个列名 hstack_list.append(np.array(data[[data_column[1]]]).reshape(1,-1)) x = hstack_list[0] for i in range(1,len(file_list)): x = np.</description>
-    </item>
-    
-    <item>
-      <title>假设检验</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</link>
-      <pubDate>Sat, 12 Dec 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/</guid>
-      <description>Z检验
-对比检验两次考试成绩，验证是否有所提高；对比试验前后病人的症状，证明某种药是否有效。这些都属于两均值对比的应用。</description>
     </item>
     
   </channel>
