@@ -18,9 +18,7 @@
  可通过计算，获取当前潮位  也可通过网络爬虫进行潮位数据的爬取
 爬取数据源：国家海洋科学数据中心http://mds.nmdis.org.cn/pages/home.html
 可爬取多天的潮位数据，整理成excel表，也可爬取特定时刻
-为使得使用更加方便，增加GUI 准确性检验 此处更新读取其他更多的数据（.nc），如浮游生物在海水中以碳的形式表达的质量含量（zooc，g m-2）、透明度&amp;hellip;
-主要通过matlab进行半自动化提取
-通过ncdisp对目标数据进行观察，具体思路是通过创建元胞组将经纬度读取成n×n的cell，再把z值（透明度，溶氧&amp;hellip;）同样读取成cell，再整合成n*n行，1列的cell，进行串联及输出  源码链接</description>
+为使得使用更加方便，增加GUI 准确性检验  源码链接</description>
     </item>
     
     <item>
