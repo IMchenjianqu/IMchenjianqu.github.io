@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 11 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>潮位数据</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%BD%AE%E4%BD%8D%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%BD%AE%E4%BD%8D%E6%95%B0%E6%8D%AE/</guid>
+      <description>在进行biosonics侧扫时，需用到当前时刻潮位，以使仪器准确性更好
+ 可通过计算，获取当前潮位  也可通过网络爬虫进行潮位数据的爬取
+爬取数据源：国家海洋科学数据中心http://mds.nmdis.org.cn/pages/home.html
+可爬取多天的潮位数据，整理成excel表，也可爬取特定时刻
+为使得使用更加方便，增加GUI 准确性检验 此处更新读取其他更多的数据（.nc），如浮游生物在海水中以碳的形式表达的质量含量（zooc，g m-2）、透明度&amp;hellip;
+主要通过matlab进行半自动化提取
+通过ncdisp对目标数据进行观察，具体思路是通过创建元胞组将经纬度读取成n×n的cell，再把z值（透明度，溶氧&amp;hellip;）同样读取成cell，再整合成n*n行，1列的cell，进行串联及输出  源码链接</description>
+    </item>
+    
     <item>
       <title>GEE数据</title>
       <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/gee%E6%95%B0%E6%8D%AE/</link>
@@ -138,17 +153,6 @@ im=imread(&amp;#39;tuX.png&amp;#39;); imshow(im); [x0,y0]=ginput; [x1,y1]=ginput
       <description>pip install pyqt pip install labelme 在终端中运行
 labelme 出现以下窗口
 绘制训练集</description>
-    </item>
-    
-    <item>
-      <title>气象数据下载</title>
-      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B0%94%E8%B1%A1%E6%95%B0%E6%8D%AE/</link>
-      <pubDate>Wed, 12 Aug 2020 14:46:53 +0800</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%B0%94%E8%B1%A1%E6%95%B0%E6%8D%AE/</guid>
-      <description>和大家分享一个不用任何权限就可以下载逐小时地面观测气象数据的网站 http://gis.ncdc.noaa.gov/map/viewer/#app=clim&amp;amp;cfg=cdo&amp;amp;theme=hourly&amp;amp;layers=1&amp;amp;node=gis
-http://blog.sciencenet.cn/home.php?mod=space&amp;amp;uid=461711&amp;amp;do=blog&amp;amp;id=772946 从博客里面转载来的一部分，未验证。
-http://yangwanshun518.blog.163.com/blog/static/30080136201121083539381/ 包括：综合资料、降水、SST、地面覆盖资料、风场/OLR/指数资料 Noaa资料库： http://www.cdc.noaa.gov NCEP资料介绍： http://www.nomad2.ncep.noaa.gov/ncep_data/ 欧洲气象中心资料(grib和NC格式的)： http://www.ecmwf.int/ Levitus资料： http://ingrid.ldgo.columbia.edu/SOURCES/.LEVITUS94/.MONTHLY/ Ucar资料 http://www.cgd.ucar.edu/cas/guide/Atmos/Surface/data.html NASA资料： ftp://podaac.jpl.nasa.gov/seasurfaceheight/ 以前某天全国的天气情况　http://www.t7online.com/feature/hi301100.shtml 1度×1度资料 http://dss.ucar.edu/datasets/ds083.2/ ARGO资料 http://www.argo-cndc.org/web/ NCEP 系统资料： NCEP real-analyses and forecasts http://www.emc.ncep.noaa.gov/data/ NCEP/NCAR REANALYSIS http://dss.ucar.edu/pub/reanalysis/ NCEP Eta http://www.emc.ncep.noaa.gov/mmb/research/meso.products.html NCEP AVN http://www.emc.ncep.noaa.gov/modelinfo/ ftp://ftpprd.ncep.noaa.gov/pub/data/nccf/com/gfs/prod/ netCDF format NNRP1: 6 hourly, 2.5 degrees, from 1948 to present ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis/ NNRP2: 6 hourly, 2.5 degrees, from 1979 to 2002 ftp://ftp.cdc.noaa.gov/pub/Datasets/ncep.reanalysis2/ 降水资料 CMAP资料: http://tao.atmos.washington.edu/data_sets/cmap_precip/ 全球土壤资料： http://acdisx.gsfc.nasa.gov/CAMPAIGN_DOCS/FTP_SITE/INT_DIS/readmes 全国160个站的降水资料 http://ncc.cma.gov.cn/Website/index.php?ChannelID=43&amp;amp;WCHID=5 风场资料： http://www.</description>
     </item>
     
   </channel>

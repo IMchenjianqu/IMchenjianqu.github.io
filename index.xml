@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 09 Aug 2021 14:46:53 +0800</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://IMchenjianqu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>潮位数据</title>
+      <link>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%BD%AE%E4%BD%8D%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://IMchenjianqu.github.io/%E6%95%B0%E6%8D%AE/%E6%BD%AE%E4%BD%8D%E6%95%B0%E6%8D%AE/</guid>
+      <description>在进行biosonics侧扫时，需用到当前时刻潮位，以使仪器准确性更好
+ 可通过计算，获取当前潮位  也可通过网络爬虫进行潮位数据的爬取
+爬取数据源：国家海洋科学数据中心http://mds.nmdis.org.cn/pages/home.html
+可爬取多天的潮位数据，整理成excel表，也可爬取特定时刻
+为使得使用更加方便，增加GUI 准确性检验 此处更新读取其他更多的数据（.nc），如浮游生物在海水中以碳的形式表达的质量含量（zooc，g m-2）、透明度&amp;hellip;
+主要通过matlab进行半自动化提取
+通过ncdisp对目标数据进行观察，具体思路是通过创建元胞组将经纬度读取成n×n的cell，再把z值（透明度，溶氧&amp;hellip;）同样读取成cell，再整合成n*n行，1列的cell，进行串联及输出  源码链接</description>
+    </item>
+    
     <item>
       <title>买入及卖出</title>
       <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E4%B9%B0%E5%85%A5%E5%8F%8A%E5%8D%96%E5%87%BA/</link>
@@ -155,18 +170,6 @@ mid与find函数截取“秒”的值并除以3600
 由于通过mid函数只能获取指定范围的切片，当实际切片与获得切片不符时，转换结果会出错
 为得到更准确的结果，需要对特定位置进行修改，如上图，需要将“2”改为“4”（获取20.9），转换结果正确
 转换为原始状态较为简单，只需使用text函数即可</description>
-    </item>
-    
-    <item>
-      <title>钢筋承力计算（悬臂梁）</title>
-      <link>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E9%92%A2%E7%AD%8B%E6%89%BF%E5%8A%9B%E8%AE%A1%E7%AE%97/</link>
-      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/%E9%92%A2%E7%AD%8B%E6%89%BF%E5%8A%9B%E8%AE%A1%E7%AE%97/</guid>
-      <description>1.分析结构，得到结构简图；进行受力分析，得到受力分析图；计算弯矩，得到弯矩图
-2.计算物体所承受的弯矩
-3.计算钢筋混凝土所能提供的弯矩
-4.比较两者大小</description>
     </item>
     
   </channel>
