@@ -15,8 +15,8 @@
       
       <guid>https://IMchenjianqu.github.io/%E6%96%B9%E6%B3%95/biosonics%E4%BD%BF%E7%94%A8/</guid>
       <description>通过声纳侧扫方法，获取水下物体（植被）的株高覆盖度参数，内业处理方法
- 在外业的VisualAcquisition中获取的数据导入VisualHabitat中
-设置参数（分贝等），对数据进行人工识别
+ 在外业的VisualAcquisition中获取的数据导入VisualHabitat中：
+设置参数（分贝等），对数据进行人工识别：
 导出csv及kml类型数据
 在谷歌地球中打开kml，kml的属性即为株高等参数</description>
     </item>
